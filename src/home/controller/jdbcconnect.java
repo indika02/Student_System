@@ -16,7 +16,7 @@ public class jdbcconnect {
          String password="";
          Class.forName(driver);
          Connection conn=DriverManager.getConnection(databaseurl,username,password);
-         JOptionPane.showMessageDialog(null,"Connected");
+        //JOptionPane.showMessageDialog(null,"Connected");
          return conn;
         }catch (Exception e){
             System.out.println(e);

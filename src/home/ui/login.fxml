@@ -24,9 +24,9 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtemail" layoutX="216.0" layoutY="129.0" prefHeight="26.0" prefWidth="218.0" />
+      <TextField fx:id="txtemail" layoutX="216.0" layoutY="129.0" prefHeight="26.0" prefWidth="218.0" style="-fx-border-color: black;" styleClass="txtbox" stylesheets="@../css/student.css" />
       <PasswordField fx:id="txtpassword" layoutX="216.0" layoutY="198.0" prefHeight="26.0" prefWidth="218.0" />
-      <Button fx:id="btnlog" layoutX="494.0" layoutY="291.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" text="Login">
+      <Button fx:id="btnlog" layoutX="494.0" layoutY="291.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" styleClass="login" stylesheets="@../css/student.css" text="Login">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -37,7 +37,7 @@
          </font>
       </Label>
       <Label fx:id="lbltxt" layoutX="181.0" layoutY="272.0" prefHeight="18.0" prefWidth="205.0" />
-      <Button fx:id="btnsignup" layoutX="277.0" layoutY="343.0" mnemonicParsing="false" onAction="#signupshow" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: none;" text="Sign up now" textFill="#03a6f2">
+      <Button fx:id="btnsignup" layoutX="277.0" layoutY="343.0" mnemonicParsing="false" onAction="#signupshow" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: none;" styleClass="register" stylesheets="@../css/student.css" text="Sign up now" textFill="#03a6f2">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>

@@ -1,9 +1,18 @@
-
+.login{
+    -fx-background-color: #4747f3;
+}
+.login:hover{
+    -fx-background-color: #eb0ff3;
+}
 
 .register{
     -fx-background-color:none;
     color: #3891ff;
 }
 .register:hover{
-    text-underline: #3891ff;
+    -fx-underline: #3891ff;
+    -fx-cursor: pointer;
+}
+.txtbox{
+    -fx-border-style: none;
 }

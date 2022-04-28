@@ -37,8 +37,15 @@ public class Login {
     void openlink(ActionEvent event) {
     }
     @FXML
-    void signupshow(ActionEvent event) {
-
+    void signupshow(ActionEvent event) throws IOException {
+        //close current window
+        btnlog.getScene().getWindow().hide();
+        //move to the next window
+        Parent root=FXMLLoader.load(getClass().getResource("../ui/Sign up.fxml"));
+        Stage mainstage=new Stage();
+        Scene scene=new Scene(root);
+        mainstage.setScene(scene);
+        mainstage.show();
     }
 
 
@@ -59,6 +66,11 @@ public class Login {
 //Mysql Statement
         String sql="SELECT * FROM users WHERE UserID=? and Password=?" ;
 
+        //check the user id
+        String log=txtuserid.getText();
+        char[] charArray=log.toCharArray();
+        Character c=charArray[0];
+
         try{
 //mysql database checking
             prepare=connect.prepareStatement(sql);
@@ -67,15 +79,26 @@ public class Login {
             result=prepare.executeQuery();
 
             if (result.next()){
-                //close current window
-                btnlog.getScene().getWindow().hide();
-                //move to the next window
-                Parent root=FXMLLoader.load(getClass().getResource("../ui/Sign up.fxml"));
-                Stage mainstage=new Stage();
-                Scene scene=new Scene(root);
-                mainstage.setScene(scene);
-                mainstage.show();
-
+                //check the user id
+                if (c.equals('S') || c.equals('s')){
+                    //close current window
+                    btnlog.getScene().getWindow().hide();
+                    //move to the next window
+                    Parent root = FXMLLoader.load(getClass().getResource("../ui/Sign up.fxml"));
+                    Stage mainstage = new Stage();
+                    Scene scene = new Scene(root);
+                    mainstage.setScene(scene);
+                    mainstage.show();
+                }else {
+                    //close current window
+                    btnlog.getScene().getWindow().hide();
+                    //move to the next window
+                    Parent root = FXMLLoader.load(getClass().getResource("../ui/Adminpanal.fxml"));
+                    Stage mainstage = new Stage();
+                    Scene scene = new Scene(root);
+                    mainstage.setScene(scene);
+                    mainstage.show();
+                }
             }else {
                lbltxt.setText("Incorrect Username or Password!");
 

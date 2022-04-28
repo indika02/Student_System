@@ -14,7 +14,7 @@
             <Font name="Arial Bold" size="27.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="132.0" text="Email Address">
+      <Label layoutX="52.0" layoutY="132.0" text="User_ID">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -24,7 +24,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtemail" layoutX="216.0" layoutY="129.0" prefHeight="26.0" prefWidth="218.0" style="-fx-border-color: black;" styleClass="txtbox" stylesheets="@../css/student.css" />
+      <TextField fx:id="txtuserid" layoutX="216.0" layoutY="129.0" prefHeight="26.0" prefWidth="218.0" style="-fx-border-color: black;" styleClass="txtbox" stylesheets="@../css/student.css" />
       <PasswordField fx:id="txtpassword" layoutX="216.0" layoutY="198.0" prefHeight="26.0" prefWidth="218.0" />
       <Button fx:id="btnlog" layoutX="494.0" layoutY="291.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" styleClass="login" stylesheets="@../css/student.css" text="Login">
          <font>

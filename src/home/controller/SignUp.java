@@ -4,16 +4,15 @@ import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import javax.swing.*;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -50,16 +49,14 @@ public class SignUp implements Initializable {
     @FXML
     private TextField txtlname;
 
-    @FXML
-    private DatePicker txtbday;
-
-
 
     @FXML
     private TextField txttel;
 
     @FXML
     private PasswordField txtpwd;
+
+
 
 //    @FXML
 //    void select(ActionEvent event) {
@@ -72,6 +69,7 @@ public class SignUp implements Initializable {
     private Statement statement;
     private PreparedStatement prepare;
     private ResultSet result;
+
 
     @FXML
     void signup(ActionEvent event) {
@@ -96,7 +94,7 @@ public class SignUp implements Initializable {
             //sql input quary
             String sql="insert into users (`First name`, `Last name`,`User ID`,`address line 1`,`address line 2`,`address line 3`,`city`,`Email`,`Tel no.`,`Password`) values (?,?,?,?,?,?,?,?,?,?)";
             prepare=connect.prepareStatement(sql);
-//database data input
+           //database data input
             prepare.setString(1,fname);
             prepare.setString(2, lname);
             prepare.setString(3, id);
@@ -115,7 +113,7 @@ public class SignUp implements Initializable {
                 JOptionPane.showMessageDialog(null,"not added");
             }
         }catch (Exception e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null,e);
         }
 
 
@@ -123,9 +121,9 @@ public class SignUp implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-//        ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
+        ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
 
-//        comb.setItems(list);
+        comb.setItems(list);
 
     }
 

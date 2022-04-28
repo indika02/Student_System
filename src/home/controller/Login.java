@@ -25,7 +25,7 @@ public class Login {
     private Button btnlog;
 
     @FXML
-    private TextField txtemail;
+    private TextField txtuserid;
 
     @FXML
     private PasswordField txtpassword;
@@ -57,12 +57,12 @@ public class Login {
         connect=jdbcconnect.getConnection();
 
 //Mysql Statement
-        String sql="SELECT * FROM users WHERE Email=? and Password=?" ;
+        String sql="SELECT * FROM users WHERE UserID=? and Password=?" ;
 
         try{
 //mysql database checking
             prepare=connect.prepareStatement(sql);
-            prepare.setString(1,txtemail.getText());
+            prepare.setString(1,txtuserid.getText());
             prepare.setString(2,txtpassword.getText());
             result=prepare.executeQuery();
 

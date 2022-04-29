@@ -100,13 +100,10 @@ public class SignUp implements Initializable {
 //variable creating for input data
         String fname=txtfname.getText();
         String lname=txtlname.getText();
-
         String id = txtid.getText();
         String addl1 = txtadd1.getText();
         String addl2 = txtadd2.getText();
         String addl3 = txtadd3.getText();
-
-
         String date=birthday.getEditor().getText();
         String city = txtcity.getText();
         //combobox

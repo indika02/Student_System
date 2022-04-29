@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -29,6 +30,10 @@ public class SignUp implements Initializable {
 
     @FXML
     private Button btnsignup;
+
+    @FXML
+    private Button btnback;
+
 
     @FXML
     private TextField txtadd1;
@@ -164,6 +169,18 @@ public class SignUp implements Initializable {
 
 
     }
+    @FXML
+    void back(ActionEvent event) throws IOException {
+        //close current window
+        btnback.getScene().getWindow().hide();
+        //move to the next window
+        Parent root=FXMLLoader.load(getClass().getResource("../ui/login.fxml"));
+        Stage mainstage=new Stage();
+        Scene scene=new Scene(root);
+        mainstage.setScene(scene);
+        mainstage.show();
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb){

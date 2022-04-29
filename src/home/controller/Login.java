@@ -84,7 +84,7 @@ public class Login {
                     //close current window
                     btnlog.getScene().getWindow().hide();
                     //move to the next window
-                    Parent root = FXMLLoader.load(getClass().getResource("../ui/Sign up.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("../ui/studentboard.fxml"));
                     Stage mainstage = new Stage();
                     Scene scene = new Scene(root);
                     mainstage.setScene(scene);

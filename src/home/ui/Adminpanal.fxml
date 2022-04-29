@@ -3,18 +3,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="516.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
+<AnchorPane prefHeight="659.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
    <children>
-      <TabPane layoutX="1.0" layoutY="-1.0" prefHeight="516.0" prefWidth="832.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="1.0" layoutY="-1.0" prefHeight="516.0" prefWidth="883.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Users">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="782.0">
                      <children>
                         <Label layoutX="23.0" layoutY="41.0" prefHeight="27.0" prefWidth="136.0" text="Enter the User ID" />
+                        <TextField layoutX="134.0" layoutY="42.0" />
+                        <TableView layoutX="304.0" layoutY="41.0" prefHeight="200.0" prefWidth="532.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>

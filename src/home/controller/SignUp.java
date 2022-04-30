@@ -114,6 +114,7 @@ public class SignUp implements Initializable {
         String cpass=txtpwd2.getText();
 
         try {
+
             //sql input quary
             String sql="insert into users (`UserID`,`First name`, `Last name`,`DOB`,`address line 1`,`address line 2`,`address line 3`,`city`,`Email`,`Grade`,`Tel no.`,`Password`) values (?,?,?,?,?,?,?,?,?,?,?,?)";
             prepare=connect.prepareStatement(sql);

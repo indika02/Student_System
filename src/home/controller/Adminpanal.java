@@ -38,7 +38,7 @@ public class Adminpanal {
 
         try {
 
-            if (subject.equals("")&& subid.equals("")){
+            if (subid.getText().isEmpty() || subject.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,"Enter the data!");
             }else {
                 //sql input query

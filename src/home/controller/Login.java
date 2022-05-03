@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -100,7 +99,10 @@ public class Login {
                     mainstage.show();
                 }
             }else {
-               lbltxt.setText("Incorrect Username or Password!");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Incorrect username or passowrd!");
+                alert.showAndWait();
 
 
             }

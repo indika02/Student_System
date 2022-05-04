@@ -6,22 +6,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
-public class Studentboard {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class Studentboard  extends Login{
 
     @FXML
-    private Button btnok;
+    private Label txtgrade;
 
     @FXML
-    private ComboBox comb;
-
-    @FXML
-    private Label txtg;
-
-    @FXML
-    void select(ActionEvent event) {
-
-        String g=comb.getSelectionModel().getSelectedItem().toString();
-    }
+    private Label txtstdname;
 
 
 

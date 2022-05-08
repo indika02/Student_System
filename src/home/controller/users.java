@@ -19,7 +19,7 @@ public class users {
         return sub;
     }
 
-    public users(String gr,String sub){
+    public users(int grade, String gr){
         this.gr=gr;
         this.sub=sub;
     }

@@ -14,7 +14,7 @@
    <children>
       <AnchorPane prefHeight="62.0" prefWidth="934.0" style="-fx-background-color: darkblue;">
          <children>
-            <Button layoutX="828.0" layoutY="13.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
+            <Button fx:id="btnlogout" layoutX="828.0" layoutY="13.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

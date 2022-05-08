@@ -1,8 +1,12 @@
 package home.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 public class jdbcconnect {
 
@@ -24,4 +28,6 @@ public class jdbcconnect {
         }
         return null;
     }
+
+
 }

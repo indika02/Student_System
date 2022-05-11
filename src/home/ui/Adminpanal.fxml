@@ -55,10 +55,10 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="table" layoutX="486.0" prefHeight="408.0" prefWidth="398.0">
+                        <TableView fx:id="tablestd" layoutX="486.0" prefHeight="408.0" prefWidth="398.0">
                           <columns>
-                            <TableColumn fx:id="grade" prefWidth="120.0" text="GRADE" />
-                            <TableColumn fx:id="subject" prefWidth="270.0" text="SUBJECT" />
+                            <TableColumn fx:id="Grade" prefWidth="120.0" text="GRADE" />
+                            <TableColumn fx:id="Subject" prefWidth="270.0" text="SUBJECT" />
                           </columns>
                         </TableView>
                         <Label layoutX="106.0" layoutY="32.0" text="Adding Subjects" />

@@ -36,13 +36,13 @@ public class Adminpanal {
     private Button btnupdate;
 
     @FXML
-    private TableColumn<users, String> grade;
+    private TableColumn<Record, String> Grade;
 
     @FXML
-    private TableColumn<users, String> subject;
+    private TableColumn<Record, String> Subject;
 
     @FXML
-    private TableView<users> table;
+    private TableView<Record> tablestd;
 
     @FXML
     private TextField txtgrade;
@@ -50,6 +50,8 @@ public class Adminpanal {
     @FXML
     private TextField txtsub;
 
+
+   ObservableList<Record> listM;
     //mysql connection variables
     private Connection connect;
     private Statement statement;
@@ -74,7 +76,12 @@ public class Adminpanal {
         }
 
     }
-
+    public void display(){
+        Grade.setCellValueFactory(new PropertyValueFactory<Record, String>("Grade"));
+        Subject.setCellValueFactory(new PropertyValueFactory<Record, String>("Subject"));
+        listM=jdbcconnect.getDatausers();
+        tablestd.setItems(listM);
+    }
     @FXML
     void remove(ActionEvent event) {
 

@@ -21,7 +21,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class Adminpanal {
+public class Adminpanal implements Initializable{
 
     @FXML
     private Button btnlogout;
@@ -61,16 +61,18 @@ public class Adminpanal {
     @FXML
     void add(ActionEvent event) {
         connect=jdbcconnect.getConnection();
+        String sql="insert into subjects(Grade,Subject)values(?,?)";
+        display();
 
-        String grade=txtgrade.getText();
-        String sub=txtsub.getText();
 
         try{
-            String sql="insert into subject('Grade','Subject')values(?,?)";
+
+
             prepare=connect.prepareStatement(sql);
             prepare.setString(1,txtgrade.getText());
             prepare.setString(2,txtsub.getText());
-            result=prepare.executeQuery();
+            prepare.execute();
+
         }catch (Exception e){
             System.out.println(e);
         }
@@ -103,4 +105,9 @@ public class Adminpanal {
         mainstage.setScene(scene);
         mainstage.show();
     }
+    @Override
+    public void initialize(URL url, ResourceBundle rb){
+        display();
+    }
+
 }

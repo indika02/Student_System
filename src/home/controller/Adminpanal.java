@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -45,13 +42,19 @@ public class Adminpanal implements Initializable{
     private TableView<Record> tablestd;
 
     @FXML
-    private TextField txtgrade;
+    private ComboBox<String> comb;
 
     @FXML
     private TextField txtsub;
 
+    @FXML
+    void select(ActionEvent event) {
+        String g=comb.getSelectionModel().getSelectedItem().toString();
+    }
 
-   ObservableList<Record> listM;
+
+
+    ObservableList<Record> listM;
     //mysql connection variables
     private Connection connect;
     private Statement statement;
@@ -62,22 +65,25 @@ public class Adminpanal implements Initializable{
     void add(ActionEvent event) {
         connect=jdbcconnect.getConnection();
         String sql="insert into subjects(Grade,Subject)values(?,?)";
-        display();
+        //call method for display data of database to table
+
 
 
         try{
-
-
             prepare=connect.prepareStatement(sql);
-            prepare.setString(1,txtgrade.getText());
+            String g=comb.getSelectionModel().getSelectedItem().toString();
+            prepare.setString(1,g);
             prepare.setString(2,txtsub.getText());
+
             prepare.execute();
+            display();
 
         }catch (Exception e){
             System.out.println(e);
         }
 
     }
+    //method of diasplay data of table
     public void display(){
         Grade.setCellValueFactory(new PropertyValueFactory<Record, String>("Grade"));
         Subject.setCellValueFactory(new PropertyValueFactory<Record, String>("Subject"));
@@ -108,6 +114,11 @@ public class Adminpanal implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb){
         display();
+        ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
+
+        comb.setItems(list);
+
+
     }
 
 }

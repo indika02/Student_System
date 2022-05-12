@@ -29,6 +29,7 @@ public class jdbcconnect {
         }
         return null;
     }
+    //get data from database to the table
     public static ObservableList<Record> getDatausers(){
         Connection conn=getConnection();
         ObservableList<Record> list= FXCollections.observableArrayList();

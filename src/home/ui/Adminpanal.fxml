@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -55,20 +56,20 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tablestd" layoutX="486.0" prefHeight="408.0" prefWidth="398.0">
+                        <TableView fx:id="tablestd" layoutX="486.0" prefHeight="483.0" prefWidth="437.0">
                           <columns>
                             <TableColumn fx:id="Grade" prefWidth="120.0" text="GRADE" />
                             <TableColumn fx:id="Subject" prefWidth="270.0" text="SUBJECT" />
                           </columns>
                         </TableView>
                         <Label layoutX="106.0" layoutY="32.0" text="Adding Subjects" />
-                        <TextField fx:id="txtgrade" layoutX="203.0" layoutY="111.0" style="-fx-background-color: red;" />
                         <Label layoutX="32.0" layoutY="115.0" text="Grade" />
                         <Label layoutX="32.0" layoutY="168.0" text="Subject" />
                         <TextField fx:id="txtsub" layoutX="203.0" layoutY="163.0" style="-fx-background-color: red;" />
                         <Button fx:id="btnadd" layoutX="60.0" layoutY="234.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="62.0" text="ADD" />
                         <Button fx:id="btnremove" layoutX="233.0" layoutY="234.0" mnemonicParsing="false" onAction="#remove" text="REMOVE" />
                         <Button fx:id="btnupdate" layoutX="148.0" layoutY="234.0" mnemonicParsing="false" onAction="#update" text="UPDATE" />
+                        <ComboBox fx:id="comb" layoutX="204.0" layoutY="99.0" onAction="#select" prefWidth="150.0" promptText="Select your Grade" />
                      </children>
                   </AnchorPane>
               </content>

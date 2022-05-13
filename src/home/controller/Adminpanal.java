@@ -11,8 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -47,11 +45,13 @@ public class Adminpanal implements Initializable{
     @FXML
     private TextField txtsub;
 
+    public Adminpanal() {
+    }
+
     @FXML
     void select(ActionEvent event) {
         String g=comb.getSelectionModel().getSelectedItem().toString();
     }
-
 
 
     ObservableList<Record> listM;
@@ -66,18 +66,15 @@ public class Adminpanal implements Initializable{
         connect=jdbcconnect.getConnection();
         String sql="insert into subjects(Grade,Subject)values(?,?)";
         //call method for display data of database to table
-
-
-
         try{
             prepare=connect.prepareStatement(sql);
             String g=comb.getSelectionModel().getSelectedItem().toString();
             prepare.setString(1,g);
             prepare.setString(2,txtsub.getText());
-
             prepare.execute();
             display();
-
+            txtsub.setText("");
+            comb.getSelectionModel().select(0);
         }catch (Exception e){
             System.out.println(e);
         }
@@ -90,6 +87,8 @@ public class Adminpanal implements Initializable{
         listM=jdbcconnect.getDatausers();
         tablestd.setItems(listM);
     }
+
+
     @FXML
     void remove(ActionEvent event) {
 
@@ -111,14 +110,12 @@ public class Adminpanal implements Initializable{
         mainstage.setScene(scene);
         mainstage.show();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
         display();
         ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
-
         comb.setItems(list);
-
-
     }
 
 }

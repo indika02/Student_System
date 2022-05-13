@@ -7,6 +7,8 @@ public class Record {
     private SimpleStringProperty Grade;
     private  SimpleStringProperty Subject;
 
+
+
     public Record(String Grade,String Subject){
         this.Grade=new SimpleStringProperty(Grade);
         this.Subject=new SimpleStringProperty(Subject);

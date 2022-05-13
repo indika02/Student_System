@@ -45,4 +45,17 @@ public class jdbcconnect {
         return list;
     }
 
-}
+//    public static ObservableList<user> getinfo(){
+//        Connection conn=getConnection();
+//        ObservableList<user> li=FXCollections.observableArrayList();
+//        try{
+//            PreparedStatement ps=conn.prepareStatement("SELECT * FROM users");
+//            ResultSet rs=ps.executeQuery();
+//            while (rs.next()){
+//                li.add(new user((rs.getString("firstname")),(rs.getString("lastname")),(rs.getString("idno")),(rs.getString("bday")),(rs.getString("add1")),(rs.getString("add2")),(rs.getString("add3")),(rs.getString("çity")),(rs.getString("email")),(rs.getString("gra")),(rs.getString("telno"))));
+//
+//            }
+//        }catch (Exception e){
+//
+//        }return li;
+    }

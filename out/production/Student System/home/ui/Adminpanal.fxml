@@ -8,14 +8,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="620.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
    <children>
-      <AnchorPane prefHeight="62.0" prefWidth="934.0" style="-fx-background-color: darkblue;">
+      <AnchorPane prefHeight="62.0" prefWidth="1098.0" style="-fx-background-color: darkblue;">
          <children>
-            <Button fx:id="btnlogout" layoutX="828.0" layoutY="13.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
+            <Button fx:id="btnlogout" layoutX="997.0" layoutY="12.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -29,25 +30,23 @@
             </Label>
          </children>
       </AnchorPane>
-      <TabPane layoutY="62.0" prefHeight="557.0" prefWidth="934.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="62.0" prefHeight="558.0" prefWidth="1097.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Users">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="402.0" prefWidth="897.0">
                      <children>
-                        <TableView prefHeight="202.0" prefWidth="870.0">
-                          <columns>
-                            <TableColumn prefWidth="100.0" text="C1" />
-                            <TableColumn prefWidth="100.0" text="C2" />
-                              <TableColumn prefWidth="100.0" text="C2" />
-                              <TableColumn prefWidth="100.0" text="C2" />
-                              <TableColumn prefWidth="100.0" text="C2" />
-                              <TableColumn prefWidth="100.0" text="C2" />
-                              <TableColumn prefWidth="100.0" text="C2" />
-                              <TableColumn prefWidth="100.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                          </columns>
-                        </TableView>
+                        <Label layoutX="26.0" layoutY="26.0" prefHeight="18.0" prefWidth="133.0" text="Enter the ID No:" />
+                        <TextField layoutX="160.0" layoutY="23.0" />
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button layoutX="373.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" text="Button" />
+                        <Label layoutX="198.0" layoutY="85.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
+                        <Label layoutX="198.0" layoutY="174.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
+                        <Label layoutX="320.0" layoutY="132.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
+                        <Label layoutX="198.0" layoutY="132.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
+                        <Label layoutX="320.0" layoutY="174.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
+                        <Label layoutX="198.0" layoutY="217.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
+                        <Label layoutX="320.0" layoutY="217.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
                      </children>
                   </AnchorPane>
             </content>
@@ -56,7 +55,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tablestd" layoutX="486.0" prefHeight="483.0" prefWidth="437.0">
+                        <TableView fx:id="tablestd" layoutX="486.0" prefHeight="483.0" prefWidth="487.0">
                           <columns>
                             <TableColumn fx:id="Grade" prefWidth="120.0" text="GRADE" />
                             <TableColumn fx:id="Subject" prefWidth="270.0" text="SUBJECT" />

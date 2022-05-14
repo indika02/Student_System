@@ -20,8 +20,8 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Label layoutX="266.0" layoutY="23.0" prefHeight="18.0" prefWidth="207.0" text="Teacher name" textFill="WHITE" />
-            <Label layoutX="482.0" layoutY="23.0" prefHeight="18.0" prefWidth="207.0" text="Grade" textFill="WHITE" />
+            <Label fx:id="lblteaname" layoutX="266.0" layoutY="23.0" prefHeight="18.0" prefWidth="207.0" text="Teacher name" textFill="WHITE" />
+            <Label fx:id="lblgrade" layoutX="482.0" layoutY="23.0" prefHeight="18.0" prefWidth="207.0" text="Grade" textFill="WHITE" />
             <Label layoutX="27.0" layoutY="13.0" prefHeight="18.0" prefWidth="122.0" text="ADMIN" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="33.0" />
@@ -78,7 +78,16 @@
             </Tab>
           <Tab text="Student">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0">
+                     <children>
+                        <Label layoutX="385.0" layoutY="26.0" prefHeight="20.0" prefWidth="154.0" text="Marks Calculation">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="34.0" layoutY="56.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <TextField layoutX="173.0" layoutY="53.0" />
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

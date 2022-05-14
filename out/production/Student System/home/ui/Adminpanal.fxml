@@ -38,7 +38,7 @@
                         <TableView fx:id="tableuser" prefHeight="582.0" prefWidth="950.0">
                           <columns>
                             <TableColumn fx:id="UserID" prefWidth="75.0" text="User ID" />
-                            <TableColumn fx:id="firstname" prefWidth="94.4000244140625" text="First Name" />
+                            <TableColumn fx:id="Firstname" prefWidth="94.4000244140625" text="First Name" />
                               <TableColumn fx:id="Lastname" prefWidth="98.40003967285156" text="Last Name" />
                               <TableColumn fx:id="DOB" prefWidth="84.79998779296875" text="Date Of Birth" />
                               <TableColumn fx:id="addressl1" prefWidth="72.800048828125" text="Address L1" />
@@ -46,7 +46,7 @@
                               <TableColumn fx:id="addressl3" prefWidth="82.39996337890625" text="Address L3" />
                               <TableColumn fx:id="city" prefWidth="72.79998779296875" text="City" />
                               <TableColumn fx:id="Email" prefWidth="103.99993896484375" text="Email" />
-                              <TableColumn fx:id="Grade" prefWidth="97.5999755859375" text="Grade" />
+                              <TableColumn fx:id="grade" prefWidth="97.5999755859375" text="Grade" />
                               <TableColumn fx:id="Telno" prefWidth="77.60009765625" text="Tel No." />
                           </columns>
                         </TableView>
@@ -78,7 +78,16 @@
             </Tab>
           <Tab text="Student">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0">
+                     <children>
+                        <Label layoutX="385.0" layoutY="26.0" prefHeight="20.0" prefWidth="154.0" text="Marks Calculation">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="34.0" layoutY="56.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <TextField layoutX="173.0" layoutY="53.0" />
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

@@ -16,7 +16,13 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class Adminpanal implements Initializable{
+public class Adminpanal extends Login implements Initializable {
+
+    @FXML
+    private Label lblgrade;
+
+    @FXML
+    private Label lblteaname;
 
     @FXML
     private TableColumn<user, String> DOB;
@@ -92,6 +98,7 @@ public class Adminpanal implements Initializable{
 
 
     ObservableList<Record> listM;
+    ObservableList<user> listN;
     //mysql connection variables
     private Connection connect;
     private Statement statement;
@@ -126,16 +133,19 @@ public class Adminpanal implements Initializable{
     }
 
 public void displayinfo(){
+        UserID.setCellValueFactory(new PropertyValueFactory<user,String >("userid"));
         Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
         Lastname.setCellValueFactory(new PropertyValueFactory<user,String>("lastname"));
-        UserID.setCellValueFactory(new PropertyValueFactory<user,String >("idno"));
         DOB.setCellValueFactory(new PropertyValueFactory<user,String>("bday"));
-    addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("add1"));
-    addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("add2"));
-    addressl3.setCellValueFactory(new PropertyValueFactory<user,String>("add3"));
-    Email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
-    Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
-        grade.setCellValueFactory(new PropertyValueFactory<user,String >("gfff"));
+        addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("add1"));
+        addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("add2"));
+        addressl3.setCellValueFactory(new PropertyValueFactory<user,String>("add3"));
+        city.setCellValueFactory(new PropertyValueFactory<user,String >("city"));
+        Email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
+        grade.setCellValueFactory(new PropertyValueFactory<user,String >("grade"));
+        Telno.setCellValueFactory(new PropertyValueFactory<user,String>("telno"));
+        listN=jdbcconnect.getinfo();
+        tableuser.setItems(listN);
 
 }
     @FXML
@@ -162,6 +172,9 @@ public void displayinfo(){
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
+
+
+        displayinfo();
         display();
         ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
         comb.setItems(list);

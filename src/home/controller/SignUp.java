@@ -116,7 +116,7 @@ public class SignUp implements Initializable {
         try {
 
             //sql input quary
-            String sql="insert into users (`UserID`,`First name`, `Last name`,`DOB`,`address line 1`,`address line 2`,`address line 3`,`city`,`Email`,`Grade`,`Tel no.`,`Password`) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql="insert into users (`UserID`,`Firstname`, `Lastname`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Telno`,`Password`) values (?,?,?,?,?,?,?,?,?,?,?,?)";
             prepare=connect.prepareStatement(sql);
            //database data input
             prepare.setString(1, id);

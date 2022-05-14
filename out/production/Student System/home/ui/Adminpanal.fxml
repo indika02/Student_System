@@ -8,11 +8,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="620.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
+<AnchorPane prefHeight="753.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
    <children>
       <AnchorPane prefHeight="62.0" prefWidth="1098.0" style="-fx-background-color: darkblue;">
          <children>
@@ -30,23 +29,27 @@
             </Label>
          </children>
       </AnchorPane>
-      <TabPane layoutY="62.0" prefHeight="558.0" prefWidth="1097.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="62.0" prefHeight="686.0" prefWidth="1098.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Users">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="402.0" prefWidth="897.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="632.0" prefWidth="1098.0">
                      <children>
-                        <Label layoutX="26.0" layoutY="26.0" prefHeight="18.0" prefWidth="133.0" text="Enter the ID No:" />
-                        <TextField layoutX="160.0" layoutY="23.0" />
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button layoutX="373.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" text="Button" />
-                        <Label layoutX="198.0" layoutY="85.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
-                        <Label layoutX="198.0" layoutY="174.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
-                        <Label layoutX="320.0" layoutY="132.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
-                        <Label layoutX="198.0" layoutY="132.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
-                        <Label layoutX="320.0" layoutY="174.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
-                        <Label layoutX="198.0" layoutY="217.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
-                        <Label layoutX="320.0" layoutY="217.0" prefHeight="18.0" prefWidth="106.0" text="Label" />
+                        <TableView fx:id="tableuser" prefHeight="582.0" prefWidth="950.0">
+                          <columns>
+                            <TableColumn fx:id="UserID" prefWidth="75.0" text="User ID" />
+                            <TableColumn fx:id="firstname" prefWidth="94.4000244140625" text="First Name" />
+                              <TableColumn fx:id="Lastname" prefWidth="98.40003967285156" text="Last Name" />
+                              <TableColumn fx:id="DOB" prefWidth="84.79998779296875" text="Date Of Birth" />
+                              <TableColumn fx:id="addressl1" prefWidth="72.800048828125" text="Address L1" />
+                              <TableColumn fx:id="addressl2" prefWidth="70.39996337890625" text="Address L2" />
+                              <TableColumn fx:id="addressl3" prefWidth="82.39996337890625" text="Address L3" />
+                              <TableColumn fx:id="city" prefWidth="72.79998779296875" text="City" />
+                              <TableColumn fx:id="Email" prefWidth="103.99993896484375" text="Email" />
+                              <TableColumn fx:id="Grade" prefWidth="97.5999755859375" text="Grade" />
+                              <TableColumn fx:id="Telno" prefWidth="77.60009765625" text="Tel No." />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>

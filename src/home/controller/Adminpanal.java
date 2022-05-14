@@ -19,6 +19,43 @@ import java.util.ResourceBundle;
 public class Adminpanal implements Initializable{
 
     @FXML
+    private TableColumn<user, String> DOB;
+
+    @FXML
+    private TableColumn<user, String> Email;
+
+    @FXML
+    private TableColumn<user, String> grade;
+
+    @FXML
+    private TableColumn<user, String> Lastname;
+
+    @FXML
+    private TableColumn<user, String> Telno;
+
+    @FXML
+    private TableColumn<user, String > UserID;
+
+    @FXML
+    private TableColumn<user, String> addressl1;
+
+    @FXML
+    private TableColumn<user, String> addressl2;
+
+    @FXML
+    private TableColumn<user, String> addressl3;
+
+    @FXML
+    private TableColumn<user, String > city;
+
+    @FXML
+    private TableColumn<user, String > Firstname;
+
+    @FXML
+    private TableView<user> tableuser;
+
+
+    @FXML
     private Button btnlogout;
 
     @FXML
@@ -63,13 +100,13 @@ public class Adminpanal implements Initializable{
 
     @FXML
     void add(ActionEvent event) {
-        connect=jdbcconnect.getConnection();
+     connect=jdbcconnect.getConnection();
         String sql="insert into subjects(Grade,Subject)values(?,?)";
         //call method for display data of database to table
         try{
             prepare=connect.prepareStatement(sql);
             String g=comb.getSelectionModel().getSelectedItem().toString();
-            prepare.setString(1,g);
+           prepare.setString(1,g);
             prepare.setString(2,txtsub.getText());
             prepare.execute();
             display();
@@ -88,7 +125,19 @@ public class Adminpanal implements Initializable{
         tablestd.setItems(listM);
     }
 
+public void displayinfo(){
+        Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
+        Lastname.setCellValueFactory(new PropertyValueFactory<user,String>("lastname"));
+        UserID.setCellValueFactory(new PropertyValueFactory<user,String >("idno"));
+        DOB.setCellValueFactory(new PropertyValueFactory<user,String>("bday"));
+    addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("add1"));
+    addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("add2"));
+    addressl3.setCellValueFactory(new PropertyValueFactory<user,String>("add3"));
+    Email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
+    Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
+        grade.setCellValueFactory(new PropertyValueFactory<user,String >("gfff"));
 
+}
     @FXML
     void remove(ActionEvent event) {
 

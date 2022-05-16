@@ -77,11 +77,16 @@ public class SignUp implements Initializable {
     @FXML
     private Label txtconfirm;
 
+    @FXML
+    private ComboBox<String> comb1;
+
+
 
     @FXML
     void select(ActionEvent event) {
 
         String g=comb.getSelectionModel().getSelectedItem().toString();
+        String t=comb1.getSelectionModel().getSelectedItem().toString();
 
     }
 
@@ -108,6 +113,7 @@ public class SignUp implements Initializable {
         String city = txtcity.getText();
         //combobox
         String g=comb.getSelectionModel().getSelectedItem().toString();
+        String t=comb1.getSelectionModel().getSelectedItem().toString();
         String email = txtemail.getText();
         String telno = txttel.getText();
         String pass = txtpwd.getText();
@@ -116,12 +122,13 @@ public class SignUp implements Initializable {
         try {
 
             //sql input quary
-            String sql="insert into users (`UserID`,`Firstname`, `Lastname`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Telno`,`Password`) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql="insert into users (`Firstname`, `Lastname`,`Username`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Telno`,`UserType`,`Password`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             prepare=connect.prepareStatement(sql);
            //database data input
-            prepare.setString(1, id);
-            prepare.setString(2,fname);
-            prepare.setString(3, lname);
+
+            prepare.setString(1,fname);
+            prepare.setString(2, lname);
+            prepare.setString(3, id);
             prepare.setString(4,date);
             prepare.setString(5, addl1);
             prepare.setString(6, addl2);
@@ -130,10 +137,11 @@ public class SignUp implements Initializable {
             prepare.setString(9, email);
             prepare.setString(10,g);
             prepare.setString(11, telno);
+            prepare.setString(12,t);
            //prepare.executeUpdate();
 
             if (pass.equals(cpass)){
-                prepare.setString(12, pass);
+                prepare.setString(13, pass);
                 prepare.executeUpdate();
 //              JOptionPane.showMessageDialog(null,"Updated");
                 //close current window
@@ -183,8 +191,11 @@ public class SignUp implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
         ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
-
         comb.setItems(list);
+        ObservableList<String> listt= FXCollections.observableArrayList("Teacher","Student");
+        comb1.setItems(listt);
+
+
 
 
     }

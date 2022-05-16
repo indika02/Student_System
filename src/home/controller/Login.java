@@ -1,8 +1,11 @@
 package home.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -11,12 +14,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class Login{
+public class Login implements Initializable {
 
 
 
@@ -33,6 +38,18 @@ public class Login{
 
     @FXML
     private Label lbltxt;
+
+    @FXML
+    private ComboBox<String> type;
+
+
+
+    @FXML
+    void select(ActionEvent event) {
+        String t=type.getSelectionModel().getSelectedItem().toString();
+    }
+
+
 
     @FXML
     void openlink(ActionEvent event) {
@@ -65,32 +82,27 @@ public class Login{
         connect=jdbcconnect.getConnection();
 
 //Mysql Statement
-        String sql="SELECT * FROM users WHERE UserID=? and Password=?" ;
+        String sql="SELECT * FROM users WHERE Username=? AND Password=? AND UserType=?" ;
 
         //check the user id
         String log=txtuserid.getText();
         char[] charArray=log.toCharArray();
         Character c=charArray[0];
-
+        String t=type.getSelectionModel().getSelectedItem().toString();
         try{
 //mysql database checking
             prepare=connect.prepareStatement(sql);
             prepare.setString(1,txtuserid.getText());
             prepare.setString(2,txtpassword.getText());
+            prepare.setString(3,t);
+
             result=prepare.executeQuery();
 
             if (result.next()){
                 //check the user id
-                if (c.equals('S') || c.equals('s')){
-                    //close current window
-                    btnlog.getScene().getWindow().hide();
-                    //move to the next window
-                    Parent root = FXMLLoader.load(getClass().getResource("../ui/studentboard.fxml"));
-                    Stage mainstage = new Stage();
-                    Scene scene = new Scene(root);
-                    mainstage.setScene(scene);
-                    mainstage.show();
-                }else {
+
+                if(t.equals("Teacher")){
+
                     //close current window
                     btnlog.getScene().getWindow().hide();
                     //move to the next window
@@ -99,7 +111,16 @@ public class Login{
                     Scene scene = new Scene(root);
                     mainstage.setScene(scene);
                     mainstage.show();
-                }
+                }else {
+                    //close current window
+                    btnlog.getScene().getWindow().hide();
+                    //move to the next window
+                    Parent root = FXMLLoader.load(getClass().getResource("../ui/studentboard.fxml"));
+                    Stage mainstage = new Stage();
+                    Scene scene = new Scene(root);
+                    mainstage.setScene(scene);
+                    mainstage.show();
+             }
             }else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
@@ -111,6 +132,17 @@ public class Login{
         }catch (Exception e){
 
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb){
+
+        ObservableList<String> listt= FXCollections.observableArrayList("Teacher","Student");
+        type.setItems(listt);
+
+
+
+
     }
 }
 

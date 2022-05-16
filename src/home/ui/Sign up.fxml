@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="646.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.SignUp">
+<AnchorPane prefHeight="728.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.SignUp">
    <children>
       <Label layoutX="271.0" layoutY="31.0" text="SIGN UP">
          <font>
@@ -26,7 +26,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="159.0" prefHeight="22.0" prefWidth="97.0" text="ID No.">
+      <Label layoutX="27.0" layoutY="159.0" prefHeight="22.0" prefWidth="131.0" text="Username">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -41,18 +41,18 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="496.0" prefHeight="22.0" prefWidth="166.0" text="Create a password">
+      <Label layoutX="27.0" layoutY="507.0" prefHeight="22.0" prefWidth="166.0" text="Create a password">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <PasswordField fx:id="txtpwd" layoutX="62.0" layoutY="531.0" prefHeight="26.0" prefWidth="214.0" />
+      <PasswordField fx:id="txtpwd" layoutX="51.0" layoutY="544.0" prefHeight="26.0" prefWidth="214.0" />
       <TextField fx:id="txttel" layoutX="158.0" layoutY="460.0" prefHeight="26.0" prefWidth="266.0" />
       <TextField fx:id="txtemail" layoutX="158.0" layoutY="394.0" prefHeight="26.0" prefWidth="266.0" />
       <TextField fx:id="txtid" layoutX="158.0" layoutY="157.0" prefHeight="26.0" prefWidth="266.0" promptText="Student ID or Teacher ID" />
       <TextField fx:id="txtlname" layoutX="158.0" layoutY="121.0" prefHeight="26.0" prefWidth="266.0" />
       <TextField fx:id="txtfname" layoutX="158.0" layoutY="86.0" prefHeight="26.0" prefWidth="266.0" />
-      <Button fx:id="btnsignup" layoutX="523.0" layoutY="585.0" mnemonicParsing="false" onAction="#signup" prefHeight="32.0" prefWidth="98.0" text="Sign up">
+      <Button fx:id="btnsignup" layoutX="521.0" layoutY="651.0" mnemonicParsing="false" onAction="#signup" prefHeight="32.0" prefWidth="98.0" text="Sign up">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -87,8 +87,8 @@
          </font>
       </Label>
       <ComboBox fx:id="comb" layoutX="158.0" layoutY="428.0" onAction="#select" prefHeight="26.0" prefWidth="266.0" promptText="Select your Grade" />
-      <PasswordField fx:id="txtpwd2" layoutX="298.0" layoutY="531.0" prefHeight="26.0" prefWidth="214.0" />
-      <Label layoutX="299.0" layoutY="496.0" prefHeight="22.0" prefWidth="166.0" text="Confirm password">
+      <PasswordField fx:id="txtpwd2" layoutX="299.0" layoutY="544.0" prefHeight="26.0" prefWidth="214.0" />
+      <Label layoutX="301.0" layoutY="507.0" prefHeight="22.0" prefWidth="166.0" text="Confirm password">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -100,10 +100,16 @@
          </font>
       </Label>
       <DatePicker fx:id="birthday" layoutX="158.0" layoutY="199.0" prefHeight="26.0" prefWidth="266.0" />
-      <Button fx:id="btnback" layoutX="26.0" layoutY="585.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="98.0" text="Back">
+      <Button fx:id="btnback" layoutX="26.0" layoutY="651.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="98.0" text="Back">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
+      <Label layoutX="27.0" layoutY="595.0" prefHeight="22.0" prefWidth="98.0" text="User Type">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comb1" layoutX="158.0" layoutY="593.0" onAction="#select" prefHeight="26.0" prefWidth="266.0" promptText="Select one" />
    </children>
 </AnchorPane>

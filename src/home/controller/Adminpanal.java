@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Adminpanal extends Login implements Initializable {
@@ -86,7 +87,7 @@ public class Adminpanal extends Login implements Initializable {
     private ComboBox<String> comb;
 
     @FXML
-    private TextField txtsub;
+    private ComboBox<String> combsub;
 
     public Adminpanal() {
     }
@@ -94,6 +95,9 @@ public class Adminpanal extends Login implements Initializable {
     @FXML
     void select(ActionEvent event) {
         String g=comb.getSelectionModel().getSelectedItem().toString();
+        String sub=combsub.getSelectionModel().getSelectedItem().toString();
+
+
     }
 
 
@@ -113,12 +117,14 @@ public class Adminpanal extends Login implements Initializable {
         try{
             prepare=connect.prepareStatement(sql);
             String g=comb.getSelectionModel().getSelectedItem().toString();
-           prepare.setString(1,g);
-            prepare.setString(2,txtsub.getText());
+            String sub=combsub.getSelectionModel().getSelectedItem().toString();
+            prepare.setString(1,g);
+            prepare.setString(2,sub);
             prepare.execute();
             display();
-            txtsub.setText("");
-            comb.getSelectionModel().select(0);
+
+
+            combsub.getSelectionModel().select(0);
         }catch (Exception e){
             System.out.println(e);
         }
@@ -158,6 +164,8 @@ public void displayinfo(){
 
     }
 
+    private ArrayList<String> list;
+
     @FXML
     void logout(ActionEvent event) throws IOException {
         //close current window
@@ -178,6 +186,12 @@ public void displayinfo(){
         display();
         ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
         comb.setItems(list);
+        ObservableList<String> listsub= FXCollections.observableArrayList("None","Religion","sinhala/Tamil(First language)","English","Mathematics","Science","History","geography","Life competencies and citizenship education","Music","Art","Dancing","Drama and theatre","Practical and Technical Skills","Health and Physical Education","Sinhala/Tamil(Second language");
+        combsub.setItems(listsub);
+
+
+
+
     }
 
 }

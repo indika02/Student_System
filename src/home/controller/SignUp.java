@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -33,6 +35,9 @@ public class SignUp implements Initializable {
 
     @FXML
     private Button btnback;
+
+    @FXML
+    private TextField UserID;
 
 
     @FXML
@@ -58,7 +63,7 @@ public class SignUp implements Initializable {
     private TextField txtfname;
 
     @FXML
-    private TextField txtid;
+    private TextField Username;
 
     @FXML
     private TextField txtlname;
@@ -72,6 +77,10 @@ public class SignUp implements Initializable {
 
     @FXML
     private PasswordField txtpwd2;
+    @FXML
+    private Label alt;
+
+
 
 
     @FXML
@@ -96,6 +105,28 @@ public class SignUp implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result;
 
+    //check the username already taken
+    @FXML
+    void Username(KeyEvent event) {
+        connect=jdbcconnect.getConnection();
+        String uname=Username.getText();
+
+        try{
+            String sql="SELECT * FROM users WHERE Username='"+uname+"' ";
+            prepare=connect.prepareStatement(sql);
+            result=prepare.executeQuery();
+            if(result.next()){
+                String yes=result.getString("Username");
+                //System.out.println(yes);
+                alt.setVisible(true);
+            }else {
+                //System.out.println("no users");
+                alt.setVisible(false);
+            }
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+    }
 
     @FXML
     void signup(ActionEvent event) {
@@ -103,9 +134,10 @@ public class SignUp implements Initializable {
         connect=jdbcconnect.getConnection();
 
 //variable creating for input data
+        String userid=UserID.getText();
         String fname=txtfname.getText();
         String lname=txtlname.getText();
-        String id = txtid.getText();
+        String username = Username.getText();
         String addl1 = txtadd1.getText();
         String addl2 = txtadd2.getText();
         String addl3 = txtadd3.getText();
@@ -122,26 +154,26 @@ public class SignUp implements Initializable {
         try {
 
             //sql input quary
-            String sql="insert into users (`Firstname`, `Lastname`,`Username`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Telno`,`UserType`,`Password`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql="insert into users (`UserID`,`Firstname`, `Lastname`,`Username`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Telno`,`UserType`,`Password`) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             prepare=connect.prepareStatement(sql);
            //database data input
-
-            prepare.setString(1,fname);
-            prepare.setString(2, lname);
-            prepare.setString(3, id);
-            prepare.setString(4,date);
-            prepare.setString(5, addl1);
-            prepare.setString(6, addl2);
-            prepare.setString(7, addl3);
-            prepare.setString(8, city);
-            prepare.setString(9, email);
-            prepare.setString(10,g);
-            prepare.setString(11, telno);
-            prepare.setString(12,t);
+            prepare.setString(1,userid);
+            prepare.setString(2,fname);
+            prepare.setString(3, lname);
+            prepare.setString(4, username);
+            prepare.setString(5,date);
+            prepare.setString(6, addl1);
+            prepare.setString(7, addl2);
+            prepare.setString(8, addl3);
+            prepare.setString(9, city);
+            prepare.setString(10, email);
+            prepare.setString(11,g);
+            prepare.setString(12, telno);
+            prepare.setString(13,t);
            //prepare.executeUpdate();
 
             if (pass.equals(cpass)){
-                prepare.setString(13, pass);
+                prepare.setString(14, pass);
                 prepare.executeUpdate();
 //              JOptionPane.showMessageDialog(null,"Updated");
                 //close current window
@@ -156,24 +188,10 @@ public class SignUp implements Initializable {
                 txtpwd.setText("");
                 txtpwd2.setText("");
                 txtconfirm.setText("Different password.Re-Enter the password again!");
-
             }
-
-
-
-
-
-
-//            if (status==1){
-//                JOptionPane.showMessageDialog(null,"updated");
-//            }else {
-//                JOptionPane.showMessageDialog(null,"not added");
-//            }
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
-
-
     }
     @FXML
     void back(ActionEvent event) throws IOException {
@@ -190,6 +208,7 @@ public class SignUp implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        alt.setVisible(false);
         ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
         comb.setItems(list);
         ObservableList<String> listt= FXCollections.observableArrayList("Teacher","Student");

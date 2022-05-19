@@ -37,7 +37,7 @@ public class jdbcconnect {
             PreparedStatement ps = conn.prepareStatement("select * from subjects");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Record((rs.getString("Grade")), (rs.getString("Subject"))));
+                list.add(new Record(Integer.parseInt(rs.getString("Subject_No")),(rs.getString("Grade")), (rs.getString("Subject"))));
 
             }
         } catch (Exception e) {

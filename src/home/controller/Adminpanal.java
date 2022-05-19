@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -61,7 +63,6 @@ public class Adminpanal extends Login implements Initializable {
     @FXML
     private TableView<user> tableuser;
 
-
     @FXML
     private Button btnlogout;
 
@@ -72,7 +73,7 @@ public class Adminpanal extends Login implements Initializable {
     private Button btnremove;
 
     @FXML
-    private Button btnupdate;
+    private TableColumn<Record, Integer > Subject_No;
 
     @FXML
     private TableColumn<Record, String> Grade;
@@ -87,7 +88,7 @@ public class Adminpanal extends Login implements Initializable {
     private ComboBox<String> comb;
 
     @FXML
-    private ComboBox<String> combsub;
+    private TextField txtsub;
 
     public Adminpanal() {
     }
@@ -95,7 +96,7 @@ public class Adminpanal extends Login implements Initializable {
     @FXML
     void select(ActionEvent event) {
         String g=comb.getSelectionModel().getSelectedItem().toString();
-        String sub=combsub.getSelectionModel().getSelectedItem().toString();
+
 
 
     }
@@ -117,14 +118,14 @@ public class Adminpanal extends Login implements Initializable {
         try{
             prepare=connect.prepareStatement(sql);
             String g=comb.getSelectionModel().getSelectedItem().toString();
-            String sub=combsub.getSelectionModel().getSelectedItem().toString();
+           String sub=txtsub.getText();
             prepare.setString(1,g);
             prepare.setString(2,sub);
             prepare.execute();
             display();
+            comb.getSelectionModel().select(0);
+            txtsub.setText("");
 
-
-            combsub.getSelectionModel().select(0);
         }catch (Exception e){
             System.out.println(e);
         }
@@ -132,6 +133,7 @@ public class Adminpanal extends Login implements Initializable {
     }
     //method of diasplay data of table
     public void display(){
+        Subject_No.setCellValueFactory(new PropertyValueFactory<Record,Integer>("Subject_No"));
         Grade.setCellValueFactory(new PropertyValueFactory<Record, String>("Grade"));
         Subject.setCellValueFactory(new PropertyValueFactory<Record, String>("Subject"));
         listM=jdbcconnect.getDatausers();
@@ -154,14 +156,19 @@ public void displayinfo(){
         tableuser.setItems(listN);
 
 }
-    @FXML
-    void remove(ActionEvent event) {
 
-    }
-
-    @FXML
-    void update(ActionEvent event) {
-
+@FXML
+    public void remove(ActionEvent event){
+        connect=jdbcconnect.getConnection();
+        String sql="DELETE FROM subjects where subject_No=?";
+        try{
+            prepare=connect.prepareStatement(sql);
+            prepare.setString(1,Subject_No.getText());
+            prepare.execute();
+            display();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
     }
 
     private ArrayList<String> list;
@@ -186,8 +193,7 @@ public void displayinfo(){
         display();
         ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
         comb.setItems(list);
-        ObservableList<String> listsub= FXCollections.observableArrayList("None","Religion","sinhala/Tamil(First language)","English","Mathematics","Science","History","geography","Life competencies and citizenship education","Music","Art","Dancing","Drama and theatre","Practical and Technical Skills","Health and Physical Education","Sinhala/Tamil(Second language");
-        combsub.setItems(listsub);
+
 
 
 

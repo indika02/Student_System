@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="631.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Studentboard">
+<AnchorPane prefHeight="631.0" prefWidth="882.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Studentboard">
    <children>
-      <AnchorPane prefHeight="62.0" prefWidth="882.0" style="-fx-background-color: darkblue;">
+      <AnchorPane prefHeight="62.0" prefWidth="882.0" style="-fx-background-color: darkblue;" AnchorPane.bottomAnchor="570.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="logout" layoutX="781.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
                <font>
@@ -23,8 +23,5 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button layoutX="120.0" layoutY="224.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="158.0" style="-fx-background-color: red;" text="Exam Results" />
-      <Button layoutX="608.0" layoutY="224.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="158.0" text="Profile Update" />
-      <Button layoutX="362.0" layoutY="224.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="158.0" text="Subject Registration" />
    </children>
 </AnchorPane>

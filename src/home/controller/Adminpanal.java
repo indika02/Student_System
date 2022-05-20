@@ -158,14 +158,14 @@ public void displayinfo(){
 }
 
 @FXML
-    public void remove(ActionEvent event){
+    void remove(ActionEvent event){
         connect=jdbcconnect.getConnection();
         String sql="DELETE FROM subjects where subject_No=?";
         try{
             prepare=connect.prepareStatement(sql);
             prepare.setString(1,Subject_No.getText());
             prepare.execute();
-            display();
+           display();
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }

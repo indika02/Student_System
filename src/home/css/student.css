@@ -16,3 +16,10 @@
 .txtbox{
     -fx-border-style: none;
 }
+.img{
+    -fx-background-image: url("../images/iStock-507009337-171002.png");
+    -fx-background-size: cover;
+}
+.textarea {
+   -fx-border-radius: 10px;
+}

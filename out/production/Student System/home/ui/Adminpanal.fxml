@@ -58,20 +58,20 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tablestd" layoutX="486.0" prefHeight="483.0" prefWidth="309.0">
+                        <TableView fx:id="tablestd" layoutX="486.0" prefHeight="483.0" prefWidth="493.0">
                           <columns>
-                            <TableColumn fx:id="Grade" prefWidth="120.0" text="GRADE" />
-                            <TableColumn fx:id="Subject" prefWidth="188.80001220703127" text="SUBJECT" />
+                              <TableColumn fx:id="Subject_No" prefWidth="94.39999389648438" text="SUBJECT NO:" />
+                            <TableColumn fx:id="Grade" prefWidth="156.0" text="GRADE" />
+                            <TableColumn fx:id="Subject" prefWidth="242.39998779296877" text="SUBJECT" />
                           </columns>
                         </TableView>
                         <Label layoutX="106.0" layoutY="32.0" text="Adding Subjects" />
                         <Label layoutX="32.0" layoutY="115.0" text="Grade" />
                         <Label layoutX="32.0" layoutY="168.0" text="Subject" />
-                        <Button fx:id="btnadd" layoutX="60.0" layoutY="234.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="62.0" text="ADD" />
-                        <Button fx:id="btnremove" layoutX="233.0" layoutY="234.0" mnemonicParsing="false" onAction="#remove" text="REMOVE" />
-                        <Button fx:id="btnupdate" layoutX="148.0" layoutY="234.0" mnemonicParsing="false" onAction="#update" text="UPDATE" />
+                        <Button fx:id="btnadd" layoutX="60.0" layoutY="234.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="76.0" text="ADD" />
+                        <Button fx:id="btnremove" layoutX="169.0" layoutY="234.0" mnemonicParsing="false" onAction="#remove" prefHeight="30.0" prefWidth="76.0" text="REMOVE" />
                         <ComboBox fx:id="comb" layoutX="204.0" layoutY="99.0" onAction="#select" prefHeight="29.0" prefWidth="162.0" promptText="Select your Grade" />
-                        <ComboBox fx:id="combsub" layoutX="203.0" layoutY="165.0" onAction="#select" prefHeight="29.0" prefWidth="167.0" promptText="Subjects" />
+                        <TextField fx:id="txtsub" layoutX="203.0" layoutY="164.0" prefHeight="26.0" prefWidth="165.0" />
                      </children>
                   </AnchorPane>
               </content>
@@ -87,6 +87,28 @@
                         </Label>
                         <Label layoutX="34.0" layoutY="56.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
                         <TextField layoutX="173.0" layoutY="53.0" />
+                        <Label layoutX="34.0" layoutY="107.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label layoutX="34.0" layoutY="377.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label layoutX="34.0" layoutY="331.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label layoutX="34.0" layoutY="285.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label layoutX="34.0" layoutY="242.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label layoutX="34.0" layoutY="195.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label layoutX="34.0" layoutY="151.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <TextField layoutX="173.0" layoutY="103.0" />
+                        <TextField layoutX="173.0" layoutY="147.0" />
+                        <TextField layoutX="173.0" layoutY="191.0" />
+                        <TextField layoutX="173.0" layoutY="238.0" />
+                        <TextField layoutX="173.0" layoutY="281.0" />
+                        <TextField layoutX="173.0" layoutY="327.0" />
+                        <TextField layoutX="173.0" layoutY="373.0" />
+                        <Label layoutX="34.0" layoutY="421.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label layoutX="34.0" layoutY="470.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <TextField layoutX="173.0" layoutY="417.0" />
+                        <TextField layoutX="173.0" layoutY="466.0" />
+                        <Button layoutX="208.0" layoutY="538.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" text="Button" />
+                        <Label layoutX="339.0" layoutY="254.0" prefHeight="18.0" prefWidth="122.0" text="Total" />
+                        <Label layoutX="339.0" layoutY="294.0" prefHeight="18.0" prefWidth="122.0" text="Average" />
+                        <Label layoutX="339.0" layoutY="340.0" prefHeight="18.0" prefWidth="122.0" text="Grade" />
                      </children></AnchorPane>
             </content>
           </Tab>

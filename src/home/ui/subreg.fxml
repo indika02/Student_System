@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="550.0" prefWidth="812.0" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Subreg">
+   <children>
+      <ImageView fitHeight="320.0" fitWidth="812.0" layoutY="230.0">
+         <image>
+            <Image url="@../images/iStock-507009337-171002.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="58.0" prefWidth="812.0" style="-fx-background-color: darkblue;">
+         <children>
+            <Label layoutX="26.0" layoutY="11.0" prefHeight="18.0" prefWidth="201.0" text="Subjects" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView layoutY="230.0" prefHeight="320.0" prefWidth="282.0" style="-fx-opacity: 10px;">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Subject No:" />
+          <TableColumn prefWidth="146.39999237060547" text="Subject" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -36,8 +36,7 @@ public class SignUp implements Initializable {
     @FXML
     private Button btnback;
 
-    @FXML
-    private TextField UserID;
+
 
 
     @FXML
@@ -57,6 +56,9 @@ public class SignUp implements Initializable {
     private ComboBox<String> comb;
 
     @FXML
+    private ComboBox<String> combclass;
+
+    @FXML
     private TextField txtemail;
 
     @FXML
@@ -64,6 +66,9 @@ public class SignUp implements Initializable {
 
     @FXML
     private TextField Username;
+
+    @FXML
+    private TextField Enrno;
 
     @FXML
     private TextField txtlname;
@@ -86,8 +91,7 @@ public class SignUp implements Initializable {
     @FXML
     private Label txtconfirm;
 
-    @FXML
-    private ComboBox<String> comb1;
+
 
 
 
@@ -95,7 +99,8 @@ public class SignUp implements Initializable {
     void select(ActionEvent event) {
 
         String g=comb.getSelectionModel().getSelectedItem().toString();
-        String t=comb1.getSelectionModel().getSelectedItem().toString();
+        String c=combclass.getSelectionModel().getSelectedItem().toString();
+
 
     }
 
@@ -119,7 +124,9 @@ public class SignUp implements Initializable {
                 String yes=result.getString("Username");
                 //System.out.println(yes);
                 alt.setVisible(true);
+
             }else {
+
                 //System.out.println("no users");
                 alt.setVisible(false);
             }
@@ -134,10 +141,11 @@ public class SignUp implements Initializable {
         connect=jdbcconnect.getConnection();
 
 //variable creating for input data
-        String userid=UserID.getText();
+
         String fname=txtfname.getText();
         String lname=txtlname.getText();
         String username = Username.getText();
+        String Enr=Enrno.getText();
         String addl1 = txtadd1.getText();
         String addl2 = txtadd2.getText();
         String addl3 = txtadd3.getText();
@@ -145,7 +153,8 @@ public class SignUp implements Initializable {
         String city = txtcity.getText();
         //combobox
         String g=comb.getSelectionModel().getSelectedItem().toString();
-        String t=comb1.getSelectionModel().getSelectedItem().toString();
+        String c=combclass.getSelectionModel().getSelectedItem().toString();
+
         String email = txtemail.getText();
         String telno = txttel.getText();
         String pass = txtpwd.getText();
@@ -154,13 +163,14 @@ public class SignUp implements Initializable {
         try {
 
             //sql input quary
-            String sql="insert into users (`UserID`,`Firstname`, `Lastname`,`Username`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Telno`,`UserType`,`Password`) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql="insert into users (`Firstname`, `Lastname`,`Username`,`Enrollment_No`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Clzz`,`Telno`,`Password`,`UserType`) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             prepare=connect.prepareStatement(sql);
            //database data input
-            prepare.setString(1,userid);
-            prepare.setString(2,fname);
-            prepare.setString(3, lname);
-            prepare.setString(4, username);
+
+            prepare.setString(1,fname);
+            prepare.setString(2, lname);
+            prepare.setString(3, username);
+            prepare.setString(4,Enr);
             prepare.setString(5,date);
             prepare.setString(6, addl1);
             prepare.setString(7, addl2);
@@ -168,8 +178,10 @@ public class SignUp implements Initializable {
             prepare.setString(9, city);
             prepare.setString(10, email);
             prepare.setString(11,g);
-            prepare.setString(12, telno);
-            prepare.setString(13,t);
+            prepare.setString(12,c);
+            prepare.setString(13, telno);
+            prepare.setString(15,"Student");
+
            //prepare.executeUpdate();
 
             if (pass.equals(cpass)){
@@ -189,6 +201,7 @@ public class SignUp implements Initializable {
                 txtpwd2.setText("");
                 txtconfirm.setText("Different password.Re-Enter the password again!");
             }
+
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
@@ -209,10 +222,10 @@ public class SignUp implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
         alt.setVisible(false);
-        ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
+        ObservableList<String> list= FXCollections.observableArrayList("None","Grade 10","Grade 11","Grade 12","Grade 13");
         comb.setItems(list);
-        ObservableList<String> listt= FXCollections.observableArrayList("Teacher","Student");
-        comb1.setItems(listt);
+        ObservableList<String> listc=FXCollections.observableArrayList("10A","10B","10C","11A","11B","11C","12A","12B","12C","13A","13B","13C");
+        combclass.setItems(listc);
 
 
 

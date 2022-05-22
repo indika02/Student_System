@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="753.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
+<AnchorPane prefHeight="753.0" prefWidth="1448.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
    <children>
-      <AnchorPane prefHeight="62.0" prefWidth="1098.0" style="-fx-background-color: darkblue;">
+      <AnchorPane prefHeight="62.0" prefWidth="1448.0" style="-fx-background-color: darkblue;">
          <children>
-            <Button fx:id="btnlogout" layoutX="997.0" layoutY="12.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
+            <Button fx:id="btnlogout" layoutX="1358.0" layoutY="12.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -29,25 +29,29 @@
             </Label>
          </children>
       </AnchorPane>
-      <TabPane layoutY="62.0" prefHeight="686.0" prefWidth="1098.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="62.0" prefHeight="686.0" prefWidth="1448.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Users">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="632.0" prefWidth="1098.0">
                      <children>
-                        <TableView fx:id="tableuser" prefHeight="582.0" prefWidth="950.0">
+                        <TableView fx:id="tableuser" prefHeight="394.0" prefWidth="1448.0">
                           <columns>
-                            <TableColumn fx:id="UserID" prefWidth="75.0" text="User ID" />
                             <TableColumn fx:id="Firstname" prefWidth="94.4000244140625" text="First Name" />
                               <TableColumn fx:id="Lastname" prefWidth="98.40003967285156" text="Last Name" />
+                              <TableColumn fx:id="Username" prefWidth="98.40003967285156" text="Userrname" />
+                              <TableColumn fx:id="Enrollment_No" prefWidth="98.40003967285156" text="Enrollment No:" />
                               <TableColumn fx:id="DOB" prefWidth="84.79998779296875" text="Date Of Birth" />
-                              <TableColumn fx:id="addressl1" prefWidth="72.800048828125" text="Address L1" />
-                              <TableColumn fx:id="addressl2" prefWidth="70.39996337890625" text="Address L2" />
+                              <TableColumn fx:id="addressl1" prefWidth="72.0" text="Address L1" />
+                              <TableColumn fx:id="addressl2" prefWidth="72.79998779296875" text="Address L2" />
                               <TableColumn fx:id="addressl3" prefWidth="82.39996337890625" text="Address L3" />
-                              <TableColumn fx:id="city" prefWidth="72.79998779296875" text="City" />
-                              <TableColumn fx:id="Email" prefWidth="103.99993896484375" text="Email" />
+                              <TableColumn fx:id="city" prefWidth="88.0" text="City" />
+                              <TableColumn fx:id="Email" prefWidth="88.800048828125" text="Email" />
                               <TableColumn fx:id="grade" prefWidth="97.5999755859375" text="Grade" />
+                              <TableColumn fx:id="Clzz" prefWidth="97.5999755859375" text="Class" />
                               <TableColumn fx:id="Telno" prefWidth="77.60009765625" text="Tel No." />
+                              <TableColumn fx:id="Password" prefWidth="77.60009765625" text="Password" />
+                              <TableColumn fx:id="UserType" prefWidth="77.60009765625" text="UserType" />
                           </columns>
                         </TableView>
                      </children>
@@ -58,7 +62,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tablestd" layoutX="486.0" prefHeight="483.0" prefWidth="493.0">
+                        <TableView fx:id="tablestd" layoutX="432.0" layoutY="50.0" prefHeight="483.0" prefWidth="493.0">
                           <columns>
                               <TableColumn fx:id="Subject_No" prefWidth="94.39999389648438" text="SUBJECT NO:" />
                             <TableColumn fx:id="Grade" prefWidth="156.0" text="GRADE" />
@@ -69,9 +73,13 @@
                         <Label layoutX="32.0" layoutY="115.0" text="Grade" />
                         <Label layoutX="32.0" layoutY="168.0" text="Subject" />
                         <Button fx:id="btnadd" layoutX="60.0" layoutY="234.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="76.0" text="ADD" />
-                        <Button fx:id="btnremove" layoutX="169.0" layoutY="234.0" mnemonicParsing="false" onAction="#remove" prefHeight="30.0" prefWidth="76.0" text="REMOVE" />
-                        <ComboBox fx:id="comb" layoutX="204.0" layoutY="99.0" onAction="#select" prefHeight="29.0" prefWidth="162.0" promptText="Select your Grade" />
+                        <Button fx:id="btnremove" layoutX="169.0" layoutY="234.0" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="76.0" text="REMOVE" />
                         <TextField fx:id="txtsub" layoutX="203.0" layoutY="164.0" prefHeight="26.0" prefWidth="165.0" />
+                        <TextField fx:id="txtgrade" layoutX="203.0" layoutY="102.0" prefHeight="26.0" prefWidth="166.0" promptText="Grade 00">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
+                        <ComboBox fx:id="filtsub" layoutX="528.0" layoutY="18.0" onAction="#select" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
               </content>
@@ -87,7 +95,6 @@
                         </Label>
                         <Label layoutX="34.0" layoutY="56.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
                         <TextField layoutX="173.0" layoutY="53.0" />
-                        <Label layoutX="34.0" layoutY="107.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
                         <Label layoutX="34.0" layoutY="377.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
                         <Label layoutX="34.0" layoutY="331.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
                         <Label layoutX="34.0" layoutY="285.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
@@ -105,10 +112,15 @@
                         <Label layoutX="34.0" layoutY="470.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
                         <TextField layoutX="173.0" layoutY="417.0" />
                         <TextField layoutX="173.0" layoutY="466.0" />
-                        <Button layoutX="208.0" layoutY="538.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" text="Button" />
-                        <Label layoutX="339.0" layoutY="254.0" prefHeight="18.0" prefWidth="122.0" text="Total" />
-                        <Label layoutX="339.0" layoutY="294.0" prefHeight="18.0" prefWidth="122.0" text="Average" />
-                        <Label layoutX="339.0" layoutY="340.0" prefHeight="18.0" prefWidth="122.0" text="Grade" />
+                        <Button layoutX="208.0" layoutY="538.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" text="Calculate" />
+                        <Label layoutX="385.0" layoutY="254.0" prefHeight="18.0" prefWidth="122.0" text="Total" />
+                        <Label layoutX="385.0" layoutY="294.0" prefHeight="18.0" prefWidth="122.0" text="Average" />
+                        <Label layoutX="385.0" layoutY="340.0" prefHeight="18.0" prefWidth="122.0" text="Grade" />
+                        <Label layoutX="488.0" layoutY="254.0" prefHeight="18.0" prefWidth="122.0" text="Total" />
+                        <Label layoutX="488.0" layoutY="294.0" prefHeight="18.0" prefWidth="122.0" text="Average" />
+                        <Label layoutX="488.0" layoutY="340.0" prefHeight="18.0" prefWidth="122.0" text="Average" />
+                        <Label layoutX="34.0" layoutY="106.0" prefHeight="18.0" prefWidth="122.0" text="Total Students:" />
+                        <TextField layoutX="521.0" layoutY="52.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

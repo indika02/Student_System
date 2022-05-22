@@ -28,22 +28,19 @@ public class Adminpanal extends Login implements Initializable {
     private Label lblteaname;
 
     @FXML
-    private TableColumn<user, String> DOB;
-
-    @FXML
-    private TableColumn<user, String> Email;
-
-    @FXML
-    private TableColumn<user, String> grade;
+    private TableColumn<user, String > Firstname;
 
     @FXML
     private TableColumn<user, String> Lastname;
 
     @FXML
-    private TableColumn<user, String> Telno;
+    private TableColumn<user, String> Username;
 
     @FXML
-    private TableColumn<user, String > UserID;
+    private TableColumn<user, String> Enrollment_No;
+
+    @FXML
+    private TableColumn<user, String> DOB;
 
     @FXML
     private TableColumn<user, String> addressl1;
@@ -58,7 +55,22 @@ public class Adminpanal extends Login implements Initializable {
     private TableColumn<user, String > city;
 
     @FXML
-    private TableColumn<user, String > Firstname;
+    private TableColumn<user, String> Email;
+
+    @FXML
+    private TableColumn<user, String> grade;
+
+    @FXML
+    private TableColumn<user, String> Clzz;
+
+    @FXML
+    private TableColumn<user, String> Telno;
+
+    @FXML
+    private TableColumn<user, String> Password;
+
+    @FXML
+    private TableColumn<user, String> UserType;
 
     @FXML
     private TableView<user> tableuser;
@@ -85,21 +97,24 @@ public class Adminpanal extends Login implements Initializable {
     private TableView<Record> tablestd;
 
     @FXML
-    private ComboBox<String> comb;
+    private ComboBox<String> filtsub;
+
+    @FXML
+    private TextField txtgrade;
 
     @FXML
     private TextField txtsub;
 
+    @FXML
+    void select(ActionEvent event) {
+
+    }
+
+
     public Adminpanal() {
     }
 
-    @FXML
-    void select(ActionEvent event) {
-        String g=comb.getSelectionModel().getSelectedItem().toString();
 
-
-
-    }
 
 
     ObservableList<Record> listM;
@@ -117,19 +132,33 @@ public class Adminpanal extends Login implements Initializable {
         //call method for display data of database to table
         try{
             prepare=connect.prepareStatement(sql);
-            String g=comb.getSelectionModel().getSelectedItem().toString();
+            String gra=txtgrade.getText();
            String sub=txtsub.getText();
-            prepare.setString(1,g);
+            prepare.setString(1,gra);
             prepare.setString(2,sub);
             prepare.execute();
             display();
-            comb.getSelectionModel().select(0);
+            txtgrade.setText("");
             txtsub.setText("");
 
         }catch (Exception e){
             System.out.println(e);
         }
 
+    }
+    public void delete(){
+        connect=jdbcconnect.getConnection();
+        String sql="DELETE FROM subjects where Grade= ?";
+        try{
+            prepare=connect.prepareStatement(sql);
+            prepare.setString(1,Grade.getText());
+            prepare.execute();
+            JOptionPane.showMessageDialog(null,"Deleted");
+            display();
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
     }
     //method of diasplay data of table
     public void display(){
@@ -140,10 +169,11 @@ public class Adminpanal extends Login implements Initializable {
         tablestd.setItems(listM);
     }
 
-public void displayinfo(){
-        UserID.setCellValueFactory(new PropertyValueFactory<user,String >("userid"));
+    public void displayinfo(){
         Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
         Lastname.setCellValueFactory(new PropertyValueFactory<user,String>("lastname"));
+        Username.setCellValueFactory(new PropertyValueFactory<user,String>("username"));
+        Enrollment_No.setCellValueFactory(new PropertyValueFactory<user,String>("enrollment_no"));
         DOB.setCellValueFactory(new PropertyValueFactory<user,String>("bday"));
         addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("add1"));
         addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("add2"));
@@ -151,25 +181,17 @@ public void displayinfo(){
         city.setCellValueFactory(new PropertyValueFactory<user,String >("city"));
         Email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
         grade.setCellValueFactory(new PropertyValueFactory<user,String >("grade"));
-        Telno.setCellValueFactory(new PropertyValueFactory<user,String>("telno"));
+        Clzz.setCellValueFactory(new PropertyValueFactory<user,String >("Clzz"));
+        Telno.setCellValueFactory(new PropertyValueFactory<user,String>("Telno"));
+        Password.setCellValueFactory(new PropertyValueFactory<user,String >("password"));
+        UserType.setCellValueFactory(new PropertyValueFactory<user,String>("usertype"));
+
         listN=jdbcconnect.getinfo();
         tableuser.setItems(listN);
 
 }
 
-@FXML
-    void remove(ActionEvent event){
-        connect=jdbcconnect.getConnection();
-        String sql="DELETE FROM subjects where subject_No=?";
-        try{
-            prepare=connect.prepareStatement(sql);
-            prepare.setString(1,Subject_No.getText());
-            prepare.execute();
-           display();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
-    }
+
 
     private ArrayList<String> list;
 
@@ -187,17 +209,8 @@ public void displayinfo(){
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-
-
         displayinfo();
         display();
-        ObservableList<String> list= FXCollections.observableArrayList("None","Grade 06","Grade 07","Grade 08","Grade 09","Grade 10","Grade 11","Grade 12","Grade 13");
-        comb.setItems(list);
-
-
-
-
-
     }
 
 }

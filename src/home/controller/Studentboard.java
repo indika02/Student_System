@@ -13,9 +13,12 @@ import java.sql.*;
 
 public class Studentboard{
 
+    @FXML
+    private Label txtstdname;
 
     @FXML
     private Button logout;
+
 
     @FXML
     void logout(ActionEvent event) throws IOException {

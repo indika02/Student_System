@@ -1,48 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="423.0" prefWidth="502.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Login">
+<AnchorPane prefHeight="467.0" prefWidth="529.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Login">
    <children>
-      <Label layoutX="206.0" layoutY="69.0" prefHeight="18.0" prefWidth="90.0" text="LOGIN">
+      <Label layoutX="198.0" layoutY="26.0" prefHeight="18.0" prefWidth="90.0" text="LOGIN">
          <font>
             <Font name="Arial Bold" size="27.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.8522727236603246" startX="0.7007576051083478" startY="0.5340908874164928">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.2378479540348053" green="0.08701754361391068" blue="0.6526315808296204" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <Label layoutX="34.0" layoutY="124.0" text="Username">
+      <Label layoutX="34.0" layoutY="155.0" text="Username">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="34.0" layoutY="175.0" text="Password">
+      <Label layoutX="30.0" layoutY="198.0" text="Password">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtuserid" layoutX="174.0" layoutY="120.0" prefHeight="26.0" prefWidth="218.0" styleClass="txtbox" stylesheets="@../css/student.css" />
-      <PasswordField fx:id="txtpassword" layoutX="174.0" layoutY="172.0" prefHeight="26.0" prefWidth="218.0" />
-      <Button fx:id="btnlog" layoutX="367.0" layoutY="314.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" styleClass="login" stylesheets="@../css/student.css" text="Login">
+      <TextField fx:id="txtuserid" layoutX="173.0" layoutY="152.0" prefHeight="26.0" prefWidth="218.0" stylesheets="@../css/student.css">
+         <styleClass>
+            <String fx:value="txtbox" />
+            <String fx:value="textarea" />
+         </styleClass></TextField>
+      <PasswordField fx:id="txtpassword" layoutX="173.0" layoutY="195.0" prefHeight="26.0" prefWidth="218.0" />
+      <Button fx:id="btnlog" layoutX="370.0" layoutY="346.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" styleClass="login" stylesheets="@../css/student.css" text="Login">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="95.0" layoutY="369.0" prefHeight="18.0" prefWidth="111.0" text="Not a Member?">
+      <Label layoutX="86.0" layoutY="410.0" prefHeight="18.0" prefWidth="111.0" text="Not a Member?">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lbltxt" layoutX="77.0" layoutY="272.0" prefHeight="18.0" prefWidth="205.0" />
-      <Button fx:id="btnsignup" layoutX="198.0" layoutY="365.0" mnemonicParsing="false" onAction="#signupshow" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: none; -fx-cursor: pointer;" styleClass="register" stylesheets="@../css/student.css" text="Sign up now" textFill="#03a6f2">
+      <Label fx:id="lbltxt" layoutX="39.0" layoutY="234.0" prefHeight="18.0" prefWidth="205.0" />
+      <Button fx:id="btnsignup" layoutX="198.0" layoutY="406.0" mnemonicParsing="false" onAction="#signupshow" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: none; -fx-cursor: pointer;" styleClass="register" stylesheets="@../css/student.css" text="Sign up now" textFill="#03a6f2">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Button>
-      <ComboBox fx:id="type" layoutX="174.0" layoutY="224.0" onAction="#select" prefHeight="26.0" prefWidth="218.0" promptText="Select one" />
+      <ComboBox fx:id="type" layoutX="173.0" layoutY="277.0" onAction="#select" prefHeight="26.0" prefWidth="218.0" promptText="Select one" />
    </children>
 </AnchorPane>

@@ -106,9 +106,42 @@ public class Adminpanal extends Login implements Initializable {
     private TextField txtsub;
 
     @FXML
-    void select(ActionEvent event) {
+    private ComboBox<String> Combmgrade;
 
+    @FXML
+    private Label sub1;
+
+
+
+    @FXML
+    private Label sub2;
+
+    @FXML
+    private Label sub3;
+
+    @FXML
+    private Label sub4;
+
+    @FXML
+    private Label sub5;
+
+    @FXML
+    private Label sub6;
+
+    @FXML
+    private Label sub7;
+
+    @FXML
+    private Label sub8;
+
+    @FXML
+    private Label sub9;
+
+    @FXML
+    void select(ActionEvent event) {
+        String ggrade=Combmgrade.getSelectionModel().getSelectedItem().toString();
     }
+
 
 
     public Adminpanal() {
@@ -211,6 +244,8 @@ public class Adminpanal extends Login implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
         displayinfo();
         display();
+        ObservableList<String> listc=FXCollections.observableArrayList("Grade 10","Grade 11","Grade 12","Grade 13");
+        Combmgrade.setItems(listc);
     }
 
 }

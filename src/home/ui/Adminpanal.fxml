@@ -93,34 +93,35 @@
                               <Font name="Arial Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="34.0" layoutY="56.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <TextField layoutX="173.0" layoutY="53.0" />
-                        <Label layoutX="34.0" layoutY="377.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label layoutX="34.0" layoutY="331.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label layoutX="34.0" layoutY="285.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label layoutX="34.0" layoutY="242.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label layoutX="34.0" layoutY="195.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label layoutX="34.0" layoutY="151.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <TextField layoutX="173.0" layoutY="103.0" />
-                        <TextField layoutX="173.0" layoutY="147.0" />
-                        <TextField layoutX="173.0" layoutY="191.0" />
-                        <TextField layoutX="173.0" layoutY="238.0" />
-                        <TextField layoutX="173.0" layoutY="281.0" />
-                        <TextField layoutX="173.0" layoutY="327.0" />
-                        <TextField layoutX="173.0" layoutY="373.0" />
-                        <Label layoutX="34.0" layoutY="421.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label layoutX="34.0" layoutY="470.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <TextField layoutX="173.0" layoutY="417.0" />
-                        <TextField layoutX="173.0" layoutY="466.0" />
-                        <Button layoutX="208.0" layoutY="538.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" text="Calculate" />
-                        <Label layoutX="385.0" layoutY="254.0" prefHeight="18.0" prefWidth="122.0" text="Total" />
-                        <Label layoutX="385.0" layoutY="294.0" prefHeight="18.0" prefWidth="122.0" text="Average" />
-                        <Label layoutX="385.0" layoutY="340.0" prefHeight="18.0" prefWidth="122.0" text="Grade" />
-                        <Label layoutX="488.0" layoutY="254.0" prefHeight="18.0" prefWidth="122.0" text="Total" />
-                        <Label layoutX="488.0" layoutY="294.0" prefHeight="18.0" prefWidth="122.0" text="Average" />
-                        <Label layoutX="488.0" layoutY="340.0" prefHeight="18.0" prefWidth="122.0" text="Average" />
-                        <Label layoutX="34.0" layoutY="106.0" prefHeight="18.0" prefWidth="122.0" text="Total Students:" />
-                        <TextField layoutX="521.0" layoutY="52.0" />
+                        <Label layoutX="34.0" layoutY="56.0" prefHeight="18.0" prefWidth="122.0" text="Select Grade:" />
+                        <Label fx:id="sub6" layoutX="34.0" layoutY="344.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label fx:id="sub5" layoutX="34.0" layoutY="305.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label fx:id="sub4" layoutX="34.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label fx:id="sub3" layoutX="34.0" layoutY="208.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label fx:id="sub2" layoutX="34.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label fx:id="sub1" layoutX="34.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <TextField layoutX="530.0" layoutY="52.0" />
+                        <TextField layoutX="179.0" layoutY="124.0" />
+                        <TextField layoutX="179.0" layoutY="161.0" />
+                        <TextField layoutX="179.0" layoutY="204.0" />
+                        <TextField layoutX="179.0" layoutY="251.0" />
+                        <TextField layoutX="179.0" layoutY="301.0" />
+                        <TextField layoutX="179.0" layoutY="340.0" />
+                        <Label fx:id="sub7" layoutX="390.0" layoutY="127.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label fx:id="sub8" layoutX="390.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <TextField layoutX="546.0" layoutY="124.0" />
+                        <TextField layoutX="546.0" layoutY="161.0" />
+                        <Button layoutX="462.0" layoutY="564.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" text="Calculate" />
+                        <Label layoutX="356.0" layoutY="55.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
+                        <ComboBox fx:id="Combmgrade" layoutX="173.0" layoutY="52.0" onAction="#select" prefWidth="150.0" promptText="Select your grade" />
+                        <Label fx:id="sub9" layoutX="390.0" layoutY="206.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <TextField layoutX="546.0" layoutY="203.0" />
+                        <Label fx:id="sub12" layoutX="390.0" layoutY="344.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label fx:id="sub11" layoutX="390.0" layoutY="304.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <Label fx:id="sub10" layoutX="390.0" layoutY="254.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
+                        <TextField layoutX="546.0" layoutY="340.0" />
+                        <TextField layoutX="546.0" layoutY="300.0" />
+                        <TextField layoutX="546.0" layoutY="250.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

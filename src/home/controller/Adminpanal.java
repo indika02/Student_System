@@ -28,6 +28,9 @@ public class Adminpanal extends Login implements Initializable {
     private Label lblteaname;
 
     @FXML
+    private Button cal;
+
+    @FXML
     private TableColumn<user, String > Firstname;
 
     @FXML
@@ -109,6 +112,9 @@ public class Adminpanal extends Login implements Initializable {
     private ComboBox<String> Combmgrade;
 
     @FXML
+    private ComboBox<String> Combmclass;
+
+    @FXML
     private Label sub1;
 
 
@@ -138,8 +144,16 @@ public class Adminpanal extends Login implements Initializable {
     private Label sub9;
 
     @FXML
+    void calculate(ActionEvent event) {
+        assign();
+    }
+
+    @FXML
     void select(ActionEvent event) {
+
+
         String ggrade=Combmgrade.getSelectionModel().getSelectedItem().toString();
+        String gclass=Combmclass.getSelectionModel().getSelectedItem().toString();
     }
 
 
@@ -240,12 +254,32 @@ public class Adminpanal extends Login implements Initializable {
         mainstage.show();
     }
 
+    //marks calculation
+
+    public void assign(){
+        String ggrade=Combmgrade.getSelectionModel().getSelectedItem().toString();
+        String gclass=Combmclass.getSelectionModel().getSelectedItem().toString();
+
+        if(ggrade.equals("Grade 10")){
+
+            JOptionPane.showMessageDialog(null,ggrade);
+
+            sub2.setText("Religion");
+            sub3.setText("Mathematics");
+            sub4.setText("English");
+            sub5.setText("Science");
+            sub6.setText("history");
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb){
         displayinfo();
         display();
+
         ObservableList<String> listc=FXCollections.observableArrayList("Grade 10","Grade 11","Grade 12","Grade 13");
         Combmgrade.setItems(listc);
+        ObservableList<String> lists=FXCollections.observableArrayList("10A","10B","10C","11A","11B","11C","12A","12B","12C","13A","13B","13C");
+        Combmclass.setItems(lists);
     }
 
 }

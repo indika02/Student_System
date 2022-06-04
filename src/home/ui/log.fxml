@@ -2,13 +2,38 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.log">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.log">
    <children>
-      <Button fx:id="teacher" layoutX="146.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnlogt" prefHeight="58.0" prefWidth="138.0" text="Teacher" />
-      <Button fx:id="student" layoutX="314.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnlogst" prefHeight="58.0" prefWidth="138.0" text="Student" />
-      <Label layoutX="99.0" layoutY="95.0" prefHeight="18.0" prefWidth="138.0" text="Select Your Position:" />
+      <Button fx:id="teacher" layoutX="129.0" layoutY="174.0" mnemonicParsing="false" onAction="#btnlogt" prefHeight="111.0" prefWidth="138.0" text="Teacher" />
+      <Button fx:id="student" layoutX="314.0" layoutY="174.0" mnemonicParsing="false" onAction="#btnlogst" prefHeight="111.0" prefWidth="131.0" text="Student" />
+      <Label layoutX="99.0" layoutY="95.0" prefHeight="28.0" prefWidth="194.0" text="Select Your Position:" textFill="#16359c">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <ImageView fitHeight="111.0" fitWidth="138.0" layoutX="130.0" layoutY="176.0">
+         <image>
+            <Image url="@../images/teacher.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="111.0" fitWidth="131.0" layoutX="314.0" layoutY="176.0">
+         <image>
+            <Image url="@../images/student-icon-transparent-28.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="130.0" layoutY="294.0" prefHeight="18.0" prefWidth="107.0" text="TEACHER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="314.0" layoutY="294.0" prefHeight="18.0" prefWidth="107.0" text="STUDENT">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

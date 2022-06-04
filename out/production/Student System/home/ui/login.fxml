@@ -50,11 +50,15 @@
             <String fx:value="txtbox" />
             <String fx:value="textarea" />
          </styleClass></TextField>
-      <PasswordField fx:id="txtpassword" layoutX="173.0" layoutY="195.0" prefHeight="26.0" prefWidth="218.0" />
-      <Button fx:id="btnlog" layoutX="370.0" layoutY="346.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" styleClass="login" stylesheets="@../css/student.css" text="Login">
+      <PasswordField fx:id="txtpassword" layoutX="173.0" layoutY="195.0" prefHeight="26.0" prefWidth="218.0" styleClass="txtbox" stylesheets="@../css/student.css" />
+      <Button fx:id="btnlog" layoutX="370.0" layoutY="346.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" stylesheets="@../css/student.css" text="Login">
          <font>
-            <Font name="Arial Bold" size="18.0" />
+            <Font name="Arial" size="20.0" />
          </font>
+         <styleClass>
+            <String fx:value="login" />
+            <String fx:value="login" />
+         </styleClass>
       </Button>
       <Label layoutX="86.0" layoutY="410.0" prefHeight="18.0" prefWidth="111.0" text="Not a Member?">
          <font>
@@ -67,6 +71,6 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Button>
-      <ComboBox fx:id="type" layoutX="173.0" layoutY="277.0" onAction="#select" prefHeight="26.0" prefWidth="218.0" promptText="Select one" />
+      <ComboBox fx:id="type" layoutX="173.0" layoutY="277.0" onAction="#select" prefHeight="26.0" prefWidth="218.0" promptText="Select one" styleClass="combo-box" stylesheets="@../css/student.css" />
    </children>
 </AnchorPane>

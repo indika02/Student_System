@@ -1,6 +1,12 @@
 .login{
-    -fx-background-color: #4747f3;
+    -fx-background-color: none;
+    -fx-border-color: #42a7f5;
     -fx-arrows-visible: left;
+    -fx-background-radius: 10px;
+}
+.login:hover{
+    -fx-background-color: #42a7f5;
+    -fx-cursor: pointer;
 }
 .comb{
     -fx-background-color: lightblue;
@@ -18,7 +24,9 @@
     -fx-cursor: pointer;
 }
 .txtbox{
-    -fx-border-style: none;
+    -fx-background-radius:16px ;
+    -fx-background-color: transparent;
+
 }
 .img{
     -fx-background-image: url("../images/iStock-507009337-171002.png");

@@ -113,40 +113,35 @@ public class Adminpanal extends Login implements Initializable {
 
     @FXML
     private ComboBox<String> Combmclass;
+    @FXML
+    private TextField Enrollment;
 
     @FXML
-    private Label sub1;
-
-
+    private TextField Sinhala;
 
     @FXML
-    private Label sub2;
-
+    private TextField Religious;
     @FXML
-    private Label sub3;
-
+    private TextField History;
     @FXML
-    private Label sub4;
-
+    private TextField Science;
     @FXML
-    private Label sub5;
-
+    private TextField Mathematics;
     @FXML
-    private Label sub6;
-
+    private TextField English;
     @FXML
-    private Label sub7;
-
+    private TextField firstCategory;
     @FXML
-    private Label sub8;
-
+    private TextField secondCategory;
     @FXML
-    private Label sub9;
+    private TextField thirdCategory;
 
-    @FXML
-    void calculate(ActionEvent event) {
-        assign();
-    }
+
+
+
+
+
+
 
     @FXML
     void select(ActionEvent event) {
@@ -254,23 +249,11 @@ public class Adminpanal extends Login implements Initializable {
         mainstage.show();
     }
 
-    //marks calculation
-
-    public void assign(){
-        String ggrade=Combmgrade.getSelectionModel().getSelectedItem().toString();
-        String gclass=Combmclass.getSelectionModel().getSelectedItem().toString();
-
-        if(ggrade.equals("Grade 10")){
-
-            JOptionPane.showMessageDialog(null,ggrade);
-
-            sub2.setText("Religion");
-            sub3.setText("Mathematics");
-            sub4.setText("English");
-            sub5.setText("Science");
-            sub6.setText("history");
-        }
+    public void calculate(){
+        String Enrollment_No=Enrollment.getText();
+        int Sinhala=S
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
         displayinfo();

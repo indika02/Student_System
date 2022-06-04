@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="632.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Teachersignup">
+<AnchorPane prefHeight="632.0" prefWidth="791.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Teachersignup">
    <children>
       <Label layoutX="333.0" layoutY="30.0" prefHeight="18.0" prefWidth="117.0" text="Teacher">
          <font>
@@ -37,7 +36,10 @@
       <TextField fx:id="txttelno" layoutX="175.0" layoutY="369.0" />
       <TextField fx:id="txtpwd1" layoutX="37.0" layoutY="481.0" />
       <TextField fx:id="txtpwd" layoutX="207.0" layoutY="481.0" />
-      <Button fx:id="btnsub" layoutX="636.0" layoutY="563.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="81.0" text="OK" />
+      <Button fx:id="btnsub" layoutX="636.0" layoutY="563.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color: lightblue;" text="OK">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
       <Label fx:id="alt" layoutX="333.0" layoutY="149.0" prefHeight="18.0" prefWidth="205.0" text="Already taken.Use another User name" textFill="RED" />
       <Label fx:id="txtconfirm" layoutX="40.0" layoutY="519.0" prefHeight="18.0" prefWidth="318.0" />
    </children>

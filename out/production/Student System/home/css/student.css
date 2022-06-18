@@ -2,7 +2,7 @@
     -fx-background-color: none;
     -fx-border-color: #42a7f5;
     -fx-arrows-visible: left;
-    -fx-background-radius: 10px;
+    -fx-border-radius:20;
 }
 .login:hover{
     -fx-background-color: #42a7f5;
@@ -25,7 +25,7 @@
 }
 .txtbox{
     -fx-background-radius:16px ;
-    -fx-background-color: transparent;
+    /*-fx-background-color: transparent;*/
 
 }
 .img{

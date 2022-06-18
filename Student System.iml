@@ -35,5 +35,6 @@
     <orderEntry type="library" name="fontawesomefx-8.9" level="project" />
     <orderEntry type="library" name="lib1" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.28" level="project" />
+    <orderEntry type="library" name="src" level="application" />
   </component>
 </module>

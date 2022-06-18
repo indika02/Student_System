@@ -136,6 +136,9 @@ public class Adminpanal extends Login implements Initializable {
     @FXML
     private TextField thirdCategory;
 
+    @FXML
+    private TextField nodtd;
+
 
 
 
@@ -251,7 +254,22 @@ public class Adminpanal extends Login implements Initializable {
 
     public void calculate(){
         String Enrollment_No=Enrollment.getText();
-        int Sinhala=S
+        int sinhala=Integer.parseInt(Sinhala.getText());
+        int religious=Integer.parseInt(Religious.getText());
+        int history=Integer.parseInt(History.getText());
+        int maths=Integer.parseInt(Mathematics.getText());
+        int science=Integer.parseInt(Science.getText());
+        int english=Integer.parseInt(English.getText());
+        int first=Integer.parseInt(firstCategory.getText());
+        int second=Integer.parseInt(secondCategory.getText());
+        int third=Integer.parseInt(thirdCategory.getText());
+
+        int totalno=Integer.parseInt(nodtd.getText());
+
+        int total=sinhala+religious+history+maths+science+english;
+        float avg=total/totalno;
+        JOptionPane.showMessageDialog(null,total);
+
     }
 
     @Override
@@ -259,10 +277,10 @@ public class Adminpanal extends Login implements Initializable {
         displayinfo();
         display();
 
-        ObservableList<String> listc=FXCollections.observableArrayList("Grade 10","Grade 11","Grade 12","Grade 13");
-        Combmgrade.setItems(listc);
-        ObservableList<String> lists=FXCollections.observableArrayList("10A","10B","10C","11A","11B","11C","12A","12B","12C","13A","13B","13C");
-        Combmclass.setItems(lists);
+//        ObservableList<String> listc=FXCollections.observableArrayList("Grade 10","Grade 11","Grade 12","Grade 13");
+//        Combmgrade.setItems(listc);
+//        ObservableList<String> lists=FXCollections.observableArrayList("10A","10B","10C","11A","11B","11C","12A","12B","12C","13A","13B","13C");
+//        Combmclass.setItems(lists);
     }
 
 }

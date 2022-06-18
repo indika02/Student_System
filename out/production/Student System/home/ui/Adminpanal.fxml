@@ -93,31 +93,30 @@
                               <Font name="Arial Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="34.0" layoutY="56.0" prefHeight="18.0" prefWidth="122.0" text="Select Grade:" />
-                        <Label fx:id="sub6" layoutX="34.0" layoutY="344.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label fx:id="sub5" layoutX="34.0" layoutY="305.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label fx:id="sub4" layoutX="34.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label fx:id="sub3" layoutX="34.0" layoutY="208.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label fx:id="sub2" layoutX="34.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label fx:id="sub1" layoutX="34.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <TextField layoutX="724.0" layoutY="53.0" />
-                        <TextField layoutX="179.0" layoutY="124.0" />
-                        <TextField layoutX="179.0" layoutY="161.0" />
-                        <TextField layoutX="179.0" layoutY="204.0" />
-                        <TextField layoutX="179.0" layoutY="251.0" />
-                        <TextField layoutX="179.0" layoutY="301.0" />
-                        <TextField layoutX="179.0" layoutY="340.0" />
-                        <Label fx:id="sub7" layoutX="390.0" layoutY="127.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <Label fx:id="sub8" layoutX="390.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <TextField layoutX="546.0" layoutY="124.0" />
-                        <TextField layoutX="546.0" layoutY="161.0" />
-                        <Button fx:id="cal" layoutX="279.0" layoutY="386.0" mnemonicParsing="false" onAction="#calculate" prefHeight="30.0" prefWidth="102.0" text="Calculate" />
-                        <Label layoutX="550.0" layoutY="57.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
-                        <ComboBox fx:id="Combmgrade" layoutX="173.0" layoutY="52.0" onAction="#select" prefWidth="150.0" promptText="Select your grade" />
-                        <Label fx:id="sub9" layoutX="390.0" layoutY="206.0" prefHeight="18.0" prefWidth="122.0" text="Enter the Student ID:" />
-                        <TextField layoutX="546.0" layoutY="203.0" />
-                        <Label layoutX="340.0" layoutY="57.0" prefHeight="18.0" prefWidth="39.0" text="Class:" />
-                        <ComboBox fx:id="Combmclass" layoutX="387.0" layoutY="51.0" onAction="#select" prefWidth="150.0" promptText="Select your class" />
+                        <Label fx:id="sub6" layoutX="34.0" layoutY="344.0" prefHeight="18.0" prefWidth="122.0" text="Science" />
+                        <Label fx:id="sub5" layoutX="34.0" layoutY="305.0" prefHeight="18.0" prefWidth="122.0" text="History" />
+                        <Label fx:id="sub4" layoutX="34.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Mathematics" />
+                        <Label fx:id="sub3" layoutX="34.0" layoutY="208.0" prefHeight="18.0" prefWidth="122.0" text="English" />
+                        <Label fx:id="sub2" layoutX="34.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Religious" />
+                        <Label fx:id="sub1" layoutX="34.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" text="Sinhala" />
+                        <TextField fx:id="Enrollment" layoutX="179.0" layoutY="65.0" />
+                        <TextField fx:id="Sinhala" layoutX="179.0" layoutY="124.0" />
+                        <TextField fx:id="Religious" layoutX="179.0" layoutY="161.0" />
+                        <TextField fx:id="English" layoutX="179.0" layoutY="204.0" />
+                        <TextField fx:id="Mathematics" layoutX="179.0" layoutY="251.0" />
+                        <TextField fx:id="History" layoutX="179.0" layoutY="301.0" />
+                        <TextField fx:id="Science" layoutX="179.0" layoutY="340.0" />
+                        <Label fx:id="sub7" layoutX="390.0" layoutY="127.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 1st category" />
+                        <Label fx:id="sub8" layoutX="390.0" layoutY="165.0" prefHeight="18.0" prefWidth="164.0" text="Subject of the 2nd category" />
+                        <TextField fx:id="firstCategory" layoutX="566.0" layoutY="123.0" />
+                        <TextField fx:id="secondCategory" layoutX="566.0" layoutY="161.0" />
+                        <Button fx:id="cal" layoutX="614.0" layoutY="391.0" mnemonicParsing="false" onAction="#calculate" prefHeight="30.0" prefWidth="102.0" text="Calculate" />
+                        <Label layoutX="34.0" layoutY="69.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
+                        <Label fx:id="sub9" layoutX="390.0" layoutY="206.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
+                        <TextField fx:id="thirdCategory" layoutX="566.0" layoutY="204.0" />
+                        <Label fx:id="sub91" layoutX="390.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
+                        <Label fx:id="sub92" layoutX="372.0" layoutY="69.0" prefHeight="18.0" prefWidth="166.0" text="Total No of Students:" />
+                        <TextField fx:id="nodtd" layoutX="572.0" layoutY="65.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

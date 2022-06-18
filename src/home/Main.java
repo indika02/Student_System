@@ -9,10 +9,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root= FXMLLoader.load(getClass().getResource("ui/Adminpanal.fxml"));
-        primaryStage.setTitle("Sign up");
+        Parent root= FXMLLoader.load(getClass().getResource("ui/studentboard.fxml"));
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root ));
         primaryStage.show();
     }
     public static void main(String[] args){launch(args);}

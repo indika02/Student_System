@@ -35,23 +35,20 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="632.0" prefWidth="1098.0">
                      <children>
-                        <TableView fx:id="tableuser" prefHeight="394.0" prefWidth="1448.0">
+                        <TableView fx:id="tableuser" prefHeight="394.0" prefWidth="1059.0">
                           <columns>
                             <TableColumn fx:id="Firstname" prefWidth="94.4000244140625" text="First Name" />
                               <TableColumn fx:id="Lastname" prefWidth="98.40003967285156" text="Last Name" />
                               <TableColumn fx:id="Username" prefWidth="98.40003967285156" text="Userrname" />
-                              <TableColumn fx:id="Enrollment_No" prefWidth="98.40003967285156" text="Enrollment No:" />
                               <TableColumn fx:id="DOB" prefWidth="84.79998779296875" text="Date Of Birth" />
                               <TableColumn fx:id="addressl1" prefWidth="72.0" text="Address L1" />
                               <TableColumn fx:id="addressl2" prefWidth="72.79998779296875" text="Address L2" />
                               <TableColumn fx:id="addressl3" prefWidth="82.39996337890625" text="Address L3" />
                               <TableColumn fx:id="city" prefWidth="88.0" text="City" />
-                              <TableColumn fx:id="Email" prefWidth="88.800048828125" text="Email" />
-                              <TableColumn fx:id="grade" prefWidth="97.5999755859375" text="Grade" />
+                              <TableColumn fx:id="Email" prefWidth="137.60003662109375" text="Email" />
+                              <TableColumn fx:id="grade" prefWidth="49.5999755859375" text="Grade" />
                               <TableColumn fx:id="Clzz" prefWidth="97.5999755859375" text="Class" />
-                              <TableColumn fx:id="Telno" prefWidth="77.60009765625" text="Tel No." />
                               <TableColumn fx:id="Password" prefWidth="77.60009765625" text="Password" />
-                              <TableColumn fx:id="UserType" prefWidth="77.60009765625" text="UserType" />
                           </columns>
                         </TableView>
                      </children>
@@ -111,12 +108,13 @@
                         <TextField fx:id="firstCategory" layoutX="566.0" layoutY="123.0" />
                         <TextField fx:id="secondCategory" layoutX="566.0" layoutY="161.0" />
                         <Button fx:id="cal" layoutX="614.0" layoutY="391.0" mnemonicParsing="false" onAction="#calculate" prefHeight="30.0" prefWidth="102.0" text="Calculate" />
-                        <Label layoutX="34.0" layoutY="69.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
+                        <Label layoutX="24.0" layoutY="69.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
                         <Label fx:id="sub9" layoutX="390.0" layoutY="206.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
                         <TextField fx:id="thirdCategory" layoutX="566.0" layoutY="204.0" />
-                        <Label fx:id="sub91" layoutX="390.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
+                        <Label fx:id="marks" layoutX="390.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" text="total" />
                         <Label fx:id="sub92" layoutX="372.0" layoutY="69.0" prefHeight="18.0" prefWidth="166.0" text="Total No of Students:" />
-                        <TextField fx:id="nodtd" layoutX="572.0" layoutY="65.0" />
+                        <TextField fx:id="nodtd" layoutX="566.0" layoutY="65.0" />
+                        <Label fx:id="total" layoutX="566.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

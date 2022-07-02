@@ -25,6 +25,9 @@ public class Adminpanal extends Login implements Initializable {
     private Label lblgrade;
 
     @FXML
+    private Label total;
+
+    @FXML
     private Label lblteaname;
 
     @FXML
@@ -104,6 +107,8 @@ public class Adminpanal extends Login implements Initializable {
 
     @FXML
     private TextField txtgrade;
+
+
 
     @FXML
     private TextField txtsub;
@@ -218,7 +223,7 @@ public class Adminpanal extends Login implements Initializable {
         Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
         Lastname.setCellValueFactory(new PropertyValueFactory<user,String>("lastname"));
         Username.setCellValueFactory(new PropertyValueFactory<user,String>("username"));
-        Enrollment_No.setCellValueFactory(new PropertyValueFactory<user,String>("enrollment_no"));
+        //Enrollment_No.setCellValueFactory(new PropertyValueFactory<user,String>("enrollment_no"));
         DOB.setCellValueFactory(new PropertyValueFactory<user,String>("bday"));
         addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("add1"));
         addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("add2"));
@@ -227,9 +232,9 @@ public class Adminpanal extends Login implements Initializable {
         Email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
         grade.setCellValueFactory(new PropertyValueFactory<user,String >("grade"));
         Clzz.setCellValueFactory(new PropertyValueFactory<user,String >("Clzz"));
-        Telno.setCellValueFactory(new PropertyValueFactory<user,String>("Telno"));
+        //Telno.setCellValueFactory(new PropertyValueFactory<user,String>("Telno"));
         Password.setCellValueFactory(new PropertyValueFactory<user,String >("password"));
-        UserType.setCellValueFactory(new PropertyValueFactory<user,String>("usertype"));
+        //UserType.setCellValueFactory(new PropertyValueFactory<user,String>("usertype"));
 
         listN=jdbcconnect.getinfo();
         tableuser.setItems(listN);
@@ -251,8 +256,8 @@ public class Adminpanal extends Login implements Initializable {
         mainstage.setScene(scene);
         mainstage.show();
     }
-
-    public void calculate(){
+@FXML
+    void calculate(ActionEvent event){
         String Enrollment_No=Enrollment.getText();
         int sinhala=Integer.parseInt(Sinhala.getText());
         int religious=Integer.parseInt(Religious.getText());
@@ -266,9 +271,9 @@ public class Adminpanal extends Login implements Initializable {
 
         int totalno=Integer.parseInt(nodtd.getText());
 
-        int total=sinhala+religious+history+maths+science+english;
-        float avg=total/totalno;
-        JOptionPane.showMessageDialog(null,total);
+        int tot=sinhala+religious+history+maths+science+english+first+second+third;
+        total.setText(Integer.toString(tot));
+
 
     }
 
@@ -276,6 +281,7 @@ public class Adminpanal extends Login implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
         displayinfo();
         display();
+
 
 //        ObservableList<String> listc=FXCollections.observableArrayList("Grade 10","Grade 11","Grade 12","Grade 13");
 //        Combmgrade.setItems(listc);

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -20,8 +19,6 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Label fx:id="lblteaname" layoutX="266.0" layoutY="23.0" prefHeight="18.0" prefWidth="207.0" text="Teacher name" textFill="WHITE" />
-            <Label fx:id="lblgrade" layoutX="482.0" layoutY="23.0" prefHeight="18.0" prefWidth="207.0" text="Grade" textFill="WHITE" />
             <Label layoutX="27.0" layoutY="13.0" prefHeight="18.0" prefWidth="122.0" text="ADMIN" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="33.0" />
@@ -33,25 +30,22 @@
         <tabs>
           <Tab text="Users">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="632.0" prefWidth="1098.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="632.0" prefWidth="1098.0" styleClass="img" stylesheets="@../css/student.css">
                      <children>
-                        <TableView fx:id="tableuser" prefHeight="394.0" prefWidth="1448.0">
+                        <TableView fx:id="tableuser" prefHeight="394.0" prefWidth="1059.0" style="-fx-background-color: white;" stylesheets="@../css/student.css">
                           <columns>
                             <TableColumn fx:id="Firstname" prefWidth="94.4000244140625" text="First Name" />
                               <TableColumn fx:id="Lastname" prefWidth="98.40003967285156" text="Last Name" />
                               <TableColumn fx:id="Username" prefWidth="98.40003967285156" text="Userrname" />
-                              <TableColumn fx:id="Enrollment_No" prefWidth="98.40003967285156" text="Enrollment No:" />
                               <TableColumn fx:id="DOB" prefWidth="84.79998779296875" text="Date Of Birth" />
                               <TableColumn fx:id="addressl1" prefWidth="72.0" text="Address L1" />
                               <TableColumn fx:id="addressl2" prefWidth="72.79998779296875" text="Address L2" />
                               <TableColumn fx:id="addressl3" prefWidth="82.39996337890625" text="Address L3" />
                               <TableColumn fx:id="city" prefWidth="88.0" text="City" />
-                              <TableColumn fx:id="Email" prefWidth="88.800048828125" text="Email" />
-                              <TableColumn fx:id="grade" prefWidth="97.5999755859375" text="Grade" />
+                              <TableColumn fx:id="Email" prefWidth="137.60003662109375" text="Email" />
+                              <TableColumn fx:id="grade" prefWidth="49.5999755859375" text="Grade" />
                               <TableColumn fx:id="Clzz" prefWidth="97.5999755859375" text="Class" />
-                              <TableColumn fx:id="Telno" prefWidth="77.60009765625" text="Tel No." />
                               <TableColumn fx:id="Password" prefWidth="77.60009765625" text="Password" />
-                              <TableColumn fx:id="UserType" prefWidth="77.60009765625" text="UserType" />
                           </columns>
                         </TableView>
                      </children>
@@ -60,33 +54,41 @@
           </Tab>
             <Tab text="Subjects">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="img" stylesheets="@../css/student.css">
                      <children>
-                        <TableView fx:id="tablestd" layoutX="432.0" layoutY="50.0" prefHeight="483.0" prefWidth="493.0">
+                        <TableView fx:id="tablestd" layoutX="432.0" layoutY="50.0" prefHeight="483.0" prefWidth="493.0" style="-fx-background-color: grey;">
                           <columns>
                               <TableColumn fx:id="Subject_No" prefWidth="94.39999389648438" text="SUBJECT NO:" />
                             <TableColumn fx:id="Grade" prefWidth="156.0" text="GRADE" />
                             <TableColumn fx:id="Subject" prefWidth="242.39998779296877" text="SUBJECT" />
                           </columns>
                         </TableView>
-                        <Label layoutX="106.0" layoutY="32.0" text="Adding Subjects" />
-                        <Label layoutX="32.0" layoutY="115.0" text="Grade" />
-                        <Label layoutX="32.0" layoutY="168.0" text="Subject" />
-                        <Button fx:id="btnadd" layoutX="60.0" layoutY="234.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="76.0" text="ADD" />
-                        <Button fx:id="btnremove" layoutX="169.0" layoutY="234.0" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="76.0" text="REMOVE" />
-                        <TextField fx:id="txtsub" layoutX="203.0" layoutY="164.0" prefHeight="26.0" prefWidth="165.0" />
-                        <TextField fx:id="txtgrade" layoutX="203.0" layoutY="102.0" prefHeight="26.0" prefWidth="166.0" promptText="Grade 00">
+                        <Label layoutX="106.0" layoutY="32.0" text="Adding Subjects">
+                           <font>
+                              <Font name="Bell MT Bold" size="25.0" />
+                           </font></Label>
+                        <Label layoutX="36.0" layoutY="106.0" prefHeight="18.0" prefWidth="66.0" text="Grade">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label layoutX="32.0" layoutY="168.0" text="Subject">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Button fx:id="btnadd" layoutX="60.0" layoutY="234.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: blue;" text="ADD" />
+                        <Button fx:id="btnremove" layoutX="169.0" layoutY="234.0" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: blue;" text="REMOVE" />
+                        <TextField fx:id="txtsub" layoutX="203.0" layoutY="164.0" prefHeight="26.0" prefWidth="165.0" style="-fx-background-color: brown;" />
+                        <TextField fx:id="txtgrade" layoutX="203.0" layoutY="102.0" prefHeight="26.0" prefWidth="166.0" promptText="Grade 00" style="-fx-background-color: brown;">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></TextField>
-                        <ComboBox fx:id="filtsub" layoutX="528.0" layoutY="18.0" onAction="#select" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
           <Tab text="Student">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0" styleClass="img" stylesheets="@../css/student.css">
                      <children>
                         <Label layoutX="385.0" layoutY="26.0" prefHeight="20.0" prefWidth="154.0" text="Marks Calculation">
                            <font>
@@ -111,12 +113,13 @@
                         <TextField fx:id="firstCategory" layoutX="566.0" layoutY="123.0" />
                         <TextField fx:id="secondCategory" layoutX="566.0" layoutY="161.0" />
                         <Button fx:id="cal" layoutX="614.0" layoutY="391.0" mnemonicParsing="false" onAction="#calculate" prefHeight="30.0" prefWidth="102.0" text="Calculate" />
-                        <Label layoutX="34.0" layoutY="69.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
+                        <Label layoutX="24.0" layoutY="69.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
                         <Label fx:id="sub9" layoutX="390.0" layoutY="206.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
                         <TextField fx:id="thirdCategory" layoutX="566.0" layoutY="204.0" />
-                        <Label fx:id="sub91" layoutX="390.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
+                        <Label fx:id="marks" layoutX="390.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" text="total" />
                         <Label fx:id="sub92" layoutX="372.0" layoutY="69.0" prefHeight="18.0" prefWidth="166.0" text="Total No of Students:" />
-                        <TextField fx:id="nodtd" layoutX="572.0" layoutY="65.0" />
+                        <TextField fx:id="nodtd" layoutX="566.0" layoutY="65.0" />
+                        <Label fx:id="total" layoutX="566.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

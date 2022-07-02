@@ -113,7 +113,7 @@ import java.util.ResourceBundle;
 
                 //sql input quary
                 //String sql="insert into users (`Firstname`, `Lastname`,`Username`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,Telno`,`Password`,`UserType`) values (?,?,?,?,?,?,?,?,?,?,?)";
-                String sql = "insert into users (`Firstname`, `Lastname`,`Username`,`Enrollment No`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Class`,`Telno`,`Password`,`UserType`) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                String sql = "insert into users (`Firstname`, `Lastname`,`Username`,`Enrollment_No`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Clzz`,`Telno`,`Password`,`UserType`) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 prepare = connect.prepareStatement(sql);
                 //database data input
 

@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -108,16 +109,12 @@ public class Adminpanal extends Login implements Initializable {
     @FXML
     private TextField txtgrade;
 
-
+    @FXML
+    private TextField txt_subno;
 
     @FXML
     private TextField txtsub;
 
-    @FXML
-    private ComboBox<String> Combmgrade;
-
-    @FXML
-    private ComboBox<String> Combmclass;
     @FXML
     private TextField Enrollment;
 
@@ -151,21 +148,11 @@ public class Adminpanal extends Login implements Initializable {
 
 
 
-    @FXML
-    void select(ActionEvent event) {
-
-
-        String ggrade=Combmgrade.getSelectionModel().getSelectedItem().toString();
-        String gclass=Combmclass.getSelectionModel().getSelectedItem().toString();
-    }
-
-
-
     public Adminpanal() {
     }
 
 
-
+    int index=-1;
 
     ObservableList<Record> listM;
     ObservableList<user> listN;
@@ -184,32 +171,69 @@ public class Adminpanal extends Login implements Initializable {
             prepare=connect.prepareStatement(sql);
             String gra=txtgrade.getText();
            String sub=txtsub.getText();
-            prepare.setString(1,gra);
-            prepare.setString(2,sub);
-            prepare.execute();
-            display();
-            txtgrade.setText("");
-            txtsub.setText("");
-
+           if(gra=="" && sub==""){
+               JOptionPane.showMessageDialog(null,"NULL! ERROR!!");
+           }else {
+               prepare.setString(1, gra);
+               prepare.setString(2, sub);
+               prepare.execute();
+               display();
+               txtgrade.setText("");
+               txtsub.setText("");
+           }
         }catch (Exception e){
             System.out.println(e);
         }
 
     }
-    public void delete(){
-        connect=jdbcconnect.getConnection();
-        String sql="DELETE FROM subjects where Grade= ?";
-        try{
-            prepare=connect.prepareStatement(sql);
-            prepare.setString(1,Grade.getText());
-            prepare.execute();
-            JOptionPane.showMessageDialog(null,"Deleted");
-            display();
+    @FXML
+    void getSelected() {
+        index = tablestd.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
+        }
+        txt_subno.setText(Subject_No.getCellData(index).toString());
+        txtgrade.setText(Grade.getCellData(index).toString());
+        txtsub.setText(Subject.getCellData(index).toString());
 
+    }
+
+
+    public void Edit(){
+        try{
+            connect=jdbcconnect.getConnection();
+            String value1=txt_subno.getText();
+            String value2=txtgrade.getText();
+            String value3=txtsub.getText();
+
+            String sql = "update subjects set Subject_No= '"+value1+"',Grade= '"+value2+"',Subject= '"+
+                    value3+"' where Subject_No= '"+value1+"' ";
+            prepare=connect.prepareStatement(sql);
+            prepare.execute();
+            JOptionPane.showMessageDialog(null,"OK");
+            display();
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null,"ERROR!");
         }
     }
+
+
+    public void Delete(){
+        connect=jdbcconnect.getConnection();
+        String sql = "delete from subjects where Subject_No = ?";
+        try {
+            prepare = connect.prepareStatement(sql);
+            prepare.setString(1, txt_subno.getText());
+            prepare.execute();
+            JOptionPane.showMessageDialog(null, "Delete");
+            display();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+
+
     //method of diasplay data of table
     public void display(){
         Subject_No.setCellValueFactory(new PropertyValueFactory<Record,Integer>("Subject_No"));
@@ -218,7 +242,7 @@ public class Adminpanal extends Login implements Initializable {
         listM=jdbcconnect.getDatausers();
         tablestd.setItems(listM);
     }
-
+//display users data into table
     public void displayinfo(){
         Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
         Lastname.setCellValueFactory(new PropertyValueFactory<user,String>("lastname"));
@@ -232,9 +256,8 @@ public class Adminpanal extends Login implements Initializable {
         Email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
         grade.setCellValueFactory(new PropertyValueFactory<user,String >("grade"));
         Clzz.setCellValueFactory(new PropertyValueFactory<user,String >("Clzz"));
-        //Telno.setCellValueFactory(new PropertyValueFactory<user,String>("Telno"));
         Password.setCellValueFactory(new PropertyValueFactory<user,String >("password"));
-        //UserType.setCellValueFactory(new PropertyValueFactory<user,String>("usertype"));
+
 
         listN=jdbcconnect.getinfo();
         tableuser.setItems(listN);
@@ -278,15 +301,8 @@ public class Adminpanal extends Login implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb){
+    public void initialize(URL url, ResourceBundle rb) {
         displayinfo();
         display();
-
-
-//        ObservableList<String> listc=FXCollections.observableArrayList("Grade 10","Grade 11","Grade 12","Grade 13");
-//        Combmgrade.setItems(listc);
-//        ObservableList<String> lists=FXCollections.observableArrayList("10A","10B","10C","11A","11B","11C","12A","12B","12C","13A","13B","13C");
-//        Combmclass.setItems(lists);
     }
-
 }

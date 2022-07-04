@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="664.0" prefWidth="509.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Results">
+   <children>
+      <TableView layoutX="69.0" layoutY="187.0" prefHeight="434.0" prefWidth="344.0">
+        <columns>
+          <TableColumn prefWidth="197.59996795654297" text="Subjects" />
+          <TableColumn prefWidth="146.4000244140625" text="Marks" />
+        </columns>
+      </TableView>
+      <Label layoutX="140.0" layoutY="14.0" prefHeight="27.0" prefWidth="162.0" text="Exam Results">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="60.0" text="Enrollment no:" />
+      <Label layoutX="167.0" layoutY="60.0" prefHeight="18.0" prefWidth="102.0" text="Label" />
+      <Label layoutX="72.0" layoutY="88.0" text="Place" />
+      <Label layoutX="167.0" layoutY="87.0" prefHeight="18.0" prefWidth="102.0" text="Label" />
+      <Label layoutX="69.0" layoutY="118.0" text="Total marks" />
+      <Label layoutX="167.0" layoutY="117.0" prefHeight="18.0" prefWidth="102.0" text="Label" />
+      <Label layoutX="69.0" layoutY="149.0" text="Average" />
+      <Label layoutX="167.0" layoutY="148.0" prefHeight="18.0" prefWidth="102.0" text="Label" />
+   </children>
+</AnchorPane>

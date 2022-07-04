@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="14bd9007-d52a-4c36-a337-acf6964cf4a7" name="Default Changelist" comment="iijgjfgjf">
+      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/Adminpanal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/Adminpanal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/studentboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/studentboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/controller/Adminpanal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/Adminpanal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/ui/Adminpanal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/Adminpanal.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://C:/Program Files/Java/javafx-sdk-18.0.1/lib/javafx.fxml.jar!/javafx/fxml/Initializable.class" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectId" id="2BAVt5croNRc1pA1ZodpicuvQZ9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/javafx_school_management_system-master" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="home.Main" />
+      <module name="Student System" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-18.0.1\lib&quot;  --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14bd9007-d52a-4c36-a337-acf6964cf4a7" name="Default Changelist" comment="" />
+      <created>1656349109252</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656349109252</updated>
+      <workItem from="1656349117243" duration="2347000" />
+      <workItem from="1656351552190" duration="133000" />
+      <workItem from="1656737067943" duration="14646000" />
+      <workItem from="1656913366717" duration="30000" />
+      <workItem from="1656931927075" duration="9418000" />
+      <workItem from="1656949281881" duration="900000" />
+      <workItem from="1656950331291" duration="6344000" />
+    </task>
+    <task id="LOCAL-00001" summary="iijgjfgjf">
+      <created>1656779091017</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656779091017</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="iijgjfgjf" />
+    <option name="LAST_COMMIT_MESSAGE" value="iijgjfgjf" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

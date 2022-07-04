@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14bd9007-d52a-4c36-a337-acf6964cf4a7" name="Default Changelist" comment="iijgjfgjf">
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/Adminpanal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/Adminpanal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/studentboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/studentboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/Adminpanal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/Adminpanal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/ui/Adminpanal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/Adminpanal.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="14bd9007-d52a-4c36-a337-acf6964cf4a7" name="Default Changelist" comment="subject adding completed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +70,7 @@
       <workItem from="1656913366717" duration="30000" />
       <workItem from="1656931927075" duration="9418000" />
       <workItem from="1656949281881" duration="900000" />
-      <workItem from="1656950331291" duration="6344000" />
+      <workItem from="1656950331291" duration="6864000" />
     </task>
     <task id="LOCAL-00001" summary="iijgjfgjf">
       <created>1656779091017</created>
@@ -84,7 +79,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656779091017</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="subject adding completed">
+      <created>1656960867907</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656960867907</updated>
+    </task>
+    <task id="LOCAL-00003" summary="subject adding completed">
+      <created>1656961068434</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656961068434</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,7 +113,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="iijgjfgjf" />
-    <option name="LAST_COMMIT_MESSAGE" value="iijgjfgjf" />
+    <MESSAGE value="subject adding completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="subject adding completed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

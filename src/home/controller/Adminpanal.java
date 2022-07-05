@@ -10,11 +10,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
@@ -103,8 +109,6 @@ public class Adminpanal extends Login implements Initializable {
     @FXML
     private TableView<Record> tablestd;
 
-    @FXML
-    private ComboBox<String> filtsub;
 
     @FXML
     private TextField txtgrade;
@@ -116,40 +120,52 @@ public class Adminpanal extends Login implements Initializable {
     private TextField txtsub;
 
     @FXML
-    private TextField Enrollment;
+    private TextField txttgra;
 
     @FXML
-    private TextField Sinhala;
+    private ImageView ivFiles;
 
     @FXML
-    private TextField Religious;
-    @FXML
-    private TextField History;
-    @FXML
-    private TextField Science;
-    @FXML
-    private TextField Mathematics;
-    @FXML
-    private TextField English;
-    @FXML
-    private TextField firstCategory;
-    @FXML
-    private TextField secondCategory;
-    @FXML
-    private TextField thirdCategory;
+    private Button btnOpenImgFile;
+
+    private FileInputStream fis;
+
+    final FileChooser fc=new FileChooser();
 
     @FXML
-    private TextField nodtd;
+    void handlebtnOpenImgFile(ActionEvent event) {
+        fc.setTitle("My file Chooser");
 
+        fc.setInitialDirectory(new File(System.getProperty("user.home")));
 
+        fc.getExtensionFilters().clear();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png*", "*.jpg*", "*.gif*"));
+        File file = fc.showOpenDialog(null);
+        if (file != null) {
+            //taFile.appendText(file.getAbsolutePath()+"\n");
+            ivFiles.setImage(new Image(file.toURI().toString()));
+        } else {
+            System.out.println("A file is invalid");
+        }
+        connect = jdbcconnect.getConnection();
+        String sql = "insert into timetable(Grade,timetable)values(?,?)";
+        try {
+            prepare = connect.prepareStatement(sql);
 
+            String gra = txttgra.getText();
 
-
-
-
-
-    public Adminpanal() {
+            prepare.setString(1, gra);
+            fis = new FileInputStream(file);
+            prepare.setBinaryStream(2, (InputStream) fis);
+            prepare.execute();
+            //ivFiles.setImage(new Image("D:\\Student System\\Student System\\src\\home\\images\\vector-school-timetable-weekly-curriculum-design-template-J5XEHE.jpg"));
+            txttgra.setText("");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
+
+
 
 
     int index=-1;
@@ -172,12 +188,16 @@ public class Adminpanal extends Login implements Initializable {
             String gra=txtgrade.getText();
            String sub=txtsub.getText();
            if(gra=="" && sub==""){
-               JOptionPane.showMessageDialog(null,"NULL! ERROR!!");
+               Alert alert = new Alert(Alert.AlertType.ERROR);
+               alert.setHeaderText(null);
+               alert.setContentText("ERROR!");
+               alert.showAndWait();
            }else {
                prepare.setString(1, gra);
                prepare.setString(2, sub);
                prepare.execute();
                display();
+               txt_subno.setText("");
                txtgrade.setText("");
                txtsub.setText("");
            }
@@ -210,10 +230,16 @@ public class Adminpanal extends Login implements Initializable {
                     value3+"' where Subject_No= '"+value1+"' ";
             prepare=connect.prepareStatement(sql);
             prepare.execute();
-            JOptionPane.showMessageDialog(null,"OK");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("OK");
+            alert.showAndWait();
             display();
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"ERROR!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("ERROR!");
+            alert.showAndWait();
         }
     }
 
@@ -225,10 +251,16 @@ public class Adminpanal extends Login implements Initializable {
             prepare = connect.prepareStatement(sql);
             prepare.setString(1, txt_subno.getText());
             prepare.execute();
-            JOptionPane.showMessageDialog(null, "Delete");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("OK");
+            alert.showAndWait();
             display();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("ERROR!");
+            alert.showAndWait();
         }
 
     }
@@ -278,26 +310,6 @@ public class Adminpanal extends Login implements Initializable {
         Scene scene=new Scene(root);
         mainstage.setScene(scene);
         mainstage.show();
-    }
-@FXML
-    void calculate(ActionEvent event){
-        String Enrollment_No=Enrollment.getText();
-        int sinhala=Integer.parseInt(Sinhala.getText());
-        int religious=Integer.parseInt(Religious.getText());
-        int history=Integer.parseInt(History.getText());
-        int maths=Integer.parseInt(Mathematics.getText());
-        int science=Integer.parseInt(Science.getText());
-        int english=Integer.parseInt(English.getText());
-        int first=Integer.parseInt(firstCategory.getText());
-        int second=Integer.parseInt(secondCategory.getText());
-        int third=Integer.parseInt(thirdCategory.getText());
-
-        int totalno=Integer.parseInt(nodtd.getText());
-
-        int tot=sinhala+religious+history+maths+science+english+first+second+third;
-        total.setText(Integer.toString(tot));
-
-
     }
 
     @Override

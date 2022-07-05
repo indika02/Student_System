@@ -40,3 +40,10 @@
     -fx-background-image: url(../images/student-icon-transparent-28.jpg);
     -fx-background-size: cover;
 }
+
+.border {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}

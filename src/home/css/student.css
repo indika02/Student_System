@@ -2,10 +2,11 @@
     -fx-background-color: none;
     -fx-border-color: #42a7f5;
     -fx-arrows-visible: left;
-    -fx-border-radius:20;
+    ;
 }
 .login:hover{
     -fx-background-color: #42a7f5;
+    -fx-border-radius: 09px;
     -fx-cursor: pointer;
 }
 .comb{
@@ -46,4 +47,27 @@
     background-color: transparent;
     resize: none;
     outline: none;
+}
+.logo{
+    -fx-background-image: url(../images/logo.jpeg);
+    -fx-max-height: 500px;
+    -fx-max-width: 400px;
+}
+* {
+    -fx-primary-color: #007acc;
+    -fx-secondary-color: #4B6EBF;
+    -fx-grey-color: #b9b9b9;
+
+    -fx-focus-color: -fx-secondary-color;
+}
+
+.text-field {
+    -fx-accent: -fx-primary-color;
+    -fx-background-color: -fx-grey-color, white;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 0;
+
+}
+.text-field:focused {
+    -fx-background-color: -fx-primary-color, white;
 }

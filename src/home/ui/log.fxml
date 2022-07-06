@@ -9,8 +9,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.log">
    <children>
-      <Button fx:id="teacher" layoutX="129.0" layoutY="174.0" mnemonicParsing="false" onAction="#btnlogt" prefHeight="111.0" prefWidth="138.0" text="Teacher" />
-      <Button fx:id="student" layoutX="314.0" layoutY="174.0" mnemonicParsing="false" onAction="#btnlogst" prefHeight="111.0" prefWidth="131.0" text="Student" />
+      <Button fx:id="teacher" layoutX="129.0" layoutY="174.0" mnemonicParsing="false" onAction="#btnlogt" prefHeight="111.0" prefWidth="138.0" style="-fx-background-color: lightgreen;" text="Teacher" />
+      <Button fx:id="student" layoutX="314.0" layoutY="174.0" mnemonicParsing="false" onAction="#btnlogst" prefHeight="111.0" prefWidth="131.0" style="-fx-background-color: yellow;" text="Student" />
       <Label layoutX="99.0" layoutY="95.0" prefHeight="28.0" prefWidth="194.0" text="Select Your Position:" textFill="#16359c">
          <font>
             <Font name="System Bold" size="19.0" />
@@ -35,5 +35,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <Button fx:id="btnback" layoutX="47.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="38.0" prefWidth="98.0" style="-fx-border-radius: 9px;" styleClass="login" stylesheets="@../css/student.css" text="Back">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

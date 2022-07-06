@@ -19,6 +19,9 @@ public class log {
     private Button teacher;
 
     @FXML
+    private Button btnback;
+
+    @FXML
     void btnlogst(ActionEvent event) throws IOException {
         //close current window
        student.getScene().getWindow().hide();
@@ -36,6 +39,17 @@ public class log {
         teacher.getScene().getWindow().hide();
         //move to the next window
         Parent root=FXMLLoader.load(getClass().getResource("../ui/teachersignup.fxml"));
+        Stage mainstage=new Stage();
+        Scene scene=new Scene(root);
+        mainstage.setScene(scene);
+        mainstage.show();
+    }
+    @FXML
+    void back(ActionEvent event) throws IOException {
+        //close current window
+        btnback.getScene().getWindow().hide();
+        //move to the next window
+        Parent root=FXMLLoader.load(getClass().getResource("../ui/login.fxml"));
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
         mainstage.setScene(scene);

@@ -12,11 +12,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="467.0" prefWidth="529.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Login">
+<AnchorPane prefHeight="378.0" prefWidth="660.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Login">
    <children>
-      <Label layoutX="198.0" layoutY="26.0" prefHeight="18.0" prefWidth="90.0" text="LOGIN">
+      <Label layoutX="356.0" layoutY="54.0" prefHeight="39.0" prefWidth="111.0" text="LOGIN">
          <font>
-            <Font name="Arial Bold" size="27.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="33.0" />
          </font>
          <textFill>
             <LinearGradient endX="1.0" endY="0.8522727236603246" startX="0.7007576051083478" startY="0.5340908874164928">
@@ -35,39 +35,39 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutX="34.0" layoutY="155.0" text="Username">
+      <Label layoutX="307.0" layoutY="155.0" text="Username" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="198.0" text="Password">
+      <Label layoutX="303.0" layoutY="196.0" text="Password" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtuserid" layoutX="173.0" layoutY="152.0" prefHeight="26.0" prefWidth="218.0" stylesheets="@../css/student.css">
+      <TextField fx:id="txtuserid" layoutX="406.0" layoutY="152.0" prefHeight="26.0" prefWidth="218.0" stylesheets="@../css/student.css">
          <styleClass>
             <String fx:value="txtbox" />
             <String fx:value="textarea" />
             <String fx:value="border" />
          </styleClass></TextField>
-      <PasswordField fx:id="txtpassword" layoutX="173.0" layoutY="195.0" prefHeight="26.0" prefWidth="218.0" styleClass="txtbox" stylesheets="@../css/student.css" />
-      <Button fx:id="btnlog" layoutX="370.0" layoutY="346.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" style="-fx-border-radius: 20;" styleClass="login" stylesheets="@../css/student.css" text="Login">
+      <PasswordField fx:id="txtpassword" layoutX="406.0" layoutY="194.0" prefHeight="26.0" prefWidth="218.0" styleClass="txtbox" stylesheets="@../css/student.css" />
+      <Button fx:id="btnlog" layoutX="537.0" layoutY="291.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" style="-fx-border-radius: 9;" styleClass="login" stylesheets="@../css/student.css" text="Login">
          <font>
             <Font name="Arial" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="86.0" layoutY="410.0" prefHeight="18.0" prefWidth="111.0" text="Not a Member?">
+      <Label layoutX="415.0" layoutY="346.0" prefHeight="18.0" prefWidth="111.0" text="Not a Member?">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lbltxt" layoutX="39.0" layoutY="234.0" prefHeight="18.0" prefWidth="205.0" />
-      <Button fx:id="btnsignup" layoutX="198.0" layoutY="406.0" mnemonicParsing="false" onAction="#signupshow" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: none; -fx-cursor: pointer;" styleClass="register" stylesheets="@../css/student.css" text="Sign up now" textFill="#03a6f2">
+      <Label fx:id="lbltxt" layoutX="412.0" layoutY="220.0" prefHeight="18.0" prefWidth="205.0" />
+      <Button fx:id="btnsignup" layoutX="527.0" layoutY="342.0" mnemonicParsing="false" onAction="#signupshow" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: none; -fx-cursor: pointer;" styleClass="register" stylesheets="@../css/student.css" text="Sign up now" textFill="#03a6f2">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Button>
-      <ComboBox fx:id="type" layoutX="173.0" layoutY="277.0" onAction="#select" prefHeight="26.0" prefWidth="218.0" promptText="Select one" styleClass="combo-box" stylesheets="@../css/student.css" />
+      <ComboBox fx:id="type" layoutX="406.0" layoutY="252.0" onAction="#select" prefHeight="26.0" prefWidth="218.0" promptText="Select one" style="-fx-border-radius: 12;" styleClass="comb" stylesheets="@../css/student.css" />
    </children>
 </AnchorPane>

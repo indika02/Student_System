@@ -26,7 +26,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Adminpanal extends Login implements Initializable {
+public class Adminpanal implements Initializable {
 
     @FXML
     private Label lblgrade;
@@ -36,9 +36,6 @@ public class Adminpanal extends Login implements Initializable {
 
     @FXML
     private Label lblteaname;
-
-    @FXML
-    private Button cal;
 
     @FXML
     private TableColumn<user, String > Firstname;
@@ -135,14 +132,11 @@ public class Adminpanal extends Login implements Initializable {
     @FXML
     void handlebtnOpenImgFile(ActionEvent event) {
         fc.setTitle("My file Chooser");
-
         fc.setInitialDirectory(new File(System.getProperty("user.home")));
-
         fc.getExtensionFilters().clear();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png*", "*.jpg*", "*.gif*"));
         File file = fc.showOpenDialog(null);
         if (file != null) {
-            //taFile.appendText(file.getAbsolutePath()+"\n");
             ivFiles.setImage(new Image(file.toURI().toString()));
         } else {
             System.out.println("A file is invalid");
@@ -164,9 +158,6 @@ public class Adminpanal extends Login implements Initializable {
             System.out.println(e);
         }
     }
-
-
-
 
     int index=-1;
 
@@ -279,7 +270,6 @@ public class Adminpanal extends Login implements Initializable {
         Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
         Lastname.setCellValueFactory(new PropertyValueFactory<user,String>("lastname"));
         Username.setCellValueFactory(new PropertyValueFactory<user,String>("username"));
-        //Enrollment_No.setCellValueFactory(new PropertyValueFactory<user,String>("enrollment_no"));
         DOB.setCellValueFactory(new PropertyValueFactory<user,String>("bday"));
         addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("add1"));
         addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("add2"));
@@ -289,8 +279,6 @@ public class Adminpanal extends Login implements Initializable {
         grade.setCellValueFactory(new PropertyValueFactory<user,String >("grade"));
         Clzz.setCellValueFactory(new PropertyValueFactory<user,String >("Clzz"));
         Password.setCellValueFactory(new PropertyValueFactory<user,String >("password"));
-
-
         listN=jdbcconnect.getinfo();
         tableuser.setItems(listN);
 
@@ -299,7 +287,7 @@ public class Adminpanal extends Login implements Initializable {
 
 
     private ArrayList<String> list;
-
+//logout button
     @FXML
     void logout(ActionEvent event) throws IOException {
         //close current window

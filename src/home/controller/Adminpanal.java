@@ -1,6 +1,6 @@
 package home.controller;
 
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,8 +15,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -29,15 +27,6 @@ import java.util.ResourceBundle;
 public class Adminpanal implements Initializable {
 
     @FXML
-    private Label lblgrade;
-
-    @FXML
-    private Label total;
-
-    @FXML
-    private Label lblteaname;
-
-    @FXML
     private TableColumn<user, String > Firstname;
 
     @FXML
@@ -45,9 +34,6 @@ public class Adminpanal implements Initializable {
 
     @FXML
     private TableColumn<user, String> Username;
-
-    @FXML
-    private TableColumn<user, String> Enrollment_No;
 
     @FXML
     private TableColumn<user, String> DOB;
@@ -74,25 +60,13 @@ public class Adminpanal implements Initializable {
     private TableColumn<user, String> Clzz;
 
     @FXML
-    private TableColumn<user, String> Telno;
-
-    @FXML
     private TableColumn<user, String> Password;
-
-    @FXML
-    private TableColumn<user, String> UserType;
 
     @FXML
     private TableView<user> tableuser;
 
     @FXML
     private Button btnlogout;
-
-    @FXML
-    private Button btnadd;
-
-    @FXML
-    private Button btnremove;
 
     @FXML
     private TableColumn<Record, Integer > Subject_No;
@@ -121,9 +95,6 @@ public class Adminpanal implements Initializable {
 
     @FXML
     private ImageView ivFiles;
-
-    @FXML
-    private Button btnOpenImgFile;
 
     private FileInputStream fis;
 
@@ -165,9 +136,8 @@ public class Adminpanal implements Initializable {
     ObservableList<user> listN;
     //mysql connection variables
     private Connection connect;
-    private Statement statement;
     private PreparedStatement prepare;
-    private ResultSet result;
+
 
     @FXML
     void add(ActionEvent event) {

@@ -25,22 +25,22 @@
       <Label layoutX="37.0" layoutY="415.0" prefHeight="18.0" prefWidth="103.0" text="Create Password" />
       <Label layoutX="37.0" layoutY="447.0" prefHeight="18.0" prefWidth="103.0" text="Enter Password" />
       <Label layoutX="207.0" layoutY="447.0" prefHeight="18.0" prefWidth="103.0" text="Re-Enter Password" />
-      <TextField fx:id="txtfname" layoutX="175.0" layoutY="73.0" />
-      <TextField fx:id="txtlname" layoutX="175.0" layoutY="107.0" />
-      <TextField fx:id="txtaddl1" layoutX="175.0" layoutY="182.0" />
-      <TextField fx:id="txtuname" layoutX="175.0" layoutY="145.0" onKeyReleased="#username" />
-      <TextField fx:id="txtaddl2" layoutX="175.0" layoutY="214.0" />
-      <TextField fx:id="txtaddl3" layoutX="175.0" layoutY="250.0" />
-      <TextField fx:id="txtemail" layoutX="175.0" layoutY="326.0" />
-      <TextField fx:id="txtcity" layoutX="175.0" layoutY="287.0" />
-      <TextField fx:id="txttelno" layoutX="175.0" layoutY="369.0" />
+      <TextField fx:id="txtfname" layoutX="175.0" layoutY="73.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtlname" layoutX="175.0" layoutY="107.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtaddl1" layoutX="177.0" layoutY="182.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtuname" layoutX="175.0" layoutY="145.0" onKeyReleased="#username" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtaddl2" layoutX="175.0" layoutY="214.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtaddl3" layoutX="175.0" layoutY="250.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtemail" layoutX="175.0" layoutY="326.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtcity" layoutX="175.0" layoutY="287.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txttelno" layoutX="175.0" layoutY="369.0" prefHeight="26.0" prefWidth="266.0" />
       <TextField fx:id="txtpwd1" layoutX="37.0" layoutY="481.0" />
       <TextField fx:id="txtpwd" layoutX="207.0" layoutY="481.0" />
-      <Button fx:id="btnsub" layoutX="636.0" layoutY="563.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color: lightblue;" text="OK">
+      <Button fx:id="btnsub" layoutX="636.0" layoutY="563.0" mnemonicParsing="false" onAction="#submit" prefHeight="38.0" prefWidth="98.0" style="-fx-border-radius: 9px;" styleClass="login" stylesheets="@../css/student.css" text="OK">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Arial Bold" size="18.0" />
          </font></Button>
-      <Label fx:id="alt" layoutX="333.0" layoutY="149.0" prefHeight="18.0" prefWidth="205.0" text="Already taken.Use another User name" textFill="RED" />
+      <Label fx:id="alt" layoutX="451.0" layoutY="149.0" prefHeight="18.0" prefWidth="205.0" text="Already taken.Use another User name" textFill="RED" />
       <Label fx:id="txtconfirm" layoutX="40.0" layoutY="519.0" prefHeight="18.0" prefWidth="318.0" />
    </children>
 </AnchorPane>

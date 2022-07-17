@@ -31,6 +31,9 @@ public class Login implements Initializable {
     private Button btnlog;
 
     @FXML
+    private Button btnfpwod;
+
+    @FXML
     private TextField txtuserid;
 
     @FXML
@@ -49,6 +52,16 @@ public class Login implements Initializable {
         String t=type.getSelectionModel().getSelectedItem().toString();
     }
 
+    @FXML
+    void resetpwd(ActionEvent event) throws IOException {
+        btnfpwod.getScene().getWindow().hide();
+        //move to the next window
+        Parent root= FXMLLoader.load(getClass().getResource("../ui/pwdreset.fxml"));
+        Stage mainstage=new Stage();
+        Scene scene=new Scene(root);
+        mainstage.setScene(scene);
+        mainstage.show();
+    }
 
 
     @FXML
@@ -120,7 +133,7 @@ public class Login implements Initializable {
                     Scene scene = new Scene(root);
                     mainstage.setScene(scene);
                     mainstage.show();
-             }
+                }
             }else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);

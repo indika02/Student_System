@@ -1,7 +1,10 @@
 package home.controller;
 
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,6 +30,56 @@ import java.util.ResourceBundle;
 
 public class Adminpanal implements Initializable {
 
+
+    @FXML
+    private TextField Mathematics;
+
+    @FXML
+    private TextField Religious;
+
+    @FXML
+    private TextField Sinhala;
+    @FXML
+    private TextField English;
+
+    @FXML
+    private TextField tot;
+
+    @FXML
+    private TextField avg;
+
+    @FXML
+    private TextField firstCategory;
+
+    @FXML
+    private TextField secondCategory;
+
+    @FXML
+    private TextField thirdCategory;
+
+    @FXML
+    private TextField history;
+
+    @FXML
+    private TextField rank;
+
+    @FXML
+    private TextField science;
+
+    @FXML
+    private TextField nodtd;
+
+
+    @FXML
+    private TextField Enrollment_no;
+
+
+    @FXML
+    private TableColumn<user, String> Telno;
+
+    @FXML
+    private TableColumn<user, String> UserType;
+
     @FXML
     private TableColumn<user, String > Firstname;
 
@@ -33,7 +87,9 @@ public class Adminpanal implements Initializable {
     private TableColumn<user, String> Lastname;
 
     @FXML
-    private TableColumn<user, String> Username;
+    private TableColumn<user,String> Enrollment_No;
+
+
 
     @FXML
     private TableColumn<user, String> DOB;
@@ -54,13 +110,17 @@ public class Adminpanal implements Initializable {
     private TableColumn<user, String> Email;
 
     @FXML
-    private TableColumn<user, String> grade;
+    private TableColumn<user, String> grde;
 
     @FXML
     private TableColumn<user, String> Clzz;
 
     @FXML
-    private TableColumn<user, String> Password;
+    private TextField searchfield;
+
+
+    @FXML
+    private Button btncal;
 
     @FXML
     private TableView<user> tableuser;
@@ -69,16 +129,19 @@ public class Adminpanal implements Initializable {
     private Button btnlogout;
 
     @FXML
-    private TableColumn<Record, Integer > Subject_No;
+    private TextField subjectsearch;
 
     @FXML
-    private TableColumn<Record, String> Grade;
+    private TableColumn<subject, Integer > Subject_No;
 
     @FXML
-    private TableColumn<Record, String> Subject;
+    private TableColumn<subject, String> Grade;
 
     @FXML
-    private TableView<Record> tablestd;
+    private TableColumn<subject, String> Subject;
+
+    @FXML
+    private TableView<subject> tablestd;
 
 
     @FXML
@@ -132,8 +195,8 @@ public class Adminpanal implements Initializable {
 
     int index=-1;
 
-    ObservableList<Record> listM;
-    ObservableList<user> listN;
+
+
     //mysql connection variables
     private Connection connect;
     private PreparedStatement prepare;
@@ -142,10 +205,11 @@ public class Adminpanal implements Initializable {
     @FXML
     void add(ActionEvent event) {
      connect=jdbcconnect.getConnection();
-        String sql="insert into subjects(Grade,Subject)values(?,?)";
+        String sql="insert into subjects(Subject_No,Grade,Subject)values(?,?,?)";
         //call method for display data of database to table
         try{
             prepare=connect.prepareStatement(sql);
+            String t=txt_subno.getText();
             String gra=txtgrade.getText();
            String sub=txtsub.getText();
            if(gra=="" && sub==""){
@@ -154,8 +218,9 @@ public class Adminpanal implements Initializable {
                alert.setContentText("ERROR!");
                alert.showAndWait();
            }else {
-               prepare.setString(1, gra);
-               prepare.setString(2, sub);
+                prepare.setString(1,t);
+               prepare.setString(2, gra);
+               prepare.setString(3, sub);
                prepare.execute();
                display();
                txt_subno.setText("");
@@ -197,6 +262,7 @@ public class Adminpanal implements Initializable {
             alert.showAndWait();
             display();
         }catch (Exception e){
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("ERROR!");
@@ -206,6 +272,7 @@ public class Adminpanal implements Initializable {
 
 
     public void Delete(){
+
         connect=jdbcconnect.getConnection();
         String sql = "delete from subjects where Subject_No = ?";
         try {
@@ -217,7 +284,9 @@ public class Adminpanal implements Initializable {
             alert.setContentText("OK");
             alert.showAndWait();
             display();
+
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("ERROR!");
@@ -226,33 +295,148 @@ public class Adminpanal implements Initializable {
 
     }
 
-
+    ObservableList<user> UsersearchJavaObservableList= FXCollections.observableArrayList();
+    ObservableList<subject> SubjectSearchObservableList=FXCollections.observableArrayList();
     //method of diasplay data of table
     public void display(){
-        Subject_No.setCellValueFactory(new PropertyValueFactory<Record,Integer>("Subject_No"));
-        Grade.setCellValueFactory(new PropertyValueFactory<Record, String>("Grade"));
-        Subject.setCellValueFactory(new PropertyValueFactory<Record, String>("Subject"));
+
+       connect=jdbcconnect.getConnection();
+
+       String sql="SELECT Subject_No,Grade,Subject from subjects";
+
+        try {
+            prepare=connect.prepareStatement(sql);
+            ResultSet result = prepare.executeQuery();
+
+            while (result.next()){
+                int Subject_No=result.getInt("Subject_No");
+                String Grade=result.getString("Grade");
+                String Subject=result.getString("Subject");
+
+
+                SubjectSearchObservableList.add(new subject(Subject_No,Grade,Subject));
+            }
+            Subject_No.setCellValueFactory(new PropertyValueFactory<subject, Integer>("Subject_No"));
+            Grade.setCellValueFactory(new PropertyValueFactory<subject, String>("Grade"));
+            Subject.setCellValueFactory(new PropertyValueFactory<subject, String>("Subject"));
+
+            tablestd.setItems(SubjectSearchObservableList);
+
+            FilteredList<subject> filterdata=new FilteredList<subject>(SubjectSearchObservableList, b -> true);
+            subjectsearch.textProperty().addListener((observable,oldValue,newValue)->{
+                filterdata.setPredicate(UserSearchJava->{
+                    if(newValue.isEmpty() || newValue==null){
+                        return true;
+                    }
+                    String searchkeyword=newValue.toLowerCase();
+                    if(UserSearchJava.getGrade().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else
+                        return false;
+                });
+            });
+            SortedList<subject> sortData=new SortedList<subject>(filterdata);
+            sortData.comparatorProperty().bind(tablestd.comparatorProperty());
+
+            tablestd.setItems(sortData);
+        }catch (Exception e){
+
+        }
+        Subject_No.setCellValueFactory(new PropertyValueFactory<subject,Integer>("Subject_No"));
+        Grade.setCellValueFactory(new PropertyValueFactory<subject, String>("Grade"));
+        Subject.setCellValueFactory(new PropertyValueFactory<subject, String>("Subject"));
+        ObservableList<subject> listM;
         listM=jdbcconnect.getDatausers();
         tablestd.setItems(listM);
     }
+
+
+
+
 //display users data into table
     public void displayinfo(){
-        Firstname.setCellValueFactory(new PropertyValueFactory<user,String>("firstname"));
-        Lastname.setCellValueFactory(new PropertyValueFactory<user,String>("lastname"));
-        Username.setCellValueFactory(new PropertyValueFactory<user,String>("username"));
-        DOB.setCellValueFactory(new PropertyValueFactory<user,String>("bday"));
-        addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("add1"));
-        addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("add2"));
-        addressl3.setCellValueFactory(new PropertyValueFactory<user,String>("add3"));
-        city.setCellValueFactory(new PropertyValueFactory<user,String >("city"));
-        Email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
-        grade.setCellValueFactory(new PropertyValueFactory<user,String >("grade"));
-        Clzz.setCellValueFactory(new PropertyValueFactory<user,String >("Clzz"));
-        Password.setCellValueFactory(new PropertyValueFactory<user,String >("password"));
-        listN=jdbcconnect.getinfo();
-        tableuser.setItems(listN);
+        connect=jdbcconnect.getConnection();
 
-}
+        String sql="SELECT Firstname,Lastname,Enrollment_No,DOB,addressl1,addressl2,addressl3,city,Email,Grade,Clzz,Telno,UserType FROM users";
+        try {
+            prepare=connect.prepareStatement(sql);
+            ResultSet result = prepare.executeQuery();
+
+            while (result.next()){
+                String Firstname=result.getString("Firstname");
+                String Lastname=result.getString("Lastname");
+                String Enrollment_No=result.getString("Enrollment_No");
+                String DOB=result.getString("DOB");
+                String addressl1=result.getString("addressl1");
+                String addressl2=result.getString("addressl2");
+                String addressl3=result.getString("addressl3");
+                String city=result.getString("city");
+                String Email=result.getString("Email");
+                String Grde=result.getString("Grade");
+                String Clzz=result.getString("Clzz");
+                String Telno = result.getString("Telno");
+                String UserType=result.getString("UserType");
+
+                UsersearchJavaObservableList.add(new user(Firstname,Lastname,Enrollment_No,DOB,addressl1,addressl2,addressl3,city,Email,Grde,Clzz,Telno,UserType));
+            }
+            Firstname.setCellValueFactory(new PropertyValueFactory<user, String>("Firstname"));
+            Lastname.setCellValueFactory(new PropertyValueFactory<user, String>("Lastname"));
+            Enrollment_No.setCellValueFactory(new PropertyValueFactory<user, String>("Enrollment_No"));
+            DOB.setCellValueFactory(new PropertyValueFactory<user, String>("DOB"));
+            addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("addressl1"));
+            addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("addressl2"));
+            addressl3.setCellValueFactory(new PropertyValueFactory<user,String>("addressl3"));
+            city.setCellValueFactory(new PropertyValueFactory<user,String>("city"));
+            Email.setCellValueFactory(new PropertyValueFactory<user,String>("Email"));
+            grde.setCellValueFactory(new PropertyValueFactory<user,String>("Grde"));
+            Clzz.setCellValueFactory(new PropertyValueFactory<user,String>("Clzz"));
+            Telno.setCellValueFactory(new PropertyValueFactory<user,String>("Telno"));
+            UserType.setCellValueFactory(new PropertyValueFactory<user, String>("UserType"));
+
+            tableuser.setItems(UsersearchJavaObservableList);
+
+            FilteredList<user> filterdata=new FilteredList<user>(UsersearchJavaObservableList, b -> true);
+            searchfield.textProperty().addListener((observable,oldValue,newValue)->{
+                filterdata.setPredicate(UserSearchJava->{
+                    if(newValue.isEmpty() || newValue==null){
+                        return true;
+                    }
+                    String searchkeyword=newValue.toLowerCase();
+                    if(UserSearchJava.getFirstname().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if(UserSearchJava.getLastname().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getEnrollment_No().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getDOB().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getAddressl1().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getAddressl2().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getAddressl3().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getCity().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getGrde().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getClzz().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else if (UserSearchJava.getUserType().toLowerCase().indexOf(searchkeyword)>-1){
+                        return true;
+                    }else
+                        return false;
+                });
+            });
+            SortedList<user> sortData=new SortedList<>(filterdata);
+            sortData.comparatorProperty().bind(tableuser.comparatorProperty());
+
+            tableuser.setItems(sortData);
+        }catch (Exception e){
+
+        }
+    }
+
 
 
 
@@ -270,9 +454,30 @@ public class Adminpanal implements Initializable {
         mainstage.show();
     }
 
+    @FXML
+    void btncal(ActionEvent event){
+        int sin=Integer.parseInt(Sinhala.getText());
+        int reli=Integer.parseInt(Religious.getText());
+        int eng=Integer.parseInt(English.getText());
+        int math=Integer.parseInt(Mathematics.getText());
+        int his=Integer.parseInt(history.getText());
+        int sci=Integer.parseInt(science.getText());
+        int fact=Integer.parseInt(firstCategory.getText());
+        int scat=Integer.parseInt(secondCategory.getText());
+        int tcat=Integer.parseInt(secondCategory.getText());
+
+        int total=sin+reli+eng+math+his+sci+fact+scat+tcat;
+        tot.setText(Integer.toString(total));
+    }
+public void calculate(){
+
+
+}
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         displayinfo();
         display();
+
     }
 }

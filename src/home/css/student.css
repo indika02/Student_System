@@ -71,3 +71,7 @@
 .text-field:focused {
     -fx-background-color: -fx-primary-color, white;
 }
+
+.gradient{
+    -fx-background-image: url(../images/Telegram.jpg)s;
+}

@@ -1,73 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="378.0" prefWidth="660.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Login">
+<AnchorPane prefHeight="378.0" prefWidth="683.0" styleClass="gradient" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Login">
    <children>
-      <Label layoutX="356.0" layoutY="54.0" prefHeight="39.0" prefWidth="111.0" text="LOGIN">
-         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="33.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="0.8522727236603246" startX="0.7007576051083478" startY="0.5340908874164928">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.2378479540348053" green="0.08701754361391068" blue="0.6526315808296204" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
-      <Label layoutX="307.0" layoutY="155.0" text="Username" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="303.0" layoutY="196.0" text="Password" textFill="WHITE">
+      <Label layoutX="341.0" layoutY="154.0" text="Username">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtuserid" layoutX="406.0" layoutY="152.0" prefHeight="26.0" prefWidth="218.0" stylesheets="@../css/student.css">
-         <styleClass>
-            <String fx:value="txtbox" />
-            <String fx:value="textarea" />
-            <String fx:value="border" />
-         </styleClass></TextField>
-      <PasswordField fx:id="txtpassword" layoutX="406.0" layoutY="194.0" prefHeight="26.0" prefWidth="218.0" styleClass="txtbox" stylesheets="@../css/student.css" />
-      <Button fx:id="btnlog" layoutX="537.0" layoutY="291.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="86.0" style="-fx-border-radius: 9;" styleClass="login" stylesheets="@../css/student.css" text="Login">
+      <Label layoutX="342.0" layoutY="195.0" text="Password">
          <font>
-            <Font name="Arial" size="20.0" />
-         </font>
-      </Button>
-      <Label layoutX="415.0" layoutY="346.0" prefHeight="18.0" prefWidth="111.0" text="Not a Member?">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
+            <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
+      <TextField fx:id="txtuserid" layoutX="441.0" layoutY="152.0" prefHeight="26.0" prefWidth="218.0" style="-fx-border-color: black;" styleClass="txtbox" stylesheets="@../css/student.css" />
+      <PasswordField fx:id="txtpassword" layoutX="441.0" layoutY="193.0" prefHeight="26.0" prefWidth="218.0" style="-fx-border-color: black;" styleClass="txtbox" stylesheets="@../css/student.css" />
+      <Button fx:id="btnlog" layoutX="554.0" layoutY="321.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Login">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
       <Label fx:id="lbltxt" layoutX="412.0" layoutY="220.0" prefHeight="18.0" prefWidth="205.0" />
-      <Button fx:id="btnsignup" layoutX="527.0" layoutY="342.0" mnemonicParsing="false" onAction="#signupshow" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: none; -fx-cursor: pointer;" styleClass="register" stylesheets="@../css/student.css" text="Sign up now" textFill="#03a6f2">
+      <ComboBox fx:id="type" layoutX="441.0" layoutY="238.0" onAction="#select" prefHeight="26.0" prefWidth="218.0" promptText="Select one" style="-fx-border-radius: 12;" styleClass="comb" stylesheets="@../css/student.css" />
+      <ImageView fitHeight="378.0" fitWidth="337.0">
+         <image>
+            <Image url="@../images/iStock-507009337-171002.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnsignup" layoutX="104.0" layoutY="319.0" mnemonicParsing="false" onAction="#signupshow" prefHeight="39.0" prefWidth="106.0" style="-fx-background-color: red; -fx-cursor: pointer;" styleClass="register" stylesheets="@../css/student.css" text="Sign up now" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Button>
-      <ComboBox fx:id="type" layoutX="406.0" layoutY="252.0" onAction="#select" prefHeight="26.0" prefWidth="218.0" promptText="Select one" style="-fx-border-radius: 12;" styleClass="comb" stylesheets="@../css/student.css" />
+      <Label layoutX="441.0" layoutY="83.0" prefHeight="34.0" prefWidth="106.0" text="LOGIN">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="29.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnfpwod" layoutX="374.0" layoutY="321.0" mnemonicParsing="false" onAction="#resetpwd" prefHeight="34.0" prefWidth="140.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Frogot Password?">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

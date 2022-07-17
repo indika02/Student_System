@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="235.0" prefWidth="416.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Pwdreset">
+   <children>
+      <Label layoutX="31.0" layoutY="73.0" prefHeight="20.0" prefWidth="140.0" text="Enter your Username">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="148.0" prefHeight="20.0" prefWidth="150.0" text="Re-enter the Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="108.0" prefHeight="20.0" prefWidth="150.0" text="Create a New Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="145.0" layoutY="25.0" prefHeight="28.0" prefWidth="150.0" text="Password Reset">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnreset" layoutX="271.0" layoutY="186.0" mnemonicParsing="false" onAction="#reset" prefHeight="34.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Save" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="uname" layoutX="208.0" layoutY="70.0" />
+      <TextField fx:id="pwd" layoutX="208.0" layoutY="104.0" />
+      <TextField fx:id="rpwd" layoutX="208.0" layoutY="144.0" />
+   </children>
+</AnchorPane>

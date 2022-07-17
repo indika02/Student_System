@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="652.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
+<AnchorPane prefHeight="748.0" prefWidth="1231.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Adminpanal">
    <children>
-      <AnchorPane prefHeight="62.0" prefWidth="1057.0" style="-fx-background-color: darkblue;">
+      <AnchorPane prefHeight="62.0" prefWidth="1231.0" style="-fx-background-color: darkblue;">
          <children>
-            <Button fx:id="btnlogout" layoutX="968.0" layoutY="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
+            <Button fx:id="btnlogout" layoutX="1134.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 20; -fx-background-color: black; -fx-padding: 11;" text="LOGOUT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -27,28 +27,30 @@
             </Label>
          </children>
       </AnchorPane>
-      <TabPane layoutX="-6.0" layoutY="62.0" prefHeight="686.0" prefWidth="1061.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="-6.0" layoutY="60.0" prefHeight="688.0" prefWidth="1238.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Users">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="543.0" prefWidth="1352.0" styleClass="img" stylesheets="@../css/student.css">
                      <children>
-                        <TableView fx:id="tableuser" layoutX="5.0" prefHeight="326.0" prefWidth="1058.0" style="-fx-background-color: white;" stylesheets="@../css/student.css">
+                        <TableView fx:id="tableuser" layoutX="3.0" layoutY="84.0" prefHeight="326.0" prefWidth="1232.0" style="-fx-background-color: white;" stylesheets="@../css/student.css">
                           <columns>
                             <TableColumn fx:id="Firstname" prefWidth="94.4000244140625" text="First Name" />
-                              <TableColumn fx:id="Lastname" prefWidth="98.40003967285156" text="Last Name" />
-                              <TableColumn fx:id="Username" prefWidth="98.40003967285156" text="Userrname" />
-                              <TableColumn fx:id="DOB" prefWidth="84.79998779296875" text="Date Of Birth" />
-                              <TableColumn fx:id="addressl1" prefWidth="72.0" text="Address L1" />
-                              <TableColumn fx:id="addressl2" prefWidth="72.79998779296875" text="Address L2" />
-                              <TableColumn fx:id="addressl3" prefWidth="82.39996337890625" text="Address L3" />
-                              <TableColumn fx:id="city" prefWidth="88.0" text="City" />
-                              <TableColumn fx:id="Email" prefWidth="137.60003662109375" text="Email" />
-                              <TableColumn fx:id="grade" prefWidth="49.5999755859375" text="Grade" />
-                              <TableColumn fx:id="Clzz" prefWidth="97.5999755859375" text="Class" />
-                              <TableColumn fx:id="Password" prefWidth="77.60009765625" text="Password" />
+                              <TableColumn fx:id="Lastname" prefWidth="79.199951171875" text="Last Name" />
+                              <TableColumn fx:id="Enrollment_No" prefWidth="98.40003967285156" text="Enrollment No." />
+                              <TableColumn fx:id="DOB" prefWidth="162.4001007080078" text="Date Of Birth" />
+                              <TableColumn fx:id="addressl1" prefWidth="88.0" text="Address L1" />
+                              <TableColumn fx:id="addressl2" prefWidth="105.5999755859375" text="Address L2" />
+                              <TableColumn fx:id="addressl3" prefWidth="96.80001831054688" text="Address L3" />
+                              <TableColumn fx:id="city" prefWidth="70.39996337890625" text="City" />
+                              <TableColumn fx:id="Email" prefWidth="104.79998779296875" text="Email" />
+                              <TableColumn fx:id="grde" prefWidth="70.4000244140625" text="Grade" />
+                              <TableColumn fx:id="Clzz" prefWidth="48.0" text="Class" />
+                              <TableColumn fx:id="Telno" prefWidth="102.4000244140625" text="Tel.No" />
+                              <TableColumn fx:id="UserType" prefWidth="106.4000244140625" text="User Type" />
                           </columns>
                         </TableView>
+                        <TextField fx:id="searchfield" layoutX="27.0" layoutY="32.0" prefHeight="26.0" prefWidth="269.0" promptText="Search......." />
                      </children>
                   </AnchorPane>
             </content>
@@ -57,14 +59,14 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="img" stylesheets="@../css/student.css">
                      <children>
-                        <TableView fx:id="tablestd" layoutX="432.0" layoutY="50.0" onMouseClicked="#getSelected" prefHeight="483.0" prefWidth="493.0" style="-fx-background-color: grey;">
+                        <TableView fx:id="tablestd" layoutX="412.0" layoutY="99.0" onMouseClicked="#getSelected" prefHeight="483.0" prefWidth="493.0" style="-fx-background-color: grey;">
                           <columns>
                               <TableColumn fx:id="Subject_No" prefWidth="94.39999389648438" text="SUBJECT NO:" />
                             <TableColumn fx:id="Grade" prefWidth="156.0" text="GRADE" />
                             <TableColumn fx:id="Subject" prefWidth="242.39998779296877" text="SUBJECT" />
                           </columns>
                         </TableView>
-                        <Label layoutX="106.0" layoutY="32.0" text="Adding Subjects">
+                        <Label layoutX="112.0" layoutY="14.0" text="Adding Subjects">
                            <font>
                               <Font name="Bell MT Bold" size="25.0" />
                            </font></Label>
@@ -109,6 +111,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </TextField>
+                        <TextField fx:id="subjectsearch" layoutX="412.0" layoutY="45.0" prefHeight="26.0" prefWidth="243.0" promptText="Search............" />
                      </children>
                   </AnchorPane>
               </content>
@@ -133,37 +136,43 @@
             </Tab>
           <Tab text="Student">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0" styleClass="img" stylesheets="@../css/student.css">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0">
                      <children>
                         <Label layoutX="385.0" layoutY="26.0" prefHeight="20.0" prefWidth="154.0" text="Marks Calculation">
                            <font>
                               <Font name="Arial Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label fx:id="sub6" layoutX="34.0" layoutY="344.0" prefHeight="18.0" prefWidth="122.0" text="Science" />
-                        <Label fx:id="sub5" layoutX="34.0" layoutY="305.0" prefHeight="18.0" prefWidth="122.0" text="History" />
-                        <Label fx:id="sub4" layoutX="34.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Mathematics" />
-                        <Label fx:id="sub3" layoutX="34.0" layoutY="208.0" prefHeight="18.0" prefWidth="122.0" text="English" />
-                        <Label fx:id="sub2" layoutX="34.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Religious" />
-                        <Label fx:id="sub1" layoutX="34.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" text="Sinhala" />
-                        <TextField fx:id="Enrollment" layoutX="179.0" layoutY="65.0" />
+                        <Label layoutX="34.0" layoutY="344.0" prefHeight="18.0" prefWidth="122.0" text="Science" />
+                        <Label layoutX="34.0" layoutY="305.0" prefHeight="18.0" prefWidth="122.0" text="History" />
+                        <Label layoutX="34.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Mathematics" />
+                        <Label layoutX="34.0" layoutY="208.0" prefHeight="18.0" prefWidth="122.0" text="English" />
+                        <Label layoutX="34.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Religious" />
+                        <Label layoutX="34.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" text="Sinhala" />
+                        <TextField fx:id="Enrollment_no" layoutX="179.0" layoutY="65.0" />
                         <TextField fx:id="Sinhala" layoutX="179.0" layoutY="124.0" />
                         <TextField fx:id="Religious" layoutX="179.0" layoutY="161.0" />
                         <TextField fx:id="English" layoutX="179.0" layoutY="204.0" />
+                        <TextField fx:id="science" layoutX="179.0" layoutY="340.0" />
                         <TextField fx:id="Mathematics" layoutX="179.0" layoutY="251.0" />
-                        <TextField fx:id="History" layoutX="179.0" layoutY="301.0" />
-                        <TextField fx:id="Science" layoutX="179.0" layoutY="340.0" />
-                        <Label fx:id="sub7" layoutX="390.0" layoutY="127.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 1st category" />
-                        <Label fx:id="sub8" layoutX="390.0" layoutY="165.0" prefHeight="18.0" prefWidth="164.0" text="Subject of the 2nd category" />
+                        <TextField fx:id="history" layoutX="179.0" layoutY="300.0" />
+                        <Label layoutX="390.0" layoutY="127.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 1st category" />
+                        <Label layoutX="390.0" layoutY="165.0" prefHeight="18.0" prefWidth="164.0" text="Subject of the 2nd category" />
                         <TextField fx:id="firstCategory" layoutX="566.0" layoutY="123.0" />
                         <TextField fx:id="secondCategory" layoutX="566.0" layoutY="161.0" />
                         <Label layoutX="24.0" layoutY="69.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
-                        <Label fx:id="sub9" layoutX="390.0" layoutY="206.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
+                        <Label layoutX="390.0" layoutY="206.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
                         <TextField fx:id="thirdCategory" layoutX="566.0" layoutY="204.0" />
-                        <Label fx:id="marks" layoutX="390.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" text="total" />
-                        <Label fx:id="sub92" layoutX="372.0" layoutY="69.0" prefHeight="18.0" prefWidth="166.0" text="Total No of Students:" />
+                        <Label layoutX="390.0" layoutY="290.0" prefHeight="18.0" prefWidth="132.0" text="Average" />
+                        <Label layoutX="395.0" layoutY="69.0" prefHeight="18.0" prefWidth="122.0" text="Total No of Students:" />
                         <TextField fx:id="nodtd" layoutX="566.0" layoutY="65.0" />
                         <Label fx:id="total" layoutX="566.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" />
+                        <Label layoutX="389.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Total" />
+                        <Label layoutX="389.0" layoutY="335.0" prefHeight="18.0" prefWidth="166.0" text="Ranking" />
+                        <TextField fx:id="tot" layoutX="566.0" layoutY="251.0" />
+                        <TextField fx:id="avg" layoutX="566.0" layoutY="287.0" />
+                        <TextField fx:id="rank" layoutX="566.0" layoutY="331.0" />
+                        <Button fx:id="btncal" layoutX="462.0" layoutY="412.0" mnemonicParsing="false" onAction="#btncal" prefHeight="26.0" prefWidth="130.0" text="Calculate" />
                      </children></AnchorPane>
             </content>
           </Tab>

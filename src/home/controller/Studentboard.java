@@ -19,6 +19,21 @@ public class Studentboard{
     @FXML
     private Button logout;
 
+    @FXML
+    private Button btnpupdate;
+
+    @FXML
+    void pupdate(ActionEvent event) throws IOException {
+        //close current window
+        btnpupdate.getScene().getWindow().hide();
+        //move to the next window
+        Parent root= FXMLLoader.load(getClass().getResource("../ui/profileupdate.fxml"));
+        Stage mainstage=new Stage();
+        Scene scene=new Scene(root);
+        mainstage.setScene(scene);
+        mainstage.show();
+    }
+
 
     @FXML
     void logout(ActionEvent event) throws IOException {

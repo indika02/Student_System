@@ -211,7 +211,7 @@ public class SignUp implements Initializable {
         //close current window
         btnback.getScene().getWindow().hide();
         //move to the next window
-        Parent root=FXMLLoader.load(getClass().getResource("../ui/login.fxml"));
+        Parent root=FXMLLoader.load(getClass().getResource("../ui/log.fxml"));
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
         mainstage.setScene(scene);

@@ -43,10 +43,10 @@ public class Adminpanal implements Initializable {
     private TextField English;
 
     @FXML
-    private TextField tot;
+    private Label tot;
 
     @FXML
-    private TextField avg;
+    private Label avg;
 
     @FXML
     private TextField firstCategory;
@@ -60,8 +60,7 @@ public class Adminpanal implements Initializable {
     @FXML
     private TextField history;
 
-    @FXML
-    private TextField rank;
+
 
     @FXML
     private TextField science;
@@ -78,7 +77,7 @@ public class Adminpanal implements Initializable {
     private TableColumn<user, String> Telno;
 
     @FXML
-    private TableColumn<user, String> UserType;
+    private TableColumn<user, String> Usertype;
 
     @FXML
     private TableColumn<user, String > Firstname;
@@ -123,6 +122,9 @@ public class Adminpanal implements Initializable {
     private Button btncal;
 
     @FXML
+    private Button btnreset;
+
+    @FXML
     private TableView<user> tableuser;
 
     @FXML
@@ -158,6 +160,18 @@ public class Adminpanal implements Initializable {
 
     @FXML
     private ImageView ivFiles;
+
+
+    @FXML
+    private TextField g;
+
+    @FXML
+    private TextField c;
+
+    @FXML
+    private Button btnshow;
+
+
 
     private FileInputStream fis;
 
@@ -204,29 +218,29 @@ public class Adminpanal implements Initializable {
 
     @FXML
     void add(ActionEvent event) {
-     connect=jdbcconnect.getConnection();
+        connect=jdbcconnect.getConnection();
         String sql="insert into subjects(Subject_No,Grade,Subject)values(?,?,?)";
         //call method for display data of database to table
         try{
             prepare=connect.prepareStatement(sql);
             String t=txt_subno.getText();
             String gra=txtgrade.getText();
-           String sub=txtsub.getText();
-           if(gra=="" && sub==""){
-               Alert alert = new Alert(Alert.AlertType.ERROR);
-               alert.setHeaderText(null);
-               alert.setContentText("ERROR!");
-               alert.showAndWait();
-           }else {
+            String sub=txtsub.getText();
+            if(gra=="" && sub==""){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("ERROR!");
+                alert.showAndWait();
+            }else {
                 prepare.setString(1,t);
-               prepare.setString(2, gra);
-               prepare.setString(3, sub);
-               prepare.execute();
-               display();
-               txt_subno.setText("");
-               txtgrade.setText("");
-               txtsub.setText("");
-           }
+                prepare.setString(2, gra);
+                prepare.setString(3, sub);
+                prepare.execute();
+                display();
+                txt_subno.setText("");
+                txtgrade.setText("");
+                txtsub.setText("");
+            }
         }catch (Exception e){
             System.out.println(e);
         }
@@ -297,12 +311,13 @@ public class Adminpanal implements Initializable {
 
     ObservableList<user> UsersearchJavaObservableList= FXCollections.observableArrayList();
     ObservableList<subject> SubjectSearchObservableList=FXCollections.observableArrayList();
+
     //method of diasplay data of table
     public void display(){
 
-       connect=jdbcconnect.getConnection();
+        connect=jdbcconnect.getConnection();
 
-       String sql="SELECT Subject_No,Grade,Subject from subjects";
+        String sql="SELECT Subject_No,Grade,Subject from subjects";
 
         try {
             prepare=connect.prepareStatement(sql);
@@ -353,7 +368,7 @@ public class Adminpanal implements Initializable {
 
 
 
-//display users data into table
+    //display users data into table
     public void displayinfo(){
         connect=jdbcconnect.getConnection();
 
@@ -391,7 +406,7 @@ public class Adminpanal implements Initializable {
             grde.setCellValueFactory(new PropertyValueFactory<user,String>("Grde"));
             Clzz.setCellValueFactory(new PropertyValueFactory<user,String>("Clzz"));
             Telno.setCellValueFactory(new PropertyValueFactory<user,String>("Telno"));
-            UserType.setCellValueFactory(new PropertyValueFactory<user, String>("UserType"));
+            Usertype.setCellValueFactory(new PropertyValueFactory<user, String>("UserType"));
 
             tableuser.setItems(UsersearchJavaObservableList);
 
@@ -441,7 +456,7 @@ public class Adminpanal implements Initializable {
 
 
     private ArrayList<String> list;
-//logout button
+    //logout button
     @FXML
     void logout(ActionEvent event) throws IOException {
         //close current window
@@ -456,28 +471,98 @@ public class Adminpanal implements Initializable {
 
     @FXML
     void btncal(ActionEvent event){
-        int sin=Integer.parseInt(Sinhala.getText());
-        int reli=Integer.parseInt(Religious.getText());
-        int eng=Integer.parseInt(English.getText());
-        int math=Integer.parseInt(Mathematics.getText());
-        int his=Integer.parseInt(history.getText());
-        int sci=Integer.parseInt(science.getText());
-        int fact=Integer.parseInt(firstCategory.getText());
-        int scat=Integer.parseInt(secondCategory.getText());
-        int tcat=Integer.parseInt(secondCategory.getText());
+        connect=jdbcconnect.getConnection();
+        String sql="insert into sub_marks(Enrollment_No,grade,Clzz,sinhala,religious,english,mathematics,history,science,fstcategory,sndcategory,trdcategory,total,average)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            prepare=connect.prepareStatement(sql);
 
-        int total=sin+reli+eng+math+his+sci+fact+scat+tcat;
-        tot.setText(Integer.toString(total));
+            String Enro=Enrollment_no.getText();
+            String gr=g.getText();
+            String cl=c.getText();
+            int notstd = Integer.parseInt(nodtd.getText());
+            int sin = Integer.parseInt(Sinhala.getText());
+            int reli = Integer.parseInt(Religious.getText());
+            int eng = Integer.parseInt(English.getText());
+            int math = Integer.parseInt(Mathematics.getText());
+            int his = Integer.parseInt(history.getText());
+            int sci = Integer.parseInt(science.getText());
+            int fact = Integer.parseInt(firstCategory.getText());
+            int scat = Integer.parseInt(secondCategory.getText());
+            int tcat = Integer.parseInt(thirdCategory.getText());
+
+            int total = sin + reli + eng + math + his + sci + fact + scat + tcat;
+            tot.setText(Integer.toString(total));
+            double average = ((double) total / notstd);
+
+
+            avg.setText(Double.toString(Double.parseDouble(String.format("%.2f", average))));
+
+            prepare.setString(1,Enro);
+            prepare.setString(2,gr);
+            prepare.setString(3,cl);
+            prepare.setInt(4,sin);
+            prepare.setInt(5,reli);
+            prepare.setInt(6,eng);
+            prepare.setInt(7,math);
+            prepare.setInt(8,his);
+            prepare.setInt(9,sci);
+            prepare.setInt(10,fact);
+            prepare.setInt(11,scat);
+            prepare.setInt(12,tcat);
+            prepare.setInt(13,total);
+            prepare.setDouble(14,average);
+
+            prepare.execute();
+
+
+
+        }catch (Exception e){
+            System.out.println(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Incorrect Details.Enter Your details correctly!");
+            alert.showAndWait();
+        }
     }
-public void calculate(){
+    @FXML
+    void reset(ActionEvent event){
+        Enrollment_no.setText("");
+        nodtd.setText("");
+        g.setText("");
+        c.setText("");
+        Sinhala.setText("");
+        Religious.setText("");
+        English.setText("");
+        Mathematics.setText("");
+        history.setText("");
+        science.setText("");
+        firstCategory.setText("");
+        secondCategory.setText("");
+        thirdCategory.setText("");
+        tot.setText("");
+        avg.setText("");
 
 
-}
+
+    }
+
+
+        @FXML
+        void show(ActionEvent event) throws IOException {
+            btnshow.getScene().getWindow().hide();
+            //move to the next window
+            Parent root= FXMLLoader.load(getClass().getResource("../ui/Show.fxml"));
+            Stage mainstage=new Stage();
+            Scene scene=new Scene(root);
+            mainstage.setScene(scene);
+            mainstage.show();
+        }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         displayinfo();
         display();
+
 
     }
 }

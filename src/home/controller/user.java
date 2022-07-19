@@ -14,9 +14,9 @@ public class user {
     String grde;
     String clzz;
     String Telno;
-    String UserType;
+    String Usertype;
 
-    public user(String firstname, String lastname, String enrollment_No, String DOB, String addressl1, String addressl2, String addressl3, String city, String email, String grde, String clzz, String telno, String userType) {
+    public user(String firstname, String lastname, String enrollment_No, String DOB, String addressl1, String addressl2, String addressl3, String city, String email, String grde, String clzz, String telno, String usertype) {
         Firstname = firstname;
         Lastname = lastname;
         Enrollment_No = enrollment_No;
@@ -29,7 +29,7 @@ public class user {
         this.grde = grde;
         this.clzz = clzz;
         Telno = telno;
-        UserType = userType;
+        Usertype = usertype;
     }
 
     public user() {
@@ -85,7 +85,7 @@ public class user {
     }
 
     public String getUserType() {
-        return UserType;
+        return Usertype;
     }
 
     public void setFirstname(String firstname) {
@@ -136,7 +136,7 @@ public class user {
         Telno = telno;
     }
 
-    public void setUserType(String userType) {
-        UserType = userType;
+    public void setUserType(String usertype) {
+        Usertype = usertype;
     }
 }

@@ -2,50 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14bd9007-d52a-4c36-a337-acf6964cf4a7" name="Default Changelist" comment="time table stored success full!">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home/controller/Pwdreset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home/controller/pupdate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home/controller/subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home/ui/profileupdate.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home/ui/progress.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home/ui/pwdreset.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/home/controller/Show.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/home/controller/marks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/home/ui/show.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Adminpanal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/Adminpanal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Record.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Results.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/Results.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/SignUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/SignUp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Studentboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/Studentboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Subreg.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/Subreg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Teachersignup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/Teachersignup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/jdbcconnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/jdbcconnect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/log.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/log.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/user.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/css/student.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/css/student.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/Adminpanal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/Adminpanal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/Sign up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/Sign up.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/log.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/log.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/studentboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/studentboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/teachersignup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/teachersignup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/controller/Adminpanal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/Adminpanal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/Record.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/SignUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/controller/Studentboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/Studentboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/Teachersignup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/Teachersignup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/controller/jdbcconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/jdbcconnect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/controller/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/user.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/css/student.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/css/student.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/ui/Adminpanal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/Adminpanal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/ui/Sign up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/Sign up.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/ui/log.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/log.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/ui/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/ui/Results.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/ui/studentboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/studentboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/ui/teachersignup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/teachersignup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +58,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/School-Management-System-master/SchoolManagementSystem" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -121,13 +94,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -163,7 +138,10 @@
       <workItem from="1657947484515" duration="459000" />
       <workItem from="1657998664827" duration="3220000" />
       <workItem from="1658050241527" duration="4554000" />
-      <workItem from="1658072353093" duration="11402000" />
+      <workItem from="1658072353093" duration="11549000" />
+      <workItem from="1658159887084" duration="9152000" />
+      <workItem from="1658202351964" duration="13203000" />
+      <workItem from="1658232088081" duration="12423000" />
     </task>
     <task id="LOCAL-00001" summary="iijgjfgjf">
       <created>1656779091017</created>
@@ -214,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657196949537</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="time table stored success full!">
+      <created>1658085321334</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658085321334</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

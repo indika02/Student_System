@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -47,7 +46,7 @@
                               <TableColumn fx:id="grde" prefWidth="70.4000244140625" text="Grade" />
                               <TableColumn fx:id="Clzz" prefWidth="48.0" text="Class" />
                               <TableColumn fx:id="Telno" prefWidth="102.4000244140625" text="Tel.No" />
-                              <TableColumn fx:id="UserType" prefWidth="106.4000244140625" text="User Type" />
+                              <TableColumn fx:id="Usertype" prefWidth="106.4000244140625" text="User Type" />
                           </columns>
                         </TableView>
                         <TextField fx:id="searchfield" layoutX="27.0" layoutY="32.0" prefHeight="26.0" prefWidth="269.0" promptText="Search......." />
@@ -116,63 +115,100 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Time tables">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="img" stylesheets="@../css/student.css">
-                     <children>
-                        <Label layoutX="441.0" layoutY="37.0" prefHeight="31.0" prefWidth="156.0" text="Time table">
-                           <font>
-                              <Font name="Bell MT Bold" size="25.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="64.0" layoutY="93.0" prefHeight="23.0" prefWidth="138.0" text="Grade" />
-                        <Label layoutX="64.0" layoutY="125.0" prefHeight="23.0" prefWidth="138.0" text="Upload a Time table" />
-                        <TextField fx:id="txttgra" layoutX="203.0" layoutY="92.0" />
-                        <ImageView fx:id="ivFiles" fitHeight="292.0" fitWidth="516.0" layoutX="203.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="btnOpenImgFile" layoutX="203.0" layoutY="469.0" mnemonicParsing="false" onAction="#handlebtnOpenImgFile" prefHeight="26.0" prefWidth="97.0" text="SAVE" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
           <Tab text="Student">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="882.0" style="-fx-background-color: lightgreen;">
                      <children>
                         <Label layoutX="385.0" layoutY="26.0" prefHeight="20.0" prefWidth="154.0" text="Marks Calculation">
                            <font>
                               <Font name="Arial Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="34.0" layoutY="344.0" prefHeight="18.0" prefWidth="122.0" text="Science" />
-                        <Label layoutX="34.0" layoutY="305.0" prefHeight="18.0" prefWidth="122.0" text="History" />
-                        <Label layoutX="34.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Mathematics" />
-                        <Label layoutX="34.0" layoutY="208.0" prefHeight="18.0" prefWidth="122.0" text="English" />
-                        <Label layoutX="34.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Religious" />
-                        <Label layoutX="34.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" text="Sinhala" />
-                        <TextField fx:id="Enrollment_no" layoutX="179.0" layoutY="65.0" />
-                        <TextField fx:id="Sinhala" layoutX="179.0" layoutY="124.0" />
-                        <TextField fx:id="Religious" layoutX="179.0" layoutY="161.0" />
-                        <TextField fx:id="English" layoutX="179.0" layoutY="204.0" />
-                        <TextField fx:id="science" layoutX="179.0" layoutY="340.0" />
-                        <TextField fx:id="Mathematics" layoutX="179.0" layoutY="251.0" />
-                        <TextField fx:id="history" layoutX="179.0" layoutY="300.0" />
-                        <Label layoutX="390.0" layoutY="127.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 1st category" />
-                        <Label layoutX="390.0" layoutY="165.0" prefHeight="18.0" prefWidth="164.0" text="Subject of the 2nd category" />
-                        <TextField fx:id="firstCategory" layoutX="566.0" layoutY="123.0" />
-                        <TextField fx:id="secondCategory" layoutX="566.0" layoutY="161.0" />
-                        <Label layoutX="24.0" layoutY="69.0" prefHeight="18.0" prefWidth="143.0" text="Student Enrollment No:" />
-                        <Label layoutX="390.0" layoutY="206.0" prefHeight="18.0" prefWidth="166.0" text="Subject of the 3rd category" />
-                        <TextField fx:id="thirdCategory" layoutX="566.0" layoutY="204.0" />
-                        <Label layoutX="390.0" layoutY="290.0" prefHeight="18.0" prefWidth="132.0" text="Average" />
-                        <Label layoutX="395.0" layoutY="69.0" prefHeight="18.0" prefWidth="122.0" text="Total No of Students:" />
-                        <TextField fx:id="nodtd" layoutX="566.0" layoutY="65.0" />
+                        <Label layoutX="34.0" layoutY="344.0" prefHeight="18.0" prefWidth="122.0" text="Science">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Label layoutX="34.0" layoutY="305.0" prefHeight="18.0" prefWidth="122.0" text="History">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Label layoutX="34.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Mathematics">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Label layoutX="34.0" layoutY="208.0" prefHeight="18.0" prefWidth="122.0" text="English">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Label layoutX="34.0" layoutY="165.0" prefHeight="18.0" prefWidth="122.0" text="Religious">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Label layoutX="34.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" text="Sinhala">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <TextField fx:id="Enrollment_no" layoutX="216.0" layoutY="66.0" prefHeight="26.0" prefWidth="122.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <TextField fx:id="Sinhala" layoutX="179.0" layoutY="124.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <TextField fx:id="Religious" layoutX="179.0" layoutY="161.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <TextField fx:id="English" layoutX="179.0" layoutY="204.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <TextField fx:id="science" layoutX="179.0" layoutY="340.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <TextField fx:id="Mathematics" layoutX="179.0" layoutY="251.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <TextField fx:id="history" layoutX="179.0" layoutY="300.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <Label layoutX="360.0" layoutY="126.0" prefHeight="20.0" prefWidth="228.0" text="Subject of the 1st category">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Label layoutX="361.0" layoutY="165.0" prefHeight="20.0" prefWidth="227.0" text="Subject of the 2nd category">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <TextField fx:id="firstCategory" layoutX="608.0" layoutY="125.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <TextField fx:id="secondCategory" layoutX="608.0" layoutY="161.0" styleClass="textarea" stylesheets="@../css/student.css" />
+                        <Label layoutX="24.0" layoutY="69.0" prefHeight="20.0" prefWidth="198.0" text="Student Enrollment No:">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Label layoutX="361.0" layoutY="208.0" prefHeight="20.0" prefWidth="232.0" text="Subject of the 3rd category">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <TextField fx:id="thirdCategory" layoutX="608.0" layoutY="205.0" prefHeight="26.0" prefWidth="150.0" styleClass="text-field" stylesheets="@../css/student.css" />
+                        <Label layoutX="361.0" layoutY="305.0" prefHeight="18.0" prefWidth="132.0" text="Average">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Label layoutX="360.0" layoutY="68.0" prefHeight="20.0" prefWidth="180.0" text="Total No of Students:">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <TextField fx:id="nodtd" layoutX="547.0" layoutY="65.0" prefHeight="26.0" prefWidth="122.0" styleClass="textarea" stylesheets="@../css/student.css" />
                         <Label fx:id="total" layoutX="566.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" />
-                        <Label layoutX="389.0" layoutY="255.0" prefHeight="18.0" prefWidth="122.0" text="Total" />
-                        <Label layoutX="389.0" layoutY="335.0" prefHeight="18.0" prefWidth="166.0" text="Ranking" />
-                        <TextField fx:id="tot" layoutX="566.0" layoutY="251.0" />
-                        <TextField fx:id="avg" layoutX="566.0" layoutY="287.0" />
-                        <TextField fx:id="rank" layoutX="566.0" layoutY="331.0" />
-                        <Button fx:id="btncal" layoutX="462.0" layoutY="412.0" mnemonicParsing="false" onAction="#btncal" prefHeight="26.0" prefWidth="130.0" text="Calculate" />
+                        <Label layoutX="360.0" layoutY="257.0" prefHeight="18.0" prefWidth="122.0" text="Total">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <Button fx:id="btncal" layoutX="584.0" layoutY="352.0" mnemonicParsing="false" onAction="#btncal" prefHeight="26.0" prefWidth="130.0" text="CALCULATE" />
+                        <Label fx:id="tot" layoutX="609.0" layoutY="255.0" prefHeight="24.0" prefWidth="148.0" style="-fx-background-color: white; -fx-border-color: black;" />
+                        <Label fx:id="avg" layoutX="609.0" layoutY="301.0" prefHeight="24.0" prefWidth="148.0" style="-fx-background-color: white; -fx-border-color: black;" />
+                        <Button fx:id="btnreset" layoutX="428.0" layoutY="352.0" mnemonicParsing="false" onAction="#reset" prefHeight="26.0" prefWidth="130.0" text="RESET" />
+                        <Label layoutX="696.0" layoutY="68.0" prefHeight="20.0" prefWidth="76.0" text="Grade">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <TextField fx:id="g" layoutX="781.0" layoutY="65.0" prefHeight="26.0" prefWidth="102.0" promptText="Grade 00" styleClass="textarea" stylesheets="@../css/student.css">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
+                        <Label layoutX="896.0" layoutY="69.0" prefHeight="18.0" prefWidth="69.0" text="Class">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font></Label>
+                        <TextField fx:id="c" layoutX="971.0" layoutY="65.0" prefHeight="26.0" prefWidth="102.0" promptText="00B" styleClass="textarea" stylesheets="@../css/student.css">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
+                        <Button fx:id="btnshow" layoutX="755.0" layoutY="353.0" mnemonicParsing="false" onAction="#show" prefHeight="26.0" prefWidth="90.0" text="SHOW" />
                      </children></AnchorPane>
             </content>
           </Tab>

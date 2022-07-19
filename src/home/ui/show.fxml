@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="382.0" prefWidth="974.0" style="-fx-background-color: lightgreen;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Show">
+   <children>
+      <TableView fx:id="markstable" layoutY="52.0" prefHeight="329.0" prefWidth="986.0">
+         <columns>
+            <TableColumn fx:id="Enrollment_No" prefWidth="93.60000324249268" text="Enrollment_No" />
+            <TableColumn fx:id="grade" prefWidth="56.0" text="Grade" />
+            <TableColumn fx:id="Clzz" prefWidth="60.0" text="Class" />
+            <TableColumn fx:id="sinhala" prefWidth="55.20002746582031" text="Sinhala" />
+            <TableColumn fx:id="religious" prefWidth="69.60003662109375" text="Religious" />
+            <TableColumn fx:id="english" prefWidth="63.99993896484375" text="English" />
+            <TableColumn fx:id="mathematics" prefWidth="87.199951171875" text="Mathematics" />
+            <TableColumn fx:id="history" prefWidth="64.00006103515625" text="History" />
+            <TableColumn fx:id="science" prefWidth="55.20001220703125" text="Science" />
+            <TableColumn fx:id="fstcategory" prefWidth="76.0" text="1st category" />
+            <TableColumn fx:id="sndcategory" prefWidth="84.800048828125" text="2nd category" />
+            <TableColumn fx:id="trdcategory" prefWidth="77.60003662109375" text="3rd category" />
+            <TableColumn fx:id="total" prefWidth="72.00006103515625" text="Total marks" />
+            <TableColumn fx:id="Average" prefWidth="63.99997558593748" text="Average" />
+         </columns>
+      </TableView>
+      <TextField fx:id="markssearch" layoutX="22.0" layoutY="14.0" prefHeight="26.0" prefWidth="298.0" stylesheets="@../css/student.css" />
+      <Button fx:id="btnexit" layoutX="811.0" layoutY="15.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="90.0" text="EXIT" />
+   </children>
+</AnchorPane>

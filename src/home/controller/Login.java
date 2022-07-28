@@ -34,7 +34,7 @@ public class Login implements Initializable {
     private Button btnfpwod;
 
     @FXML
-    private TextField txtuserid;
+    private TextField index;
 
     @FXML
     private PasswordField txtpassword;
@@ -89,60 +89,66 @@ public class Login implements Initializable {
     private Statement statement;
     private PreparedStatement prepare;
     private ResultSet result;
+    private ResultSet result2;
 
     @FXML
     public void login(ActionEvent event) throws Exception{
         connect=jdbcconnect.getConnection();
 
-//Mysql Statement
-        String sql="SELECT * FROM users WHERE Username=? AND Password=? AND UserType=?" ;
-
-        //check the user id
-        String log=txtuserid.getText();
-        char[] charArray=log.toCharArray();
-        Character c=charArray[0];
-        String t=type.getSelectionModel().getSelectedItem().toString();
-        try{
-//mysql database checking
-            prepare=connect.prepareStatement(sql);
-            prepare.setString(1,txtuserid.getText());
-            prepare.setString(2,txtpassword.getText());
-            prepare.setString(3,t);
-
-            result=prepare.executeQuery();
-
-            if (result.next()){
-                //check the user id
-
-                if(t.equals("Teacher")){
-
-                    //close current window
-                    btnlog.getScene().getWindow().hide();
-                    //move to the next window
-                    Parent root = FXMLLoader.load(getClass().getResource("../ui/Adminpanal.fxml"));
-                    Stage mainstage = new Stage();
-                    Scene scene = new Scene(root);
-                    mainstage.setScene(scene);
-                    mainstage.show();
-                }else {
-                    //close current window
-                    btnlog.getScene().getWindow().hide();
-                    //move to the next window
-                    Parent root = FXMLLoader.load(getClass().getResource("../ui/studentboard.fxml"));
-                    Stage mainstage = new Stage();
-                    Scene scene = new Scene(root);
-                    mainstage.setScene(scene);
-                    mainstage.show();
-                }
-            }else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setContentText("Incorrect username or passowrd!");
-                alert.showAndWait();
 
 
-            }
+    String sql = "SELECT * FROM student WHERE email=? AND password=? AND status=?";
+        String sql2 = "SELECT * FROM teacher WHERE email=? AND password=? AND status=?";
+
+
+
+
+
+try{
+    String t=type.getSelectionModel().getSelectedItem().toString();
+    prepare = connect.prepareStatement(sql);
+    prepare.setString(1, index.getText());
+    prepare.setString(2, txtpassword.getText());
+    prepare.setString(3,t);
+    result = prepare.executeQuery();
+
+    prepare = connect.prepareStatement(sql2);
+    prepare.setString(1, index.getText());
+    prepare.setString(2, txtpassword.getText());
+    prepare.setString(3,t);
+
+    result2 = prepare.executeQuery();
+    //close current window
+    if(result.next()) {
+
+            btnlog.getScene().getWindow().hide();
+            //move to the next window
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/studentboard.fxml"));
+            Stage mainstage = new Stage();
+            Scene scene = new Scene(root);
+            mainstage.setScene(scene);
+            mainstage.show();
+
+
+    }else if (result2.next()){
+
+    //close current window
+    btnlog.getScene().getWindow().hide();
+    //move to the next window
+    Parent root = FXMLLoader.load(getClass().getResource("../ui/Adminpanal.fxml"));
+    Stage mainstage = new Stage();
+    Scene scene = new Scene(root);
+    mainstage.setScene(scene);
+    mainstage.show();
+
+}else {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText("Incorrect username or passowrd!jjkjk");
+        alert.showAndWait();
+    }
         }catch (Exception e){
+
 
         }
     }

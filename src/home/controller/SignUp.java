@@ -28,35 +28,22 @@ public class SignUp implements Initializable {
 
 
     @FXML
+    private TextArea address;
+
+    @FXML
     private DatePicker birthday;
+
+    @FXML
+    private Button btnback;
 
     @FXML
     private Button btnsignup;
 
     @FXML
-    private Button btnback;
-
-
-
-
-    @FXML
-    private TextField txtadd1;
-
-    @FXML
-    private TextField txtadd2;
-
-    @FXML
-    private TextField txtadd3;
-
-    @FXML
-    private TextField txtcity;
-
-
-    @FXML
     private ComboBox<String> comb;
 
     @FXML
-    private ComboBox<String> combclass;
+    private Label txtconfirm;
 
     @FXML
     private TextField txtemail;
@@ -65,41 +52,37 @@ public class SignUp implements Initializable {
     private TextField txtfname;
 
     @FXML
-    private TextField Username;
-
-    @FXML
-    private TextField Enrno;
-
-    @FXML
     private TextField txtlname;
-
-
-    @FXML
-    private TextField txttel;
 
     @FXML
     private PasswordField txtpwd;
 
     @FXML
     private PasswordField txtpwd2;
-    @FXML
-    private Label alt;
-
-
-
 
     @FXML
-    private Label txtconfirm;
+    private TextField txttel;
 
+    @FXML
+    private TextField student_id;
 
-
-
+    @FXML
+    void back(ActionEvent event) throws IOException {
+        //close current window
+        btnback.getScene().getWindow().hide();
+        //move to the next window
+        Parent root=FXMLLoader.load(getClass().getResource("../ui/log.fxml"));
+        Stage mainstage=new Stage();
+        Scene scene=new Scene(root);
+        mainstage.setScene(scene);
+        mainstage.show();
+    }
 
     @FXML
     void select(ActionEvent event) {
 
         String g=comb.getSelectionModel().getSelectedItem().toString();
-        String c=combclass.getSelectionModel().getSelectedItem().toString();
+
 
 
     }
@@ -111,29 +94,7 @@ public class SignUp implements Initializable {
     private ResultSet result;
 
     //check the username already taken
-    @FXML
-    void Username(KeyEvent event) {
-        connect=jdbcconnect.getConnection();
-        String uname=Username.getText();
 
-        try{
-            String sql="SELECT * FROM users WHERE Username='"+uname+"' ";
-            prepare=connect.prepareStatement(sql);
-            result=prepare.executeQuery();
-            if(result.next()){
-                String yes=result.getString("Username");
-                //System.out.println(yes);
-                alt.setVisible(true);
-
-            }else {
-
-                //System.out.println("no users");
-                alt.setVisible(false);
-            }
-        }catch (SQLException e){
-            System.out.println(e);
-        }
-    }
 
     @FXML
     void signup(ActionEvent event) {
@@ -141,51 +102,39 @@ public class SignUp implements Initializable {
         connect=jdbcconnect.getConnection();
 
 //variable creating for input data
-
+        int id=Integer.parseInt(student_id.getText());
         String fname=txtfname.getText();
         String lname=txtlname.getText();
-        String username = Username.getText();
-        String Enr=Enrno.getText();
-        String addl1 = txtadd1.getText();
-        String addl2 = txtadd2.getText();
-        String addl3 = txtadd3.getText();
+        String addr=address.getText();
         String date=birthday.getEditor().getText();
-        String city = txtcity.getText();
         //combobox
         String g=comb.getSelectionModel().getSelectedItem().toString();
-        String c=combclass.getSelectionModel().getSelectedItem().toString();
-
         String email = txtemail.getText();
-        String telno = txttel.getText();
+        int telno = Integer.parseInt(txttel.getText());
         String pass = txtpwd.getText();
         String cpass=txtpwd2.getText();
 
         try {
 
             //sql input quary
-            String sql="insert into users (`Firstname`, `Lastname`,`Username`,`Enrollment_No`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Clzz`,`Telno`,`Password`,`UserType`) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql="INSERT INTO `student` (`Student_ID`, `Firstname`, `Lastname`, `DOB`, `Address`, `Telno`, `email`, `password`,`status`,`g_id`) VALUES (?,?,?,?,?,?,?,?,?,?);";
             prepare=connect.prepareStatement(sql);
            //database data input
+            prepare.setString(1,Integer.toString(id));
+            prepare.setString(2,fname);
+            prepare.setString(3, lname);
+            prepare.setString(4,date);
+            prepare.setString(5, addr);
+            prepare.setString(6, Integer.toString(telno));
+            prepare.setString(7, email);
+            prepare.setString(10,g);
+            prepare.setString(9,"student");
 
-            prepare.setString(1,fname);
-            prepare.setString(2, lname);
-            prepare.setString(3, username);
-            prepare.setString(4,Enr);
-            prepare.setString(5,date);
-            prepare.setString(6, addl1);
-            prepare.setString(7, addl2);
-            prepare.setString(8, addl3);
-            prepare.setString(9, city);
-            prepare.setString(10, email);
-            prepare.setString(11,g);
-            prepare.setString(12,c);
-            prepare.setString(13, telno);
-            prepare.setString(15,"Student");
 
            //prepare.executeUpdate();
 
             if (pass.equals(cpass)){
-                prepare.setString(14, pass);
+                prepare.setString(8, pass);
                 prepare.executeUpdate();
 //              JOptionPane.showMessageDialog(null,"Updated");
                 //close current window
@@ -206,26 +155,14 @@ public class SignUp implements Initializable {
             JOptionPane.showMessageDialog(null,e);
         }
     }
-    @FXML
-    void back(ActionEvent event) throws IOException {
-        //close current window
-        btnback.getScene().getWindow().hide();
-        //move to the next window
-        Parent root=FXMLLoader.load(getClass().getResource("../ui/log.fxml"));
-        Stage mainstage=new Stage();
-        Scene scene=new Scene(root);
-        mainstage.setScene(scene);
-        mainstage.show();
-    }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        alt.setVisible(false);
-        ObservableList<String> list= FXCollections.observableArrayList("None","Grade 10","Grade 11","Grade 12","Grade 13");
+        ObservableList<String> list= FXCollections.observableArrayList("06","07","08","09","10","11","12","13");
         comb.setItems(list);
-        ObservableList<String> listc=FXCollections.observableArrayList("10A","10B","10C","11A","11B","11C","12A","12B","12C","13A","13B","13C");
-        combclass.setItems(listc);
+
 
 
 

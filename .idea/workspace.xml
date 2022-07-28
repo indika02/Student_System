@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14bd9007-d52a-4c36-a337-acf6964cf4a7" name="Default Changelist" comment="time table stored success full!">
-      <change afterPath="$PROJECT_DIR$/src/home/controller/Show.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home/controller/marks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home/ui/show.fxml" afterDir="false" />
+    <list default="true" id="14bd9007-d52a-4c36-a337-acf6964cf4a7" name="Default Changelist" comment="exam results finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Adminpanal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/Adminpanal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/Studentboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/Studentboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/controller/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/controller/user.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/Adminpanal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/Adminpanal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student System/home/ui/studentboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student System/home/ui/studentboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/Adminpanal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/Adminpanal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/Studentboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/Studentboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/jdbcconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/jdbcconnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/controller/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/controller/user.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/ui/Adminpanal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/Adminpanal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/ui/Results.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/ui/studentboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/ui/studentboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,19 +79,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -141,7 +113,8 @@
       <workItem from="1658072353093" duration="11549000" />
       <workItem from="1658159887084" duration="9152000" />
       <workItem from="1658202351964" duration="13203000" />
-      <workItem from="1658232088081" duration="12423000" />
+      <workItem from="1658232088081" duration="13628000" />
+      <workItem from="1658773710926" duration="625000" />
     </task>
     <task id="LOCAL-00001" summary="iijgjfgjf">
       <created>1656779091017</created>
@@ -199,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658085321334</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="exam results finished">
+      <created>1658256584911</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1658256584911</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +201,8 @@
     <MESSAGE value="iijgjfgjf" />
     <MESSAGE value="subject adding completed" />
     <MESSAGE value="time table stored success full!" />
-    <option name="LAST_COMMIT_MESSAGE" value="time table stored success full!" />
+    <MESSAGE value="exam results finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="exam results finished" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

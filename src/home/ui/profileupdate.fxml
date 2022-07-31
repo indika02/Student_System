@@ -6,46 +6,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="564.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.pupdate">
+<AnchorPane prefHeight="632.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.pupdate">
    <children>
-      <Label layoutX="127.0" layoutY="29.0" prefHeight="23.0" prefWidth="228.0" text="Update Personal Information">
+      <Label layoutX="150.0" layoutY="27.0" prefHeight="23.0" prefWidth="228.0" text="Update Personal Information">
          <font>
             <Font name="Arial Narrow Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="33.0" layoutY="82.0" prefHeight="18.0" prefWidth="146.0" text="Enter your User name:" />
-      <Label layoutX="33.0" layoutY="121.0" prefHeight="18.0" prefWidth="135.0" text="Label" />
-      <AnchorPane layoutX="22.0" layoutY="111.0" prefHeight="395.0" prefWidth="438.0" style="-fx-background-color: #dac1c5;">
-         <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="135.0" text="First Name:" />
-            <Label layoutX="14.0" layoutY="45.0" prefHeight="18.0" prefWidth="135.0" text="last Name:" />
-            <Label layoutX="14.0" layoutY="77.0" prefHeight="18.0" prefWidth="135.0" text="Enrollment No:" />
-            <Label layoutX="14.0" layoutY="111.0" prefHeight="18.0" prefWidth="135.0" text="Date of Birth:" />
-            <Label layoutX="14.0" layoutY="145.0" prefHeight="18.0" prefWidth="135.0" text="Address Line 1:" />
-            <Label layoutX="14.0" layoutY="211.0" prefHeight="18.0" prefWidth="135.0" text="Address Line 3:" />
-            <Label layoutX="14.0" layoutY="178.0" prefHeight="18.0" prefWidth="135.0" text="Address Line 2:" />
-            <Label layoutX="14.0" layoutY="242.0" prefHeight="18.0" prefWidth="135.0" text="City:" />
-            <Label layoutX="13.0" layoutY="277.0" prefHeight="18.0" prefWidth="135.0" text="Email  Address:" />
-            <Label layoutX="14.0" layoutY="311.0" prefHeight="18.0" prefWidth="82.0" text="Grade:" />
-            <Label layoutX="219.0" layoutY="311.0" prefHeight="18.0" prefWidth="82.0" text="Class:" />
-            <Label layoutX="14.0" layoutY="361.0" prefHeight="18.0" prefWidth="82.0" text="Tel No:" />
-            <TextField fx:id="Firstname" layoutX="168.0" layoutY="10.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="Lastname" layoutX="168.0" layoutY="41.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="Enrollment_No" layoutX="168.0" layoutY="73.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="addressl1" layoutX="168.0" layoutY="141.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="addressl2" layoutX="168.0" layoutY="174.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="addressl3" layoutX="168.0" layoutY="207.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="city" layoutX="168.0" layoutY="238.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="email" layoutX="168.0" layoutY="273.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="Telno" layoutX="168.0" layoutY="357.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="DOB" layoutX="168.0" layoutY="107.0" prefHeight="26.0" prefWidth="234.0" />
-            <TextField fx:id="Grade" layoutX="55.0" layoutY="307.0" prefHeight="26.0" prefWidth="150.0" />
-            <TextField fx:id="Clazz" layoutX="255.0" layoutY="307.0" prefHeight="26.0" prefWidth="146.0" />
-         </children>
-      </AnchorPane>
-      <Button fx:id="save" layoutX="338.0" layoutY="518.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="123.0" text="Save" />
-      <Button fx:id="cancel" layoutX="22.0" layoutY="518.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="123.0" text="Cancel" />
-      <TextField fx:id="Username" layoutX="189.0" layoutY="79.0" prefHeight="26.0" prefWidth="157.0" />
-      <Button fx:id="search" layoutX="355.0" layoutY="80.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="66.0" text="Search" />
+      <Label layoutX="28.0" layoutY="73.0" prefHeight="18.0" prefWidth="94.0" text="Index No:" />
+      <TextField fx:id="txtsearch" layoutX="124.0" layoutY="69.0" prefHeight="26.0" prefWidth="162.0" />
+      <Button fx:id="btnsearch" layoutX="319.0" layoutY="67.0" mnemonicParsing="false" onAction="#search" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: blue;" text="SEARCH" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="28.0" layoutY="122.0" prefHeight="18.0" prefWidth="94.0" text="Index No:" />
+      <Label layoutX="28.0" layoutY="159.0" prefHeight="18.0" prefWidth="94.0" text="First Name" />
+      <Label layoutX="28.0" layoutY="203.0" prefHeight="18.0" prefWidth="94.0" text="Last Name" />
+      <Label layoutX="28.0" layoutY="248.0" prefHeight="18.0" prefWidth="94.0" text="Date of Birth" />
+      <Label layoutX="23.0" layoutY="332.0" prefHeight="18.0" prefWidth="94.0" text="Tel No" />
+      <Label layoutX="28.0" layoutY="292.0" prefHeight="18.0" prefWidth="94.0" text="Address" />
+      <Label layoutX="23.0" layoutY="371.0" prefHeight="18.0" prefWidth="94.0" text="Email" />
+      <Label layoutX="23.0" layoutY="416.0" prefHeight="18.0" prefWidth="94.0" text="Grade" />
+      <Button fx:id="btnupdate" layoutX="310.0" layoutY="483.0" mnemonicParsing="false" onAction="#update" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: blue;" text="UPDATE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnexit" layoutX="23.0" layoutY="483.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: blue;" text="EXIT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtindex" layoutX="123.0" layoutY="118.0" prefHeight="26.0" prefWidth="282.0" />
+      <TextField fx:id="txtfname" layoutX="123.0" layoutY="155.0" prefHeight="26.0" prefWidth="282.0" />
+      <TextField fx:id="txtlname" layoutX="123.0" layoutY="199.0" prefHeight="26.0" prefWidth="282.0" />
+      <TextField fx:id="txttel" layoutX="123.0" layoutY="328.0" prefHeight="26.0" prefWidth="282.0" />
+      <TextField fx:id="txtemail" layoutX="124.0" layoutY="367.0" prefHeight="26.0" prefWidth="282.0" />
+      <TextField fx:id="txtgrade" layoutX="124.0" layoutY="412.0" prefHeight="26.0" prefWidth="282.0" />
+      <TextField fx:id="txtDoB" layoutX="123.0" layoutY="244.0" prefHeight="26.0" prefWidth="282.0" />
+      <TextField fx:id="txtaddress" layoutX="124.0" layoutY="289.0" prefHeight="18.0" prefWidth="282.0" />
    </children>
 </AnchorPane>

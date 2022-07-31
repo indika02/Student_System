@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -59,6 +61,7 @@ public class Login implements Initializable {
         Parent root= FXMLLoader.load(getClass().getResource("../ui/pwdreset.fxml"));
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
+        mainstage.initStyle(StageStyle.UNDECORATED);
         mainstage.setScene(scene);
         mainstage.show();
     }
@@ -76,6 +79,7 @@ public class Login implements Initializable {
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
         mainstage.setScene(scene);
+        mainstage.initStyle(StageStyle.UNDECORATED);
         mainstage.show();
     }
 
@@ -90,6 +94,8 @@ public class Login implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result;
     private ResultSet result2;
+
+
 
     @FXML
     public void login(ActionEvent event) throws Exception{
@@ -118,6 +124,7 @@ try{
     prepare.setString(3,t);
 
     result2 = prepare.executeQuery();
+    String email=index.getText();
     //close current window
     if(result.next()) {
 
@@ -127,6 +134,7 @@ try{
             Stage mainstage = new Stage();
             Scene scene = new Scene(root);
             mainstage.setScene(scene);
+        mainstage.initStyle(StageStyle.UNDECORATED);
             mainstage.show();
 
 
@@ -139,6 +147,7 @@ try{
     Stage mainstage = new Stage();
     Scene scene = new Scene(root);
     mainstage.setScene(scene);
+    mainstage.initStyle(StageStyle.UNDECORATED);
     mainstage.show();
 
 }else {

@@ -30,13 +30,14 @@ public class jdbcconnect {
     }
 
     public static ObservableList<subject> getDatausers() {
+
         Connection conn = getConnection();
         ObservableList<subject> list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from subjects");
+            PreparedStatement ps = conn.prepareStatement("select * from subject");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new subject(Integer.parseInt(rs.getString("Subject_No")),(rs.getString("Grade")), (rs.getString("Subject"))));
+                list.add(new subject(Integer.parseInt(rs.getString("sub_id")), (rs.getString("subject"))));
 
             }
         } catch (Exception e) {

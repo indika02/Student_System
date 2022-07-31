@@ -13,5 +13,7 @@
     <orderEntry type="library" name="bin" level="project" />
     <orderEntry type="library" name="bin1" level="project" />
     <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="fontawesomefx-8.9" level="project" />
+    <orderEntry type="library" name="fontawesomefx-8.91" level="project" />
   </component>
 </module>

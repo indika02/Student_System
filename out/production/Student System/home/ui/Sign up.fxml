@@ -5,121 +5,91 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="663.0" styleClass="img" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.SignUp">
+<AnchorPane prefHeight="669.0" prefWidth="487.0" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.SignUp">
    <children>
-      <Label layoutX="276.0" layoutY="14.0" prefHeight="31.0" prefWidth="131.0" text="SIGN UP">
+      <Label layoutX="158.0" layoutY="14.0" prefHeight="31.0" prefWidth="131.0" text="SIGN UP">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="27.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="46.0" prefHeight="22.0" prefWidth="97.0" text="First name">
+      <Label layoutX="26.0" layoutY="112.0" prefHeight="22.0" prefWidth="97.0" text="First name">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="81.0" prefHeight="22.0" prefWidth="97.0" text="Last name">
+      <Label layoutX="26.0" layoutY="157.0" prefHeight="22.0" prefWidth="97.0" text="Last name">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="119.0" prefHeight="22.0" prefWidth="131.0" text="Username">
+      <Label layoutX="27.0" layoutY="284.0" prefHeight="22.0" prefWidth="131.0" text="Email Address">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="396.0" prefHeight="22.0" prefWidth="131.0" text="Email Address">
+      <Label layoutX="27.0" layoutY="357.0" prefHeight="22.0" prefWidth="97.0" text="Tel No.">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="475.0" prefHeight="22.0" prefWidth="97.0" text="Tel No.">
+      <Label layoutX="27.0" layoutY="415.0" prefHeight="22.0" prefWidth="166.0" text="Create a password">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="507.0" prefHeight="22.0" prefWidth="166.0" text="Create a password">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="txtpwd" layoutX="27.0" layoutY="544.0" prefHeight="26.0" prefWidth="214.0" />
-      <TextField fx:id="txttel" layoutX="180.0" layoutY="473.0" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="txtemail" layoutX="180.0" layoutY="394.0" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="Username" layoutX="180.0" layoutY="117.0" onKeyReleased="#Username" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="txtlname" layoutX="180.0" layoutY="79.0" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="txtfname" layoutX="180.0" layoutY="44.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-style: none;" styleClass="text-field" stylesheets="@../css/student.css" />
-      <Button fx:id="btnsignup" layoutX="514.0" layoutY="601.0" mnemonicParsing="false" onAction="#signup" prefHeight="32.0" prefWidth="98.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Sign up">
+      <PasswordField fx:id="txtpwd" layoutX="26.0" layoutY="447.0" prefHeight="26.0" prefWidth="214.0" />
+      <TextField fx:id="txttel" layoutX="180.0" layoutY="355.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtemail" layoutX="180.0" layoutY="282.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtlname" layoutX="179.0" layoutY="155.0" prefHeight="26.0" prefWidth="266.0" />
+      <TextField fx:id="txtfname" layoutX="179.0" layoutY="110.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-style: none;" styleClass="text-field" stylesheets="@../css/student.css" />
+      <Button fx:id="btnsignup" layoutX="358.0" layoutY="534.0" mnemonicParsing="false" onAction="#signup" prefHeight="32.0" prefWidth="98.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Sign up">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="27.0" layoutY="244.0" prefHeight="22.0" prefWidth="131.0" text="Address Line 1">
+      <Label layoutX="27.0" layoutY="240.0" prefHeight="22.0" prefWidth="131.0" text="Address">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtadd1" layoutX="180.0" layoutY="242.0" prefHeight="26.0" prefWidth="266.0" stylesheets="@../css/student.css" />
-      <TextField fx:id="txtadd2" layoutX="180.0" layoutY="279.0" prefHeight="26.0" prefWidth="266.0" />
-      <Label layoutX="27.0" layoutY="281.0" prefHeight="22.0" prefWidth="131.0" text="Address Line 2">
+      <Label layoutX="27.0" layoutY="323.0" prefHeight="22.0" prefWidth="131.0" text="Grade">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="323.0" prefHeight="22.0" prefWidth="131.0" text="Address Line 3">
+      <ComboBox fx:id="comb" layoutX="180.0" layoutY="319.0" onAction="#select" prefHeight="30.0" prefWidth="266.0" promptText="Grade" />
+      <PasswordField fx:id="txtpwd2" layoutX="248.0" layoutY="447.0" prefHeight="26.0" prefWidth="214.0" />
+      <Label layoutX="248.0" layoutY="415.0" prefHeight="22.0" prefWidth="166.0" text="Confirm password">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtadd3" layoutX="180.0" layoutY="321.0" prefHeight="26.0" prefWidth="266.0" />
-      <Label layoutX="27.0" layoutY="360.0" prefHeight="22.0" prefWidth="131.0" text="City">
+      <Label fx:id="txtconfirm" layoutX="26.0" layoutY="489.0" prefHeight="18.0" prefWidth="322.0" textFill="#ef0101">
          <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtcity" layoutX="180.0" layoutY="358.0" prefHeight="26.0" prefWidth="266.0" />
-      <Label layoutX="27.0" layoutY="430.0" prefHeight="22.0" prefWidth="131.0" text="Grade">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="comb" layoutX="180.0" layoutY="428.0" onAction="#select" prefHeight="30.0" prefWidth="98.0" promptText="Grade" />
-      <PasswordField fx:id="txtpwd2" layoutX="300.0" layoutY="544.0" prefHeight="26.0" prefWidth="214.0" />
-      <Label layoutX="301.0" layoutY="507.0" prefHeight="22.0" prefWidth="166.0" text="Confirm password">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="txtconfirm" layoutX="62.0" layoutY="526.0" prefHeight="18.0" prefWidth="322.0" textFill="#ef0101" />
-      <Label layoutX="27.0" layoutY="201.0" prefHeight="22.0" prefWidth="97.0" text="Birth day">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="birthday" layoutX="180.0" layoutY="199.0" prefHeight="26.0" prefWidth="266.0" />
-      <Button fx:id="btnback" layoutX="26.0" layoutY="601.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="98.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Back">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Button>
-      <Label layoutX="27.0" layoutY="158.0" prefHeight="22.0" prefWidth="139.0" text="Enrollement No">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="Enrno" layoutX="180.0" layoutY="156.0" prefHeight="26.0" prefWidth="266.0" />
-      <Label fx:id="alt" layoutX="446.0" layoutY="122.0" prefHeight="18.0" prefWidth="202.0" text="Sorry! Username is already taken" textFill="#fc0000">
-         <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="301.0" layoutY="432.0" prefHeight="22.0" prefWidth="61.0" text="Class">
+      <Label layoutX="27.0" layoutY="199.0" prefHeight="22.0" prefWidth="97.0" text="Birth day">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <ComboBox fx:id="combclass" layoutX="384.0" layoutY="428.0" onAction="#select" prefHeight="30.0" prefWidth="98.0" promptText="Class" />
+      <DatePicker fx:id="birthday" layoutX="179.0" layoutY="197.0" prefHeight="26.0" prefWidth="266.0" />
+      <Button fx:id="btnback" layoutX="26.0" layoutY="534.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="98.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Back">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="address" layoutX="180.0" layoutY="240.0" prefHeight="31.0" prefWidth="266.0" />
+      <Label layoutX="27.0" layoutY="74.0" prefHeight="22.0" prefWidth="97.0" text="Index No">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="student_id" layoutX="179.0" layoutY="72.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-style: none;" styleClass="text-field" stylesheets="@../css/student.css" />
    </children>
 </AnchorPane>

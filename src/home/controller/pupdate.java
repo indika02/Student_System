@@ -1,151 +1,139 @@
 package home.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-import java.net.URL;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ResourceBundle;
 
-public class pupdate implements Initializable {
-    @FXML
-    private TextField Grade;
+public class pupdate{
 
     @FXML
-    private TextField DOB;
+    private Button btnexit;
 
     @FXML
-    private TextField city;
+    private Button btnsearch;
 
     @FXML
-    private TextField email;
+    private Button btnupdate;
 
     @FXML
-    private TextField Enrollment_No;
+    private TextField txtDoB;
 
     @FXML
-    private TextField Firstname;
+    private TextField txtaddress;
 
     @FXML
-    private TextField Clazz;
+    private TextField txtemail;
 
     @FXML
-    private TextField Lastname;
+    private TextField txtfname;
 
     @FXML
-    private TextField Telno;
+    private TextField txtgrade;
 
     @FXML
-    private TextField Username;
+    private TextField txtindex;
 
     @FXML
-    private TextField addressl1;
+    private TextField txtlname;
 
     @FXML
-    private TextField addressl2;
+    private TextField txtsearch;
 
     @FXML
-    private TextField addressl3;
+    private TextField txttel;
 
-    @FXML
-    private Button cancel;
-
-
-    @FXML
-    private Button save;
-
-    @FXML
-    private Button search;
 
     private Connection connect;
-    private Statement statement;
     private PreparedStatement prepare;
-    private ResultSet result;
 
     @FXML
-    void cancel(ActionEvent event) {
-
+    void exit(ActionEvent event) throws IOException {
+        btnexit.getScene().getWindow().hide();
+        //move to the next window
+        Parent root= FXMLLoader.load(getClass().getResource("../ui/studentboard.fxml"));
+        Stage mainstage=new Stage();
+        Scene scene=new Scene(root);
+        mainstage.initStyle(StageStyle.UNDECORATED);
+        mainstage.setScene(scene);
+        mainstage.show();
     }
 
     @FXML
-    void save(ActionEvent event) {
-        connect=jdbcconnect.getConnection();
+    void search(ActionEvent event) {
+        connect= jdbcconnect.getConnection();
+        try {
+            String sql = "SELECT Student_ID,Firstname,Lastname,DOB,Address,Telno,email,password,g_id FROM student WHERE Student_ID='" + txtsearch.getText() + "'";
+            prepare = connect.prepareStatement(sql);
+            ResultSet result = prepare.executeQuery();
+            if(result.next()){
+                txtindex.setText(result.getString("Student_ID"));
+                txtfname.setText(result.getString("Firstname"));
+                txtlname.setText(result.getString("Lastname"));
+                txtDoB.setText(result.getString("DOB"));
+                txtaddress.setText(result.getString("Address"));
+                txttel.setText(result.getString("Telno"));
+                txtemail.setText(result.getString("email"));
+                txtgrade.setText(result.getString("g_id"));
 
-        String fname=Firstname.getText();
-        String lname=Lastname.getText();
-        String Enrollment=Enrollment_No.getText();
-        //String Dob=DOB.getEditor().getText();
-        String addl1=addressl1.getText();
-        String addl2=addressl2.getText();
-        String addl3=addressl3.getText();
-        String City=city.getText();
-        String Email=email.getText();
-       // String g=Grade.getSelectionModel().getSelectedItem().toString();
-        //String c=Clazz.getSelectionModel().getSelectedItem().toString();
-        String tel=Telno.getText();
-
-        try{
-            String sql="UPDATE users set Firstname=?,Lastname=?, Username";
-            prepare=connect.prepareStatement(sql);
-        }catch (Exception e){
-
+                txtsearch.setText("");
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Invalid Index Number.Please Enter Your Correct Index Number!");
+                alert.showAndWait();
+                txtsearch.setText("");
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
         }
     }
 
     @FXML
-    private void search(ActionEvent event) {
-        connect=jdbcconnect.getConnection();
-        try {
-            String uname=Username.getText();
-            String sql="SELECT * FROM users";
+    void update(ActionEvent event) {
+        connect= jdbcconnect.getConnection();
+
+        int value1=Integer.parseInt(txtindex.getText());
+        String value2=txtfname.getText();
+        String value3=txtlname.getText();
+        String value4=txtDoB.getText();
+        String value5=txtaddress.getText();
+        int value6=Integer.parseInt(txttel.getText());
+        String value7=txtemail.getText();
+        int value8=Integer.parseInt(txtgrade.getText());
+        try{
+            String sql = "update student set Student_ID= '"+value1+"',Firstname= '"+
+                    value2+"',Lastname='"+value3+"',DOB='"+value4+"',Address='"+value5+"',Telno='"+value6+"',email='"+value7+"',g_id='"+value8+"' where Student_ID= '"+value1+"' ";
             prepare=connect.prepareStatement(sql);
-
-            ResultSet result = prepare.executeQuery(sql);
-
-            while (result.next()){
-                if (uname==result.getString("Username")){
-                    Firstname.setText(result.getString("Firstname"));
-                    Lastname.setText(result.getString("Lastname"));
-                    Enrollment_No.setText(result.getString("Enrollment_No"));
-                    DOB.setText(result.getString("DOB"));
-                    addressl1.setText(result.getString("addressl1"));
-                    addressl2.setText(result.getString("addressl2"));
-                    addressl3.setText(result.getString("addressl3"));
-                    city.setText(result.getString("city"));
-                    email.setText(result.getString("email"));
-                    Grade.setText(result.getString("Grade"));
-                    Clazz.setText(result.getString("Clazz"));
-                    Telno.setText(result.getString("Telno"));
-                }
-                }
-
-
+            prepare.execute();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("OK?");
+            alert.showAndWait();
+            txtsearch.setText("");
+            txtfname.setText("");
+            txtlname.setText("");
+            txtDoB.setText("");
+            txtaddress.setText("");
+            txttel.setText("");
+            txtemail.setText("");
+            txtgrade.setText("");
         }catch (Exception e){
             System.out.println(e);
         }
-
-
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
-
-
-
-
-
-
     }
 
 }

@@ -1,6 +1,7 @@
 package home.controller;
 
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -20,8 +21,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.swing.*;
+import javax.swing.text.DateFormatter;
 import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,8 +32,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Date;
 
 public class Adminpanal implements Initializable {
 
@@ -48,6 +56,9 @@ public class Adminpanal implements Initializable {
 
     @FXML
     private Label tot;
+
+    @FXML
+    private Label time;
 
     @FXML
     private Label avg;
@@ -78,10 +89,7 @@ public class Adminpanal implements Initializable {
 
 
     @FXML
-    private TableColumn<user, String> Telno;
-
-    @FXML
-    private TableColumn<user, String> Usertype;
+    private TableColumn<user, Integer> Telno;
 
     @FXML
     private TableColumn<user, String > Firstname;
@@ -90,7 +98,7 @@ public class Adminpanal implements Initializable {
     private TableColumn<user, String> Lastname;
 
     @FXML
-    private TableColumn<user,String> Enrollment_No;
+    private TableColumn<user,Integer> Student_ID;
 
 
 
@@ -98,25 +106,15 @@ public class Adminpanal implements Initializable {
     private TableColumn<user, String> DOB;
 
     @FXML
-    private TableColumn<user, String> addressl1;
+    private TableColumn<user, String> Address;
+
 
     @FXML
-    private TableColumn<user, String> addressl2;
+    private TableColumn<user, String> email;
 
     @FXML
-    private TableColumn<user, String> addressl3;
+    private TableColumn<user, Integer> g_id;
 
-    @FXML
-    private TableColumn<user, String > city;
-
-    @FXML
-    private TableColumn<user, String> Email;
-
-    @FXML
-    private TableColumn<user, String> grde;
-
-    @FXML
-    private TableColumn<user, String> Clzz;
 
     @FXML
     private TextField searchfield;
@@ -126,11 +124,14 @@ public class Adminpanal implements Initializable {
     private Button btncal;
 
     @FXML
+    private Label date;
+
+
+    @FXML
     private Button btnreset;
 
     @FXML
     private TableView<user> tableuser;
-
     @FXML
     private Button btnlogout;
 
@@ -138,13 +139,13 @@ public class Adminpanal implements Initializable {
     private TextField subjectsearch;
 
     @FXML
-    private TableColumn<subject, Integer > Subject_No;
+    private TableColumn<subject, Integer > sub_id;
 
     @FXML
     private TableColumn<subject, String> Grade;
 
     @FXML
-    private TableColumn<subject, String> Subject;
+    private TableColumn<subject, String> subject;
 
     @FXML
     private TableView<subject> tablestd;
@@ -163,10 +164,6 @@ public class Adminpanal implements Initializable {
     private TextField txttgra;
 
     @FXML
-    private ImageView ivFiles;
-
-
-    @FXML
     private TextField g;
 
     @FXML
@@ -175,34 +172,54 @@ public class Adminpanal implements Initializable {
     @FXML
     private Button btnshow;
 
+    @FXML
+    private Button btntime;
 
+    @FXML
+    private Button btnup;
 
+    @FXML
+    private ComboBox<String> tgrade;
+
+    @FXML
+    private ImageView timetable;
+
+    @FXML
+    void updatetime(ActionEvent event) {
+
+    }
     private FileInputStream fis;
 
     final FileChooser fc=new FileChooser();
 
     @FXML
-    void handlebtnOpenImgFile(ActionEvent event) {
+    void select(ActionEvent event) {
+        int gra=Integer.parseInt(tgrade.getSelectionModel().getSelectedItem().toString());
+
+    }
+
+    @FXML
+    void uploadtime(ActionEvent event) {
         fc.setTitle("My file Chooser");
         fc.setInitialDirectory(new File(System.getProperty("user.home")));
         fc.getExtensionFilters().clear();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png*", "*.jpg*", "*.gif*"));
         File file = fc.showOpenDialog(null);
         if (file != null) {
-            ivFiles.setImage(new Image(file.toURI().toString()));
+            timetable.setImage(new Image(file.toURI().toString()));
         } else {
             System.out.println("A file is invalid");
         }
         connect = jdbcconnect.getConnection();
-        String sql = "insert into timetable(Grade,timetable)values(?,?)";
+        String sql = "insert into timetable(timetable,g_id)values(?,?)";
         try {
             prepare = connect.prepareStatement(sql);
 
-            String gra = txttgra.getText();
+            int gra=Integer.parseInt(tgrade.getSelectionModel().getSelectedItem().toString());
 
-            prepare.setString(1, gra);
             fis = new FileInputStream(file);
-            prepare.setBinaryStream(2, (InputStream) fis);
+            prepare.setBinaryStream(1, (InputStream) fis);
+            prepare.setInt(2, gra);
             prepare.execute();
             //ivFiles.setImage(new Image("D:\\Student System\\Student System\\src\\home\\images\\vector-school-timetable-weekly-curriculum-design-template-J5XEHE.jpg"));
             txttgra.setText("");
@@ -223,26 +240,24 @@ public class Adminpanal implements Initializable {
     @FXML
     void add(ActionEvent event) {
         connect=jdbcconnect.getConnection();
-        String sql="insert into subjects(Subject_No,Grade,Subject)values(?,?,?)";
+        String sql="insert into subject(sub_id,subject)values(?,?)";
         //call method for display data of database to table
         try{
             prepare=connect.prepareStatement(sql);
             String t=txt_subno.getText();
-            String gra=txtgrade.getText();
+
             String sub=txtsub.getText();
-            if(gra=="" && sub==""){
+            if(t=="" && sub==""){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setContentText("ERROR!");
                 alert.showAndWait();
             }else {
                 prepare.setString(1,t);
-                prepare.setString(2, gra);
-                prepare.setString(3, sub);
+                prepare.setString(2, sub);
                 prepare.execute();
                 display();
                 txt_subno.setText("");
-                txtgrade.setText("");
                 txtsub.setText("");
             }
         }catch (Exception e){
@@ -256,9 +271,9 @@ public class Adminpanal implements Initializable {
         if (index <= -1) {
             return;
         }
-        txt_subno.setText(Subject_No.getCellData(index).toString());
-        txtgrade.setText(Grade.getCellData(index).toString());
-        txtsub.setText(Subject.getCellData(index).toString());
+        txt_subno.setText(sub_id.getCellData(index).toString());
+
+        txtsub.setText(subject.getCellData(index).toString());
 
     }
 
@@ -267,11 +282,11 @@ public class Adminpanal implements Initializable {
         try{
             connect=jdbcconnect.getConnection();
             String value1=txt_subno.getText();
-            String value2=txtgrade.getText();
+
             String value3=txtsub.getText();
 
-            String sql = "update subjects set Subject_No= '"+value1+"',Grade= '"+value2+"',Subject= '"+
-                    value3+"' where Subject_No= '"+value1+"' ";
+            String sql = "update subject set sub_id= '"+value1+"',subject= '"+
+                    value3+"' where sub_id= '"+value1+"' ";
             prepare=connect.prepareStatement(sql);
             prepare.execute();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -292,7 +307,7 @@ public class Adminpanal implements Initializable {
     public void Delete(){
 
         connect=jdbcconnect.getConnection();
-        String sql = "delete from subjects where Subject_No = ?";
+        String sql = "delete from subject where sub_id = ?";
         try {
             prepare = connect.prepareStatement(sql);
             prepare.setString(1, txt_subno.getText());
@@ -302,6 +317,8 @@ public class Adminpanal implements Initializable {
             alert.setContentText("OK");
             alert.showAndWait();
             display();
+            txt_subno.setText("");
+            txtsub.setText("");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
@@ -321,23 +338,22 @@ public class Adminpanal implements Initializable {
 
         connect=jdbcconnect.getConnection();
 
-        String sql="SELECT Subject_No,Grade,Subject from subjects";
+        String sql="SELECT sub_id,subject from subject";
 
         try {
             prepare=connect.prepareStatement(sql);
             ResultSet result = prepare.executeQuery();
 
             while (result.next()){
-                int Subject_No=result.getInt("Subject_No");
-                String Grade=result.getString("Grade");
-                String Subject=result.getString("Subject");
+                int Subject_No=result.getInt("sub_id");
+
+                String Subject=result.getString("subject");
 
 
-                SubjectSearchObservableList.add(new subject(Subject_No,Grade,Subject));
+                SubjectSearchObservableList.add(new subject(Subject_No,Subject));
             }
-            Subject_No.setCellValueFactory(new PropertyValueFactory<subject, Integer>("Subject_No"));
-            Grade.setCellValueFactory(new PropertyValueFactory<subject, String>("Grade"));
-            Subject.setCellValueFactory(new PropertyValueFactory<subject, String>("Subject"));
+            sub_id.setCellValueFactory(new PropertyValueFactory<subject, Integer>("Subject_No"));
+            subject.setCellValueFactory(new PropertyValueFactory<subject, String>("Subject"));
 
             tablestd.setItems(SubjectSearchObservableList);
 
@@ -348,7 +364,7 @@ public class Adminpanal implements Initializable {
                         return true;
                     }
                     String searchkeyword=newValue.toLowerCase();
-                    if(UserSearchJava.getGrade().toLowerCase().indexOf(searchkeyword)>-1){
+                    if(UserSearchJava.getSubject_No().toString().indexOf(searchkeyword)>-1){
                         return true;
                     }else
                         return false;
@@ -359,11 +375,10 @@ public class Adminpanal implements Initializable {
 
             tablestd.setItems(sortData);
         }catch (Exception e){
-
+            System.out.println(e);
         }
-        Subject_No.setCellValueFactory(new PropertyValueFactory<subject,Integer>("Subject_No"));
-        Grade.setCellValueFactory(new PropertyValueFactory<subject, String>("Grade"));
-        Subject.setCellValueFactory(new PropertyValueFactory<subject, String>("Subject"));
+        sub_id.setCellValueFactory(new PropertyValueFactory<subject,Integer>("Subject_No"));
+        subject.setCellValueFactory(new PropertyValueFactory<subject, String>("Subject"));
         ObservableList<subject> listM;
         listM=jdbcconnect.getDatausers();
         tablestd.setItems(listM);
@@ -376,41 +391,33 @@ public class Adminpanal implements Initializable {
     public void displayinfo(){
         connect=jdbcconnect.getConnection();
 
-        String sql="SELECT Firstname,Lastname,Enrollment_No,DOB,addressl1,addressl2,addressl3,city,Email,Grade,Clzz,Telno,UserType FROM users";
+        String sql="SELECT Student_ID,Firstname,Lastname,DOB,Address,Telno,email,g_id FROM student";
         try {
             prepare=connect.prepareStatement(sql);
             ResultSet result = prepare.executeQuery();
 
             while (result.next()){
+
                 String Firstname=result.getString("Firstname");
                 String Lastname=result.getString("Lastname");
-                String Enrollment_No=result.getString("Enrollment_No");
+                int Student_ID=result.getInt("Student_ID");
                 String DOB=result.getString("DOB");
-                String addressl1=result.getString("addressl1");
-                String addressl2=result.getString("addressl2");
-                String addressl3=result.getString("addressl3");
-                String city=result.getString("city");
-                String Email=result.getString("Email");
-                String Grde=result.getString("Grade");
-                String Clzz=result.getString("Clzz");
-                String Telno = result.getString("Telno");
-                String UserType=result.getString("UserType");
+                String Address=result.getString("Address");
+                String email=result.getString("email");
+                int g_id=result.getInt("g_id");
+                int Telno = result.getInt("Telno");
 
-                UsersearchJavaObservableList.add(new user(Firstname,Lastname,Enrollment_No,DOB,addressl1,addressl2,addressl3,city,Email,Grde,Clzz,Telno,UserType));
+                UsersearchJavaObservableList.add(new user(Student_ID,Firstname,Lastname,DOB,Address,email,g_id,Telno));
             }
             Firstname.setCellValueFactory(new PropertyValueFactory<user, String>("Firstname"));
             Lastname.setCellValueFactory(new PropertyValueFactory<user, String>("Lastname"));
-            Enrollment_No.setCellValueFactory(new PropertyValueFactory<user, String>("Enrollment_No"));
+            Student_ID.setCellValueFactory(new PropertyValueFactory<user, Integer>("Student_ID"));
             DOB.setCellValueFactory(new PropertyValueFactory<user, String>("DOB"));
-            addressl1.setCellValueFactory(new PropertyValueFactory<user,String>("addressl1"));
-            addressl2.setCellValueFactory(new PropertyValueFactory<user,String>("addressl2"));
-            addressl3.setCellValueFactory(new PropertyValueFactory<user,String>("addressl3"));
-            city.setCellValueFactory(new PropertyValueFactory<user,String>("city"));
-            Email.setCellValueFactory(new PropertyValueFactory<user,String>("Email"));
-            grde.setCellValueFactory(new PropertyValueFactory<user,String>("Grde"));
-            Clzz.setCellValueFactory(new PropertyValueFactory<user,String>("Clzz"));
-            Telno.setCellValueFactory(new PropertyValueFactory<user,String>("Telno"));
-            Usertype.setCellValueFactory(new PropertyValueFactory<user, String>("UserType"));
+            Address.setCellValueFactory(new PropertyValueFactory<user,String>("address"));
+            email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
+            g_id.setCellValueFactory(new PropertyValueFactory<user,Integer>("g_id"));
+
+            Telno.setCellValueFactory(new PropertyValueFactory<user,Integer>("Telno"));
 
             tableuser.setItems(UsersearchJavaObservableList);
 
@@ -425,23 +432,14 @@ public class Adminpanal implements Initializable {
                         return true;
                     }else if(UserSearchJava.getLastname().toLowerCase().indexOf(searchkeyword)>-1){
                         return true;
-                    }else if (UserSearchJava.getEnrollment_No().toLowerCase().indexOf(searchkeyword)>-1){
+                    }else if (Integer.toString(UserSearchJava.getStudent_ID()).indexOf(searchkeyword)>-1){
                         return true;
-                    }else if (UserSearchJava.getDOB().toLowerCase().indexOf(searchkeyword)>-1){
+                    }
+                    else if (UserSearchJava.getDOB().toLowerCase().indexOf(searchkeyword)>-1){
                         return true;
-                    }else if (UserSearchJava.getAddressl1().toLowerCase().indexOf(searchkeyword)>-1){
+                    }else if (UserSearchJava.getAddress().toLowerCase().indexOf(searchkeyword)>-1){
                         return true;
-                    }else if (UserSearchJava.getAddressl2().toLowerCase().indexOf(searchkeyword)>-1){
-                        return true;
-                    }else if (UserSearchJava.getAddressl3().toLowerCase().indexOf(searchkeyword)>-1){
-                        return true;
-                    }else if (UserSearchJava.getCity().toLowerCase().indexOf(searchkeyword)>-1){
-                        return true;
-                    }else if (UserSearchJava.getGrde().toLowerCase().indexOf(searchkeyword)>-1){
-                        return true;
-                    }else if (UserSearchJava.getClzz().toLowerCase().indexOf(searchkeyword)>-1){
-                        return true;
-                    }else if (UserSearchJava.getUserType().toLowerCase().indexOf(searchkeyword)>-1){
+                    }else if (Integer.toString(UserSearchJava.getG_id()).indexOf(searchkeyword)>-1){
                         return true;
                     }else
                         return false;
@@ -452,7 +450,7 @@ public class Adminpanal implements Initializable {
 
             tableuser.setItems(sortData);
         }catch (Exception e){
-
+            System.out.println(e);
         }
     }
 
@@ -469,6 +467,7 @@ public class Adminpanal implements Initializable {
         Parent root= FXMLLoader.load(getClass().getResource("../ui/login.fxml"));
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
+        mainstage.initStyle(StageStyle.UNDECORATED);
         mainstage.setScene(scene);
         mainstage.show();
     }
@@ -558,15 +557,38 @@ public class Adminpanal implements Initializable {
             Parent root= FXMLLoader.load(getClass().getResource("../ui/Show.fxml"));
             Stage mainstage=new Stage();
             Scene scene=new Scene(root);
+            mainstage.initStyle(StageStyle.UNDECORATED);
             mainstage.setScene(scene);
             mainstage.show();
         }
+private volatile boolean stop=false;
+    public void Timenow(){
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+            while(!stop){
+                try{
+                    Thread.sleep(1000);
+                }catch(Exception e){
+                    System.out.println(e);
+                }
+                final String timenow = sdf.format(new Date());
+                Platform.runLater(() -> {
+                    time.setText(timenow);
+                    date.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MMMM-dd")));// This is the label
+                });
+            }
+        });
+        thread.start();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         displayinfo();
         display();
+        Timenow();
 
+        ObservableList<String> list= FXCollections.observableArrayList("06","07","08","09","10","11","12","13");
+        tgrade.setItems(list);
 
     }
 }

@@ -16,6 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -159,6 +160,7 @@ public class Show implements Initializable {
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
         mainstage.setScene(scene);
+        mainstage.initStyle(StageStyle.UNDECORATED);
         mainstage.show();
     }
 

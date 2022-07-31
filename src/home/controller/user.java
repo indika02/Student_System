@@ -4,37 +4,28 @@ public class user {
 
     String Firstname;
     String Lastname;
-    String Enrollment_No;
+    Integer Student_ID;
     String DOB;
-    String addressl1;
-    String addressl2;
-    String addressl3;
-    String city;
+    String Address;
     String email;
-    String grde;
-    String clzz;
-    String Telno;
-    String Usertype;
+    Integer g_id;
+    Integer Telno;
 
-    public user(String firstname, String lastname, String enrollment_No, String DOB, String addressl1, String addressl2, String addressl3, String city, String email, String grde, String clzz, String telno, String usertype) {
+//    public user(String firstname, String lastname, Integer student_ID, String DOB, String address, String email,Integer g_id, Integer telno) {
+//
+//    }
+
+    public user(int student_id, String firstname, String lastname, String dob, String address, String email, int g_id, int telno) {
         Firstname = firstname;
         Lastname = lastname;
-        Enrollment_No = enrollment_No;
-        this.DOB = DOB;
-        this.addressl1 = addressl1;
-        this.addressl2 = addressl2;
-        this.addressl3 = addressl3;
-        this.city = city;
+        Student_ID = student_id;
+        this.DOB = dob;
+        Address = address;
         this.email = email;
-        this.grde = grde;
-        this.clzz = clzz;
+        this.g_id = g_id;
         Telno = telno;
-        Usertype = usertype;
     }
 
-    public user() {
-
-    }
 
     public String getFirstname() {
         return Firstname;
@@ -44,48 +35,28 @@ public class user {
         return Lastname;
     }
 
-    public String getEnrollment_No() {
-        return Enrollment_No;
+    public int getStudent_ID() {
+        return Student_ID;
     }
 
     public String getDOB() {
         return DOB;
     }
 
-    public String getAddressl1() {
-        return addressl1;
-    }
-
-    public String getAddressl2() {
-        return addressl2;
-    }
-
-    public String getAddressl3() {
-        return addressl3;
-    }
-
-    public String getCity() {
-        return city;
+    public String getAddress() {
+        return Address;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getGrde() {
-        return grde;
+    public int getG_id() {
+        return g_id;
     }
 
-    public String getClzz() {
-        return clzz;
-    }
-
-    public String getTelno() {
+    public int getTelno() {
         return Telno;
-    }
-
-    public String getUserType() {
-        return Usertype;
     }
 
     public void setFirstname(String firstname) {
@@ -96,47 +67,27 @@ public class user {
         Lastname = lastname;
     }
 
-    public void setEnrollment_No(String enrollment_No) {
-        Enrollment_No = enrollment_No;
+    public void setStudent_ID(int student_ID) {
+        Student_ID = student_ID;
     }
 
     public void setDOB(String DOB) {
         this.DOB = DOB;
     }
 
-    public void setAddressl1(String addressl1) {
-        this.addressl1 = addressl1;
-    }
-
-    public void setAddressl2(String addressl2) {
-        this.addressl2 = addressl2;
-    }
-
-    public void setAddressl3(String addressl3) {
-        this.addressl3 = addressl3;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setAddress(String address) {
+        Address = address;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setGrde(String grde) {
-        this.grde = grde;
+    public void setG_id(int g_id) {
+        this.g_id = g_id;
     }
 
-    public void setClzz(String clzz) {
-        this.clzz = clzz;
-    }
-
-    public void setTelno(String telno) {
+    public void setTelno(int telno) {
         Telno = telno;
-    }
-
-    public void setUserType(String usertype) {
-        Usertype = usertype;
     }
 }

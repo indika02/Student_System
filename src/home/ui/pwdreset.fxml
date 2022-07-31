@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="235.0" prefWidth="416.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Pwdreset">
+<AnchorPane prefHeight="309.0" prefWidth="426.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Pwdreset">
    <children>
-      <Label layoutX="31.0" layoutY="73.0" prefHeight="20.0" prefWidth="140.0" text="Enter your Username">
+      <Label layoutX="31.0" layoutY="73.0" prefHeight="20.0" prefWidth="140.0" text="Enter your Email">
          <font>
             <Font size="14.0" />
          </font>
@@ -29,7 +29,7 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="btnreset" layoutX="271.0" layoutY="186.0" mnemonicParsing="false" onAction="#reset" prefHeight="34.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Save" textFill="WHITE">
+      <Button fx:id="btnreset" layoutX="284.0" layoutY="241.0" mnemonicParsing="false" onAction="#reset" prefHeight="34.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Save" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
@@ -37,5 +37,12 @@
       <TextField fx:id="uname" layoutX="208.0" layoutY="70.0" />
       <TextField fx:id="pwd" layoutX="208.0" layoutY="104.0" />
       <TextField fx:id="rpwd" layoutX="208.0" layoutY="144.0" />
+      <ComboBox fx:id="selectcomd" layoutX="208.0" layoutY="187.0" onAction="#select" prefWidth="150.0" promptText="Select one" />
+      <Button fx:id="btnexit" layoutX="347.0" layoutY="-1.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: blue;" text="EXIT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      
    </children>
 </AnchorPane>

@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="378.0" prefWidth="683.0" styleClass="gradient" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Login">
    <children>
-      <Label layoutX="341.0" layoutY="154.0" text="Index No">
+      <Label layoutX="341.0" layoutY="154.0" text="Email">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>

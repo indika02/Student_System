@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -30,6 +31,7 @@ public class log {
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
         mainstage.setScene(scene);
+        mainstage.initStyle(StageStyle.UNDECORATED);
         mainstage.show();
     }
 
@@ -41,6 +43,7 @@ public class log {
         Parent root=FXMLLoader.load(getClass().getResource("../ui/teachersignup.fxml"));
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
+        mainstage.initStyle(StageStyle.UNDECORATED);
         mainstage.setScene(scene);
         mainstage.show();
     }
@@ -52,6 +55,7 @@ public class log {
         Parent root=FXMLLoader.load(getClass().getResource("../ui/login.fxml"));
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
+        mainstage.initStyle(StageStyle.UNDECORATED);
         mainstage.setScene(scene);
         mainstage.show();
     }

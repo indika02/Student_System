@@ -2,12 +2,12 @@ package home.controller;
 
 public class subject {
     Integer Subject_No;
-    String Grade;
+
     String Subject;
 
-    public subject(Integer subject_No, String grade, String subject) {
+    public subject(Integer subject_No, String subject) {
         Subject_No = subject_No;
-        Grade = grade;
+
         Subject = subject;
     }
 
@@ -15,9 +15,7 @@ public class subject {
         return Subject_No;
     }
 
-    public String getGrade() {
-        return Grade;
-    }
+
 
     public String getSubject() {
         return Subject;
@@ -27,9 +25,6 @@ public class subject {
         Subject_No = subject_No;
     }
 
-    public void setGrade(String grade) {
-        Grade = grade;
-    }
 
     public void setSubject(String subject) {
         Subject = subject;

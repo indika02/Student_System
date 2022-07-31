@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="378.0" prefWidth="683.0" styleClass="gradient" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Login">
    <children>
-      <Label layoutX="341.0" layoutY="154.0" text="Username">
+      <Label layoutX="341.0" layoutY="154.0" text="Email">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -22,7 +22,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtuserid" layoutX="441.0" layoutY="152.0" prefHeight="26.0" prefWidth="218.0" style="-fx-border-color: black;" styleClass="txtbox" stylesheets="@../css/student.css" />
+      <TextField fx:id="index" layoutX="441.0" layoutY="152.0" prefHeight="26.0" prefWidth="218.0" style="-fx-border-color: black;" styleClass="txtbox" stylesheets="@../css/student.css" />
       <PasswordField fx:id="txtpassword" layoutX="441.0" layoutY="193.0" prefHeight="26.0" prefWidth="218.0" style="-fx-border-color: black;" styleClass="txtbox" stylesheets="@../css/student.css" />
       <Button fx:id="btnlog" layoutX="554.0" layoutY="321.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Login">
          <font>

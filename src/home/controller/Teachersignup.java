@@ -9,9 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -31,14 +33,9 @@ import java.util.ResourceBundle;
         private Button btnback;
 
         @FXML
-        private TextField txtaddl1;
-        @FXML
-        private TextField txtaddl2;
-        @FXML
-        private TextField txtaddl3;
+        private TextField address;
 
-        @FXML
-        private TextField txtcity;
+
 
         @FXML
         private TextField txtemail;
@@ -50,16 +47,13 @@ import java.util.ResourceBundle;
         private TextField txtlname;
 
         @FXML
-        private TextField txtpwd;
-
-        @FXML
-        private TextField txtpwd1;
-
-        @FXML
         private TextField txttelno;
 
         @FXML
-        private TextField txtuname;
+        private PasswordField pwd1;
+
+        @FXML
+        private PasswordField pwd2;
 
         @FXML
         private Label txtconfirm;
@@ -69,30 +63,7 @@ import java.util.ResourceBundle;
         private PreparedStatement prepare;
         private ResultSet result;
 
-        @FXML
-        void username(KeyEvent event) {
-            connect = jdbcconnect.getConnection();
-            String uname = txtuname.getText();
 
-            try {
-                String sql = "SELECT * FROM users WHERE Username='" + uname + "' ";
-                prepare = connect.prepareStatement(sql);
-                result = prepare.executeQuery();
-                if (result.next()) {
-                    String yes = result.getString("Username");
-                    //System.out.println(yes);
-                    alt.setVisible(true);
-
-                } else {
-
-                    //System.out.println("no users");
-                    alt.setVisible(false);
-                }
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-
-        }
 
 
         @FXML
@@ -100,39 +71,26 @@ import java.util.ResourceBundle;
             connect = jdbcconnect.getConnection();
 
 //variable creating for input data
-            String username = txtuname.getText();
+
             String fname = txtfname.getText();
             String lname = txtlname.getText();
-            String addl1 = txtaddl1.getText();
-            String addl2 = txtaddl2.getText();
-            String addl3 = txtaddl3.getText();
-            String city = txtcity.getText();
+            String add = address.getText();
             String email = txtemail.getText();
             String telno = txttelno.getText();
-            String pass = txtpwd1.getText();
-            String cpass = txtpwd.getText();
+            String pass =pwd1.getText();
+            String cpass = pwd2.getText();
             String type = "Teacher";
 
             try {
 
-                //sql input quary
-                //String sql="insert into users (`Firstname`, `Lastname`,`Username`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,Telno`,`Password`,`UserType`) values (?,?,?,?,?,?,?,?,?,?,?)";
-                String sql = "insert into users (`Firstname`, `Lastname`,`Username`,`Enrollment_No`,`DOB`,`addressl1`,`addressl2`,`addressl3`,`city`,`Email`,`grade`,`Clzz`,`Telno`,`Password`,`UserType`) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                prepare = connect.prepareStatement(sql);
+
+                //prepare = connect.prepareStatement();
                 //database data input
 
                 prepare.setString(1, fname);
                 prepare.setString(2, lname);
-                prepare.setString(3, username);
-                prepare.setString(4, "None");
-                prepare.setString(5, "None");
-                prepare.setString(6, addl1);
-                prepare.setString(7, addl2);
-                prepare.setString(8, addl3);
-                prepare.setString(9, city);
+                prepare.setString(6, add);
                 prepare.setString(10, email);
-                prepare.setString(11, "None");
-                prepare.setString(12, "None");
                 prepare.setString(13, telno);
                 prepare.setString(15, type);
 
@@ -149,10 +107,11 @@ import java.util.ResourceBundle;
                     Stage mainstage = new Stage();
                     Scene scene = new Scene(root);
                     mainstage.setScene(scene);
+                    mainstage.initStyle(StageStyle.UNDECORATED);
                     mainstage.show();
                 } else {
-                    txtpwd1.setText("");
-                    txtpwd.setText("");
+                    pwd1.setText("");
+                    pwd2.setText("");
                     txtconfirm.setText("Different password.Re-Enter the password again!");
                 }
             } catch (Exception e) {
@@ -170,6 +129,7 @@ import java.util.ResourceBundle;
             Stage mainstage=new Stage();
             Scene scene=new Scene(root);
             mainstage.setScene(scene);
+            mainstage.initStyle(StageStyle.UNDECORATED);
             mainstage.show();
         }
         @Override

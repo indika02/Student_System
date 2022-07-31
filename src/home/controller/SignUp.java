@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -75,6 +76,7 @@ public class SignUp implements Initializable {
         Stage mainstage=new Stage();
         Scene scene=new Scene(root);
         mainstage.setScene(scene);
+        mainstage.initStyle(StageStyle.UNDECORATED);
         mainstage.show();
     }
 
@@ -144,6 +146,7 @@ public class SignUp implements Initializable {
                 Stage mainstage=new Stage();
                 Scene scene=new Scene(root);
                 mainstage.setScene(scene);
+                mainstage.initStyle(StageStyle.UNDECORATED);
                 mainstage.show();
             }else{
                 txtpwd.setText("");

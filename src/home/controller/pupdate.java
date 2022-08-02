@@ -58,6 +58,8 @@ public class pupdate{
     private Connection connect;
     private PreparedStatement prepare;
 
+
+
     @FXML
     void exit(ActionEvent event) throws IOException {
         btnexit.getScene().getWindow().hide();
@@ -78,6 +80,7 @@ public class pupdate{
             prepare = connect.prepareStatement(sql);
             ResultSet result = prepare.executeQuery();
             if(result.next()){
+
                 txtindex.setText(result.getString("Student_ID"));
                 txtfname.setText(result.getString("Firstname"));
                 txtlname.setText(result.getString("Lastname"));

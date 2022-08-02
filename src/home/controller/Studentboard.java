@@ -47,6 +47,16 @@ public class Studentboard extends Login{
     private Button timetable;
 
 
+    @FXML
+    private Button btnexit;
+
+    @FXML
+    void exit(ActionEvent event){
+        Stage stage = (Stage) btnexit.getScene().getWindow();
+        stage.close();
+    }
+
+
 
     @FXML
     void timetable(ActionEvent event)throws IOException{

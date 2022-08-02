@@ -42,6 +42,12 @@ public class Pwdreset implements Initializable {
     @FXML
     private ComboBox<String> selectcomd;
 
+
+
+
+
+
+
     private Connection connect;
 
     private Connection connect1;

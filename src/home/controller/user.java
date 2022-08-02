@@ -10,12 +10,13 @@ public class user {
     String email;
     Integer g_id;
     Integer Telno;
+    String Clazz;
 
 //    public user(String firstname, String lastname, Integer student_ID, String DOB, String address, String email,Integer g_id, Integer telno) {
 //
 //    }
 
-    public user(int student_id, String firstname, String lastname, String dob, String address, String email, int g_id, int telno) {
+    public user(int student_id, String firstname, String lastname, String dob, String address, String email, int g_id, int telno,String clazz) {
         Firstname = firstname;
         Lastname = lastname;
         Student_ID = student_id;
@@ -24,8 +25,11 @@ public class user {
         this.email = email;
         this.g_id = g_id;
         Telno = telno;
+        Clazz=clazz;
     }
-
+    public String getClazz() {
+        return Clazz;
+    }
 
     public String getFirstname() {
         return Firstname;
@@ -90,4 +94,11 @@ public class user {
     public void setTelno(int telno) {
         Telno = telno;
     }
+
+
+    public void setClazz(String clazz) {
+        Clazz = clazz;
+    }
+
+
 }

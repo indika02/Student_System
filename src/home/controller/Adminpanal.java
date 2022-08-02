@@ -43,50 +43,13 @@ import java.util.Date;
 public class Adminpanal implements Initializable {
 
 
-    @FXML
-    private TextField Mathematics;
 
-    @FXML
-    private TextField Religious;
 
-    @FXML
-    private TextField Sinhala;
-    @FXML
-    private TextField English;
 
-    @FXML
-    private Label tot;
+
 
     @FXML
     private Label time;
-
-    @FXML
-    private Label avg;
-
-    @FXML
-    private TextField firstCategory;
-
-    @FXML
-    private TextField secondCategory;
-
-    @FXML
-    private TextField thirdCategory;
-
-    @FXML
-    private TextField history;
-
-
-
-    @FXML
-    private TextField science;
-
-    @FXML
-    private TextField nodtd;
-
-
-    @FXML
-    private TextField Enrollment_no;
-
 
     @FXML
     private TableColumn<user, Integer> Telno;
@@ -115,6 +78,9 @@ public class Adminpanal implements Initializable {
     @FXML
     private TableColumn<user, Integer> g_id;
 
+    @FXML
+    private TableColumn<user,String> clazz;
+
 
     @FXML
     private TextField searchfield;
@@ -142,7 +108,7 @@ public class Adminpanal implements Initializable {
     private TableColumn<subject, Integer > sub_id;
 
     @FXML
-    private TableColumn<subject, String> Grade;
+    private TableColumn<subject, Integer> Grade;
 
     @FXML
     private TableColumn<subject, String> subject;
@@ -163,11 +129,7 @@ public class Adminpanal implements Initializable {
     @FXML
     private TextField txttgra;
 
-    @FXML
-    private TextField g;
 
-    @FXML
-    private TextField c;
 
     @FXML
     private Button btnshow;
@@ -184,17 +146,27 @@ public class Adminpanal implements Initializable {
     @FXML
     private ImageView timetable;
 
-    @FXML
-    void updatetime(ActionEvent event) {
 
-    }
+    @FXML
+    private ComboBox<String> sgrade;
+
     private FileInputStream fis;
 
     final FileChooser fc=new FileChooser();
 
     @FXML
+    private Button btnexit;
+
+    @FXML
+    void exit(ActionEvent event){
+        Stage stage = (Stage) btnexit.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
     void select(ActionEvent event) {
         int gra=Integer.parseInt(tgrade.getSelectionModel().getSelectedItem().toString());
+        int g_id=Integer.parseInt(sgrade.getSelectionModel().getSelectedItem().toString());
 
     }
 
@@ -221,11 +193,36 @@ public class Adminpanal implements Initializable {
             prepare.setBinaryStream(1, (InputStream) fis);
             prepare.setInt(2, gra);
             prepare.execute();
-            //ivFiles.setImage(new Image("D:\\Student System\\Student System\\src\\home\\images\\vector-school-timetable-weekly-curriculum-design-template-J5XEHE.jpg"));
             txttgra.setText("");
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    @FXML
+    void updatetime(ActionEvent event) {
+        try{
+            connect=jdbcconnect.getConnection();
+            int gra=Integer.parseInt(tgrade.getSelectionModel().getSelectedItem().toString());
+
+            String sql = "DELETE timetable FROM timetable WHERE g_id='"+gra+"'";
+            prepare=connect.prepareStatement(sql);
+            prepare.execute();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("OK");
+            alert.showAndWait();
+            display();
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("ERROR!");
+            alert.showAndWait();
+        }
+
     }
 
     int index=-1;
@@ -235,17 +232,19 @@ public class Adminpanal implements Initializable {
     //mysql connection variables
     private Connection connect;
     private PreparedStatement prepare;
-
+private PreparedStatement prepare2;
 
     @FXML
     void add(ActionEvent event) {
         connect=jdbcconnect.getConnection();
         String sql="insert into subject(sub_id,subject)values(?,?)";
+        String sql2="insert into subject_grade(g_id,sub_id)values(?,?)";
         //call method for display data of database to table
         try{
             prepare=connect.prepareStatement(sql);
+            prepare2=connect.prepareStatement(sql2);
             String t=txt_subno.getText();
-
+            String g_id=sgrade.getSelectionModel().getSelectedItem().toString();
             String sub=txtsub.getText();
             if(t=="" && sub==""){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -256,6 +255,11 @@ public class Adminpanal implements Initializable {
                 prepare.setString(1,t);
                 prepare.setString(2, sub);
                 prepare.execute();
+                prepare2.setString(1,g_id);
+                prepare2.setString(2,t);
+
+                prepare2.execute();
+
                 display();
                 txt_subno.setText("");
                 txtsub.setText("");
@@ -272,46 +276,26 @@ public class Adminpanal implements Initializable {
             return;
         }
         txt_subno.setText(sub_id.getCellData(index).toString());
-
         txtsub.setText(subject.getCellData(index).toString());
 
     }
 
 
-    public void Edit(){
-        try{
-            connect=jdbcconnect.getConnection();
-            String value1=txt_subno.getText();
 
-            String value3=txtsub.getText();
-
-            String sql = "update subject set sub_id= '"+value1+"',subject= '"+
-                    value3+"' where sub_id= '"+value1+"' ";
-            prepare=connect.prepareStatement(sql);
-            prepare.execute();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("OK");
-            alert.showAndWait();
-            display();
-        }catch (Exception e){
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("ERROR!");
-            alert.showAndWait();
-        }
-    }
 
 
     public void Delete(){
 
         connect=jdbcconnect.getConnection();
         String sql = "delete from subject where sub_id = ?";
+        String sql2="DELETE FROM subject_grade where sub_id=?";
         try {
             prepare = connect.prepareStatement(sql);
             prepare.setString(1, txt_subno.getText());
             prepare.execute();
+            prepare2=connect.prepareStatement(sql2);
+            prepare2.setString(1,txt_subno.getText());
+            prepare2.execute();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText(null);
             alert.setContentText("OK");
@@ -338,7 +322,7 @@ public class Adminpanal implements Initializable {
 
         connect=jdbcconnect.getConnection();
 
-        String sql="SELECT sub_id,subject from subject";
+        String sql="SELECT s.sub_id,s.subject,sg.g_id FROM subject s INNER JOIN subject_grade sg ON s.sub_id=sg.sub_id";
 
         try {
             prepare=connect.prepareStatement(sql);
@@ -346,13 +330,14 @@ public class Adminpanal implements Initializable {
 
             while (result.next()){
                 int Subject_No=result.getInt("sub_id");
-
+                int grade=result.getInt("g_id");
                 String Subject=result.getString("subject");
 
 
-                SubjectSearchObservableList.add(new subject(Subject_No,Subject));
+                SubjectSearchObservableList.add(new subject(Subject_No,grade,Subject));
             }
             sub_id.setCellValueFactory(new PropertyValueFactory<subject, Integer>("Subject_No"));
+            Grade.setCellValueFactory(new PropertyValueFactory<subject,Integer>("grade"));
             subject.setCellValueFactory(new PropertyValueFactory<subject, String>("Subject"));
 
             tablestd.setItems(SubjectSearchObservableList);
@@ -364,11 +349,11 @@ public class Adminpanal implements Initializable {
                         return true;
                     }
                     String searchkeyword=newValue.toLowerCase();
-                    if(UserSearchJava.getSubject_No().toString().indexOf(searchkeyword)>-1){
+                    if(UserSearchJava.getSubject().toLowerCase().indexOf(searchkeyword)>-1){
                         return true;
-                    }else
+                    }else {
                         return false;
-                });
+                    }});
             });
             SortedList<subject> sortData=new SortedList<subject>(filterdata);
             sortData.comparatorProperty().bind(tablestd.comparatorProperty());
@@ -391,7 +376,7 @@ public class Adminpanal implements Initializable {
     public void displayinfo(){
         connect=jdbcconnect.getConnection();
 
-        String sql="SELECT Student_ID,Firstname,Lastname,DOB,Address,Telno,email,g_id FROM student";
+        String sql="SELECT Student_ID,Firstname,Lastname,DOB,Address,Telno,email,g_id,class.clazz FROM student,class where student.class_id=class.class_id";
         try {
             prepare=connect.prepareStatement(sql);
             ResultSet result = prepare.executeQuery();
@@ -406,8 +391,10 @@ public class Adminpanal implements Initializable {
                 String email=result.getString("email");
                 int g_id=result.getInt("g_id");
                 int Telno = result.getInt("Telno");
+                String clazz=result.getString("clazz");
 
-                UsersearchJavaObservableList.add(new user(Student_ID,Firstname,Lastname,DOB,Address,email,g_id,Telno));
+
+                UsersearchJavaObservableList.add(new user(Student_ID,Firstname,Lastname,DOB,Address,email,g_id,Telno,clazz));
             }
             Firstname.setCellValueFactory(new PropertyValueFactory<user, String>("Firstname"));
             Lastname.setCellValueFactory(new PropertyValueFactory<user, String>("Lastname"));
@@ -416,6 +403,7 @@ public class Adminpanal implements Initializable {
             Address.setCellValueFactory(new PropertyValueFactory<user,String>("address"));
             email.setCellValueFactory(new PropertyValueFactory<user,String>("email"));
             g_id.setCellValueFactory(new PropertyValueFactory<user,Integer>("g_id"));
+            clazz.setCellValueFactory(new PropertyValueFactory<user,String>("Clazz"));
 
             Telno.setCellValueFactory(new PropertyValueFactory<user,Integer>("Telno"));
 
@@ -434,16 +422,15 @@ public class Adminpanal implements Initializable {
                         return true;
                     }else if (Integer.toString(UserSearchJava.getStudent_ID()).indexOf(searchkeyword)>-1){
                         return true;
-                    }
-                    else if (UserSearchJava.getDOB().toLowerCase().indexOf(searchkeyword)>-1){
-                        return true;
                     }else if (UserSearchJava.getAddress().toLowerCase().indexOf(searchkeyword)>-1){
                         return true;
                     }else if (Integer.toString(UserSearchJava.getG_id()).indexOf(searchkeyword)>-1){
                         return true;
-                    }else
+                    }else if (UserSearchJava.getClazz().toLowerCase().indexOf(searchkeyword)>-1) {
+                        return true;
+                    }else {
                         return false;
-                });
+                }});
             });
             SortedList<user> sortData=new SortedList<>(filterdata);
             sortData.comparatorProperty().bind(tableuser.comparatorProperty());
@@ -472,82 +459,7 @@ public class Adminpanal implements Initializable {
         mainstage.show();
     }
 
-    @FXML
-    void btncal(ActionEvent event){
-        connect=jdbcconnect.getConnection();
-        String sql="insert into sub_marks(Enrollment_No,grade,Clzz,sinhala,religious,english,mathematics,history,science,fstcategory,sndcategory,trdcategory,total,average)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        try {
-            prepare=connect.prepareStatement(sql);
 
-            String Enro=Enrollment_no.getText();
-            String gr=g.getText();
-            String cl=c.getText();
-            int notstd = Integer.parseInt(nodtd.getText());
-            int sin = Integer.parseInt(Sinhala.getText());
-            int reli = Integer.parseInt(Religious.getText());
-            int eng = Integer.parseInt(English.getText());
-            int math = Integer.parseInt(Mathematics.getText());
-            int his = Integer.parseInt(history.getText());
-            int sci = Integer.parseInt(science.getText());
-            int fact = Integer.parseInt(firstCategory.getText());
-            int scat = Integer.parseInt(secondCategory.getText());
-            int tcat = Integer.parseInt(thirdCategory.getText());
-
-            int total = sin + reli + eng + math + his + sci + fact + scat + tcat;
-            tot.setText(Integer.toString(total));
-            double average = ((double) total / notstd);
-
-
-            avg.setText(Double.toString(Double.parseDouble(String.format("%.2f", average))));
-
-            prepare.setString(1,Enro);
-            prepare.setString(2,gr);
-            prepare.setString(3,cl);
-            prepare.setInt(4,sin);
-            prepare.setInt(5,reli);
-            prepare.setInt(6,eng);
-            prepare.setInt(7,math);
-            prepare.setInt(8,his);
-            prepare.setInt(9,sci);
-            prepare.setInt(10,fact);
-            prepare.setInt(11,scat);
-            prepare.setInt(12,tcat);
-            prepare.setInt(13,total);
-            prepare.setDouble(14,average);
-
-            prepare.execute();
-
-
-
-        }catch (Exception e){
-            System.out.println(e);
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Incorrect Details.Enter Your details correctly!");
-            alert.showAndWait();
-        }
-    }
-    @FXML
-    void reset(ActionEvent event){
-        Enrollment_no.setText("");
-        nodtd.setText("");
-        g.setText("");
-        c.setText("");
-        Sinhala.setText("");
-        Religious.setText("");
-        English.setText("");
-        Mathematics.setText("");
-        history.setText("");
-        science.setText("");
-        firstCategory.setText("");
-        secondCategory.setText("");
-        thirdCategory.setText("");
-        tot.setText("");
-        avg.setText("");
-
-
-
-    }
 
 
         @FXML
@@ -580,9 +492,26 @@ private volatile boolean stop=false;
         });
         thread.start();
     }
-
+    private ObservableList<String> s = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        connect = jdbcconnect.getConnection();
+
+        String sql = " SELECT g_id FROM grade";
+        try {
+            prepare = connect.prepareStatement(sql);
+            ResultSet result = prepare.executeQuery();
+
+            while (result.next()) {
+                s.add(result.getString("g_id"));
+                sgrade.setItems(s);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
         displayinfo();
         display();
         Timenow();

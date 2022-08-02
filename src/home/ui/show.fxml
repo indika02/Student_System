@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="382.0" prefWidth="974.0" style="-fx-background-color: lightgreen;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.Show">
    <children>
       <TableView fx:id="markstable" layoutY="52.0" prefHeight="329.0" prefWidth="986.0">
@@ -28,6 +27,6 @@
          </columns>
       </TableView>
       <TextField fx:id="markssearch" layoutX="22.0" layoutY="14.0" prefHeight="26.0" prefWidth="298.0" stylesheets="@../css/student.css" />
-      <Button fx:id="btnexit" layoutX="811.0" layoutY="15.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="90.0" text="EXIT" />
+      <Button fx:id="btnexit" layoutX="895.0" layoutY="1.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="90.0" text="EXIT" />
    </children>
 </AnchorPane>

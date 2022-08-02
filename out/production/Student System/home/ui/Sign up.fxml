@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="669.0" prefWidth="487.0" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.SignUp">
+<AnchorPane prefHeight="692.0" prefWidth="553.0" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controller.SignUp">
    <children>
-      <Label layoutX="158.0" layoutY="14.0" prefHeight="31.0" prefWidth="131.0" text="SIGN UP">
+      <Label layoutX="131.0" layoutY="13.0" prefHeight="31.0" prefWidth="233.0" text="STUDENT SIGN UP">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="27.0" />
          </font>
@@ -32,22 +32,22 @@
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="357.0" prefHeight="22.0" prefWidth="97.0" text="Tel No.">
+      <Label layoutX="26.0" layoutY="417.0" prefHeight="22.0" prefWidth="97.0" text="Tel No.">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="415.0" prefHeight="22.0" prefWidth="166.0" text="Create a password">
+      <Label layoutX="9.0" layoutY="487.0" prefHeight="22.0" prefWidth="166.0" text="Create a password">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <PasswordField fx:id="txtpwd" layoutX="26.0" layoutY="447.0" prefHeight="26.0" prefWidth="214.0" />
-      <TextField fx:id="txttel" layoutX="180.0" layoutY="355.0" prefHeight="26.0" prefWidth="266.0" />
+      <PasswordField fx:id="txtpwd" layoutX="24.0" layoutY="550.0" prefHeight="26.0" prefWidth="214.0" />
+      <TextField fx:id="txttel" layoutX="180.0" layoutY="415.0" prefHeight="26.0" prefWidth="266.0" />
       <TextField fx:id="txtemail" layoutX="180.0" layoutY="282.0" prefHeight="26.0" prefWidth="266.0" />
       <TextField fx:id="txtlname" layoutX="179.0" layoutY="155.0" prefHeight="26.0" prefWidth="266.0" />
       <TextField fx:id="txtfname" layoutX="179.0" layoutY="110.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-style: none;" styleClass="text-field" stylesheets="@../css/student.css" />
-      <Button fx:id="btnsignup" layoutX="358.0" layoutY="534.0" mnemonicParsing="false" onAction="#signup" prefHeight="32.0" prefWidth="98.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Sign up">
+      <Button fx:id="btnsignup" layoutX="355.0" layoutY="610.0" mnemonicParsing="false" onAction="#signup" prefHeight="32.0" prefWidth="98.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Sign up">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -63,8 +63,8 @@
          </font>
       </Label>
       <ComboBox fx:id="comb" layoutX="180.0" layoutY="319.0" onAction="#select" prefHeight="30.0" prefWidth="266.0" promptText="Grade" />
-      <PasswordField fx:id="txtpwd2" layoutX="248.0" layoutY="447.0" prefHeight="26.0" prefWidth="214.0" />
-      <Label layoutX="248.0" layoutY="415.0" prefHeight="22.0" prefWidth="166.0" text="Confirm password">
+      <PasswordField fx:id="txtpwd2" layoutX="257.0" layoutY="550.0" prefHeight="26.0" prefWidth="214.0" />
+      <Label layoutX="257.0" layoutY="518.0" prefHeight="22.0" prefWidth="166.0" text="Confirm password">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
@@ -79,7 +79,7 @@
          </font>
       </Label>
       <DatePicker fx:id="birthday" layoutX="179.0" layoutY="197.0" prefHeight="26.0" prefWidth="266.0" />
-      <Button fx:id="btnback" layoutX="26.0" layoutY="534.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="98.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Back">
+      <Button fx:id="btnback" layoutX="26.0" layoutY="610.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="98.0" style="-fx-border-radius: 0; -fx-background-color: blue;" styleClass="login" stylesheets="@../css/student.css" text="Back">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -91,5 +91,17 @@
          </font>
       </Label>
       <TextField fx:id="student_id" layoutX="179.0" layoutY="72.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-style: none;" styleClass="text-field" stylesheets="@../css/student.css" />
+      <Button fx:id="btnexit" layoutX="478.0" layoutY="-1.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: red;" text="EXIT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="27.0" layoutY="371.0" prefHeight="22.0" prefWidth="131.0" text="Class">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="combclass" layoutX="180.0" layoutY="367.0" onAction="#select" prefHeight="30.0" prefWidth="266.0" promptText="Class" />
+      <Label fx:id="s_id" layoutX="131.0" layoutY="373.0" prefHeight="18.0" prefWidth="36.0" textFill="WHITE" />
    </children>
 </AnchorPane>

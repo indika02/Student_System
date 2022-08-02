@@ -47,6 +47,15 @@ public class Login implements Initializable {
     @FXML
     private ComboBox<String> type;
 
+    @FXML
+    private Button btnexit;
+
+    @FXML
+    void exit(ActionEvent event){
+        Stage stage = (Stage) btnexit.getScene().getWindow();
+        stage.close();
+    }
+
 
 
     @FXML

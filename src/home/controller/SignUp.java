@@ -44,6 +44,9 @@ public class SignUp implements Initializable {
     private ComboBox<String> comb;
 
     @FXML
+    private ComboBox<String> combclass;
+
+    @FXML
     private Label txtconfirm;
 
     @FXML
@@ -68,6 +71,9 @@ public class SignUp implements Initializable {
     private TextField student_id;
 
     @FXML
+    private Label s_id;
+
+    @FXML
     void back(ActionEvent event) throws IOException {
         //close current window
         btnback.getScene().getWindow().hide();
@@ -80,20 +86,39 @@ public class SignUp implements Initializable {
         mainstage.show();
     }
 
+
+    private Connection connect;
+    private Statement statement;
+    private PreparedStatement prepare;
+    private ResultSet result;
     @FXML
     void select(ActionEvent event) {
 
         String g=comb.getSelectionModel().getSelectedItem().toString();
 
+        String c=combclass.getSelectionModel().getSelectedItem().toString();
+
+        connect=jdbcconnect.getConnection();
+
+        String sql2="SELECT class_id FROM clazz where clazz='"+c+"'";
+
+        try{
+            prepare = connect.prepareStatement(sql2);
+            ResultSet result = prepare.executeQuery();
+
+            if (result.next()){
+                int id=Integer.parseInt(result.getString("class_id"));
+                s_id.setText(Integer.toString(id));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
 
     }
 
 //mysql connection variables
-    private Connection connect;
-    private Statement statement;
-    private PreparedStatement prepare;
-    private ResultSet result;
+
 
     //check the username already taken
 
@@ -113,13 +138,15 @@ public class SignUp implements Initializable {
         String g=comb.getSelectionModel().getSelectedItem().toString();
         String email = txtemail.getText();
         int telno = Integer.parseInt(txttel.getText());
+
         String pass = txtpwd.getText();
         String cpass=txtpwd2.getText();
+        String ii=s_id.getText();
 
         try {
 
             //sql input quary
-            String sql="INSERT INTO `student` (`Student_ID`, `Firstname`, `Lastname`, `DOB`, `Address`, `Telno`, `email`, `password`,`status`,`g_id`) VALUES (?,?,?,?,?,?,?,?,?,?);";
+            String sql="INSERT INTO `student` (`Student_ID`, `Firstname`, `Lastname`, `DOB`, `Address`, `Telno`, `email`, `password`,`status`,`g_id`,`class_id`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             prepare=connect.prepareStatement(sql);
            //database data input
             prepare.setString(1,Integer.toString(id));
@@ -130,6 +157,7 @@ public class SignUp implements Initializable {
             prepare.setString(6, Integer.toString(telno));
             prepare.setString(7, email);
             prepare.setString(10,g);
+            prepare.setString(11,ii);
             prepare.setString(9,"student");
 
 
@@ -159,12 +187,34 @@ public class SignUp implements Initializable {
         }
     }
 
+    @FXML
+    private Button btnexit;
 
+    @FXML
+    void exit(ActionEvent event){
+        Stage stage = (Stage) btnexit.getScene().getWindow();
+        stage.close();
+    }
+    private ObservableList<String> s = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
         ObservableList<String> list= FXCollections.observableArrayList("06","07","08","09","10","11","12","13");
         comb.setItems(list);
+        connect = jdbcconnect.getConnection();
+
+        String sql = " SELECT class_id,clazz FROM clazz";
+        try {
+            prepare = connect.prepareStatement(sql);
+            ResultSet result = prepare.executeQuery();
+
+            while (result.next()) {
+                s.add(result.getString("clazz"));
+                combclass.setItems(s);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
 
 

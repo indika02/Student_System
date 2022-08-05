@@ -34,10 +34,10 @@ public class jdbcconnect {
         Connection conn = getConnection();
         ObservableList<subject> list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT s.sub_id,s.subject,sg.g_id FROM subject s INNER JOIN subject_grade sg ON s.sub_id=sg.sub_id");
+            PreparedStatement ps = conn.prepareStatement("select * from subject");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new subject(Integer.parseInt(rs.getString("sub_id")),(Integer.parseInt(rs.getString("g_id"))), (rs.getString("subject"))));
+                list.add(new subject(Integer.parseInt(rs.getString("sub_id")), (rs.getString("subject"))));
 
             }
         } catch (Exception e) {
@@ -46,5 +46,22 @@ public class jdbcconnect {
         return list;
     }
 
+//(Integer.parseInt(rs.getString("g_id"))),
 
+    public static ObservableList<subject_grade> getsubject() {
+
+        Connection conn = getConnection();
+        ObservableList<subject_grade> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT sg.g_id,s.sub_id,s.subject FROM subject s INNER JOIN subject_grade sg ON s.sub_id=sg.sub_id");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new subject_grade(Integer.parseInt(rs.getString("g_id")),(Integer.parseInt(rs.getString("sub_id"))), (rs.getString("subject"))));
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        return list;
+    }
 }

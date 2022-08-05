@@ -50,11 +50,11 @@
       </AnchorPane>
       <TabPane layoutX="-6.0" layoutY="60.0" prefHeight="742.0" prefWidth="1279.0" stylesheets="@../css/tableview.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Users">
+          <Tab text="USERS">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="543.0" prefWidth="1352.0" style="-fx-background-color: lightblue;" stylesheets="@../css/student.css">
                      <children>
-                        <TableView fx:id="tableuser" editable="true" layoutX="3.0" layoutY="84.0" prefHeight="326.0" prefWidth="1232.0" style="-fx-background-color: white;" stylesheets="@../css/student.css">
+                        <TableView fx:id="tableuser" editable="true" layoutX="3.0" layoutY="84.0" prefHeight="326.0" prefWidth="1232.0" style="-fx-background-color: white; -fx-bor-radius: 10px;" stylesheets="@../css/student.css">
                           <columns>
                               <TableColumn fx:id="Student_ID" prefWidth="86.39999079704285" text="Index No:" />
                             <TableColumn fx:id="Firstname" prefWidth="144.79999542236328" text="First Name" />
@@ -67,73 +67,76 @@
                               <TableColumn fx:id="clazz" prefWidth="52.0" text="Class" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="searchfield" layoutX="27.0" layoutY="32.0" prefHeight="26.0" prefWidth="269.0" promptText="Search......." />
+                        <TextField fx:id="searchfield" layoutX="27.0" layoutY="32.0" prefHeight="26.0" prefWidth="269.0" promptText="Search......." style="-fx-background-color: white; -fx-background-radius: 10px;" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Subjects">
+            <Tab text="SUBJECTS">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/student.css">
                      <children>
-                        <TableView fx:id="tablestd" layoutX="406.0" layoutY="99.0" onMouseClicked="#getSelected" prefHeight="418.0" prefWidth="538.0">
+                        <TableView fx:id="tablestd" layoutX="406.0" layoutY="99.0" onMouseClicked="#getSelected" prefHeight="566.0" prefWidth="538.0">
                           <columns>
                               <TableColumn fx:id="sub_id" prefWidth="94.39999389648438" text="SUBJECT NO:" />
-                            <TableColumn fx:id="subject" prefWidth="366.39996337890625" text="SUBJECT" />
-                              <TableColumn fx:id="Grade" prefWidth="75.199951171875" text="GRADE" />
+                            <TableColumn fx:id="subject" prefWidth="442.39996337890625" text="SUBJECT" />
                           </columns>
                         </TableView>
                         <Label layoutX="112.0" layoutY="14.0" text="Adding Subjects">
                            <font>
                               <Font name="Bell MT Bold" size="25.0" />
                            </font></Label>
-                        <TextField fx:id="subjectsearch" layoutX="406.0" layoutY="59.0" prefHeight="26.0" prefWidth="243.0" promptText="Search............" />
+                        <TextField fx:id="subjectsearch" layoutX="406.0" layoutY="59.0" prefHeight="26.0" prefWidth="243.0" promptText="Search............" style="-fx-background-radius: 10px;" />
                         <AnchorPane layoutX="25.0" layoutY="99.0" prefHeight="223.0" prefWidth="325.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
                            <children>
-                              <TextField fx:id="txt_subno" layoutX="137.0" layoutY="66.0" prefHeight="26.0" prefWidth="166.0" style="-fx-border-color: blue;">
+                              <TextField fx:id="txt_subno" layoutX="137.0" layoutY="27.0" prefHeight="26.0" prefWidth="166.0" style="-fx-border-color: blue;">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
       <!--                        <Button fx:id="btnremove" layoutX="169.0" layoutY="234.0" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: blue;" text="REMOVE" />-->
-                              <TextField fx:id="txtsub" layoutX="138.0" layoutY="107.0" prefHeight="26.0" prefWidth="165.0" style="-fx-border-color: blue;">
+                              <TextField fx:id="txtsub" layoutX="137.0" layoutY="83.0" prefHeight="26.0" prefWidth="165.0" style="-fx-border-color: blue;">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="24.0" layoutY="70.0" prefHeight="20.0" prefWidth="83.0" text="Subject_No">
+                              <Label layoutX="27.0" layoutY="31.0" prefHeight="20.0" prefWidth="83.0" text="Subject_No">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="24.0" layoutY="26.0" prefHeight="18.0" prefWidth="66.0" text="Grade">
+                              <Label layoutX="27.0" layoutY="87.0" text="Subject">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="27.0" layoutY="110.0" text="Subject">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="btnadd" layoutX="100.0" layoutY="167.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: blue;" text="ADD" textFill="WHITE">
+                              <Button fx:id="btnadd" layoutX="50.0" layoutY="152.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: blue;" text="ADD" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btndelete" layoutX="230.0" layoutY="167.0" mnemonicParsing="false" onAction="#Delete" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: blue;" text="DELETE" textFill="WHITE">
+                              <Button fx:id="btndelete" layoutX="220.0" layoutY="152.0" mnemonicParsing="false" onAction="#Delete" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: blue;" text="DELETE" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <ComboBox fx:id="sgrade" layoutX="136.0" layoutY="23.0" onAction="#select" prefHeight="26.0" prefWidth="169.0" style="-fx-border-color: blue; -fx-background-color: white;" />
                            </children>
                         </AnchorPane>
+                        <Label layoutX="36.0" layoutY="355.0" text="Adding Subjects for Grades">
+                           <font>
+                              <Font name="Bell MT Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnSUBGRADE" layoutX="42.0" layoutY="404.0" mnemonicParsing="false" onAction="#SUBGRADE" prefHeight="30.0" prefWidth="294.0" style="-fx-background-color: blue;" text="ADDING SUBJECTS FOR GRADES" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Time Table">
+            <Tab text="TIMETABLE">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -168,267 +171,118 @@
                   </AnchorPane>
               </content>
             </Tab>
-          <Tab text="Student">
+          <Tab text="MARKS">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="686.0" prefWidth="1274.0">
                      <children>
                         <Label fx:id="total" layoutX="566.0" layoutY="304.0" prefHeight="18.0" prefWidth="166.0" />
-                        <AnchorPane layoutX="284.0" layoutY="55.0" prefHeight="540.0" prefWidth="302.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+                        <AnchorPane layoutX="263.0" layoutY="55.0" prefHeight="634.0" prefWidth="622.0" style="-fx-background-color: white; -fx-background-radius: 30;">
                            <children>
                               <Label layoutX="72.0" layoutY="14.0" prefHeight="22.0" prefWidth="158.0" text="GRADE 06 TO 09" textFill="#2919fa">
                                  <font>
                                     <Font name="Arial Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="63.0" prefHeight="18.0" prefWidth="93.0" text="Religion">
+                              <Label fx:id="sub1" layoutX="14.0" layoutY="64.0" prefHeight="18.0" prefWidth="408.0" text="Subject 01">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="13.0" layoutY="468.0" prefHeight="18.0" prefWidth="173.0" text="Sinhala/Tamil Language" AnchorPane.bottomAnchor="148.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="468.0">
+                              <Label fx:id="sub11" layoutX="16.0" layoutY="418.0" prefHeight="18.0" prefWidth="409.0" text="Subject 11" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="418.0">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="120.0" prefHeight="12.0" prefWidth="139.0" text="(First language)">
-                                 <font>
-                                    <Font name="Arial Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="14.0" layoutY="148.0" prefHeight="18.0" prefWidth="93.0" text="English" AnchorPane.topAnchor="148.0">
+                              <Label fx:id="sub3" layoutX="14.0" layoutY="148.0" prefHeight="18.0" prefWidth="406.0" text="Subject 03" AnchorPane.topAnchor="148.0">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="17.0" layoutY="439.0" prefHeight="18.0" prefWidth="93.0" text="skills">
+                              <Label fx:id="sub10" layoutX="16.0" layoutY="383.0" prefHeight="18.0" prefWidth="402.0" text="Subject 10">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="17.0" layoutY="421.0" prefHeight="18.0" prefWidth="173.0" text="Practical and technical ">
+                              <Label fx:id="sub9" layoutX="14.0" layoutY="351.0" prefHeight="18.0" prefWidth="402.0" text="Subject 09">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="365.0" prefHeight="18.0" prefWidth="158.0" text="Aesthetic subjects">
+                              <Label fx:id="sub8" layoutX="16.0" layoutY="317.0" prefHeight="18.0" prefWidth="402.0" text="Subject 08">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="332.0" prefHeight="18.0" prefWidth="158.0" text="citizenship education">
+                              <Label fx:id="sub7" layoutX="14.0" layoutY="282.0" prefHeight="18.0" prefWidth="402.0" text="Subject 07">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="314.0" prefHeight="18.0" prefWidth="166.0" text="Life competencies and ">
+                              <Label fx:id="sub6" layoutX="14.0" layoutY="249.0" prefHeight="18.0" prefWidth="404.0" text="Subject 06">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="282.0" prefHeight="18.0" prefWidth="93.0" text="Geography">
+                              <Label fx:id="sub5" layoutX="14.0" layoutY="216.0" prefHeight="18.0" prefWidth="407.0" text="Subject 05">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="249.0" prefHeight="18.0" prefWidth="93.0" text="History">
+                              <Label fx:id="sub4" layoutX="14.0" layoutY="182.0" prefHeight="18.0" prefWidth="406.0" text="Subject 04">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="216.0" prefHeight="18.0" prefWidth="93.0" text="Science">
+                              <Label fx:id="sub2" layoutX="11.0" layoutY="101.0" prefHeight="22.0" prefWidth="410.0" text="Subject 02">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="182.0" prefHeight="18.0" prefWidth="93.0" text="Mathematics">
+                              <TextField fx:id="txtsub1" layoutX="466.0" layoutY="60.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub2" layoutX="466.0" layoutY="99.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub3" layoutX="466.0" layoutY="143.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub4" layoutX="466.0" layoutY="178.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub5" layoutX="466.0" layoutY="211.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub6" layoutX="466.0" layoutY="245.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub7" layoutX="466.0" layoutY="277.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub8" layoutX="466.0" layoutY="312.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub9" layoutX="466.0" layoutY="346.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub10" layoutX="466.0" layoutY="378.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub11" layoutX="466.0" layoutY="414.0" prefHeight="26.0" prefWidth="86.0" />
+                              <Label fx:id="sub12" layoutX="16.0" layoutY="451.0" prefHeight="18.0" prefWidth="398.0" text="Subject 12">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="383.0" prefHeight="18.0" prefWidth="158.0" text="Music, art, dancing, drama">
-                                 <font>
-                                    <Font name="Arial Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="12.0" layoutY="101.0" prefHeight="22.0" prefWidth="182.0" text="Sinhala/Tamil Language">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="14.0" layoutY="490.0" prefHeight="12.0" prefWidth="139.0" text="(Second language)">
-                                 <font>
-                                    <Font name="Arial Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="190.0" layoutY="60.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="190.0" layoutY="99.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="189.0" layoutY="144.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="189.0" layoutY="178.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="189.0" layoutY="212.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="190.0" layoutY="245.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="189.0" layoutY="278.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="190.0" layoutY="319.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="189.0" layoutY="370.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="189.0" layoutY="426.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="189.0" layoutY="477.0" prefHeight="26.0" prefWidth="86.0" />
-                              <Label layoutX="17.0" layoutY="538.0" prefHeight="18.0" prefWidth="93.0" text="Total">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="14.0" layoutY="585.0" prefHeight="18.0" prefWidth="93.0" text="Average">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="189.0" layoutY="534.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="189.0" layoutY="581.0" prefHeight="26.0" prefWidth="86.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="617.0" layoutY="55.0" prefHeight="634.0" prefWidth="326.0" style="-fx-background-color: white; -fx-background-radius: 30;">
-                           <children>
-                              <Label layoutX="107.0" layoutY="14.0" prefHeight="22.0" prefWidth="158.0" text="GRADE 11 TO 10" textFill="#2919fa">
-                                 <font>
-                                    <Font name="Arial Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="64.0" prefHeight="18.0" prefWidth="93.0" text="Religion">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="15.0" layoutY="104.0" prefHeight="22.0" prefWidth="182.0" text="Sinhala/Tamil Language">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="15.0" layoutY="126.0" prefHeight="12.0" prefWidth="139.0" text="(First language)">
-                                 <font>
-                                    <Font name="Arial Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="151.0" prefHeight="18.0" prefWidth="93.0" text="English">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="186.0" prefHeight="18.0" prefWidth="93.0" text="Mathematics">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="17.0" layoutY="220.0" prefHeight="18.0" prefWidth="93.0" text="Science">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="17.0" layoutY="252.0" prefHeight="18.0" prefWidth="93.0" text="History">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="17.0" layoutY="285.0" prefHeight="18.0" prefWidth="93.0" text="1st Category">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="303.0" prefHeight="15.0" prefWidth="158.0" text="Languages and humanities">
-                                 <font>
-                                    <Font name="Arial Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="336.0" prefHeight="18.0" prefWidth="102.0" text="2nd Category">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="354.0" prefHeight="15.0" prefWidth="158.0" text="Aesthetic subjects">
-                                 <font>
-                                    <Font name="Arial Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="384.0" prefHeight="18.0" prefWidth="102.0" text="3rd Category">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="402.0" prefHeight="15.0" prefWidth="158.0" text="Technical subjects">
-                                 <font>
-                                    <Font name="Arial Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="211.0" layoutY="61.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="102.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="147.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="182.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="216.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="248.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="281.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="341.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="389.0" prefHeight="26.0" prefWidth="86.0" />
-                              <Label layoutX="20.0" layoutY="446.0" prefHeight="18.0" prefWidth="93.0" text="Total">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="20.0" layoutY="484.0" prefHeight="18.0" prefWidth="93.0" text="Average">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="211.0" layoutY="442.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="211.0" layoutY="480.0" prefHeight="26.0" prefWidth="86.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="973.0" layoutY="53.0" prefHeight="638.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 30;">
-                           <children>
-                              <Label layoutX="60.0" layoutY="14.0" prefHeight="22.0" prefWidth="158.0" text="GRADE 12 TO 13" textFill="#2919fa">
-                                 <font>
-                                    <Font name="Arial Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="27.0" layoutY="59.0" prefHeight="18.0" prefWidth="93.0" text="1st Category">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="27.0" layoutY="103.0" prefHeight="18.0" prefWidth="102.0" text="2nd Category">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="27.0" layoutY="143.0" prefHeight="18.0" prefWidth="93.0" text="3rd Category">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="165.0" layoutY="55.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="165.0" layoutY="99.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="165.0" layoutY="139.0" prefHeight="26.0" prefWidth="86.0" />
-                              <Label layoutX="27.0" layoutY="184.0" prefHeight="18.0" prefWidth="93.0" text="English">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="165.0" layoutY="180.0" prefHeight="26.0" prefWidth="86.0" />
-                              <Label layoutX="27.0" layoutY="232.0" prefHeight="18.0" prefWidth="93.0" text="GIT">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="165.0" layoutY="228.0" prefHeight="26.0" prefWidth="86.0" />
-                              <TextField layoutX="165.0" layoutY="276.0" prefHeight="26.0" prefWidth="86.0" />
-                              <Label layoutX="27.0" layoutY="280.0" prefHeight="18.0" prefWidth="93.0" text="Total">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="27.0" layoutY="328.0" prefHeight="18.0" prefWidth="93.0" text="Average">
-                                 <font>
-                                    <Font name="Arial Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="165.0" layoutY="324.0" prefHeight="26.0" prefWidth="86.0" />
+                              <TextField fx:id="txtsub12" layoutX="466.0" layoutY="447.0" prefHeight="26.0" prefWidth="86.0" />
+                              <Label fx:id="lblsub1" layoutX="426.0" layoutY="64.0" />
+                              <Label fx:id="lblsub3" layoutX="426.0" layoutY="148.0" />
+                              <Label fx:id="lblsub2" layoutX="426.0" layoutY="103.0" />
+                              <Label fx:id="lblsub4" layoutX="426.0" layoutY="182.0" />
+                              <Label fx:id="lblsub5" layoutX="426.0" layoutY="216.0" />
+                              <Label fx:id="lblsub6" layoutX="426.0" layoutY="249.0" />
+                              <Label fx:id="lblsub7" layoutX="426.0" layoutY="282.0" />
+                              <Label fx:id="lblsub8" layoutX="426.0" layoutY="317.0" />
+                              <Label fx:id="lblsub9" layoutX="426.0" layoutY="351.0" prefHeight="0.0" prefWidth="28.0" />
+                              <Label fx:id="lblsub10" layoutX="426.0" layoutY="382.0" prefHeight="0.0" prefWidth="28.0" />
+                              <Label fx:id="lblsub11" layoutX="426.0" layoutY="418.0" prefHeight="0.0" prefWidth="28.0" />
+                              <Label fx:id="lblsub12" layoutX="426.0" layoutY="451.0" prefHeight="0.0" prefWidth="28.0" />
+                              <AnchorPane layoutX="18.0" layoutY="498.0" prefHeight="82.0" prefWidth="585.0" style="-fx-background-radius: 20px; -fx-background-color: red;">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="93.0" text="Total">
+                                       <font>
+                                          <Font name="Arial Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="49.0" prefHeight="18.0" prefWidth="93.0" text="Average">
+                                       <font>
+                                          <Font name="Arial Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txttotal" layoutX="450.0" layoutY="10.0" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: white;" />
+                                    <TextField fx:id="txtavg" layoutX="450.0" layoutY="45.0" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: white;" />
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
                         <Label layoutX="508.0" layoutY="14.0" prefHeight="27.0" prefWidth="272.0" text="MARKS CALCULATION" textAlignment="CENTER">
@@ -441,23 +295,44 @@
                               <Font name="Arial Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="25.0" layoutY="99.0" prefHeight="26.0" prefWidth="183.0" />
-                        <Button fx:id="btnadd1" layoutX="55.0" layoutY="179.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: blue;" text="CALCULATE" textFill="WHITE">
+                        <TextField fx:id="marksindex" layoutX="25.0" layoutY="102.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-color: white;">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font></TextField>
+                        <Button fx:id="btncal" layoutX="40.0" layoutY="322.0" mnemonicParsing="false" onAction="#calculate" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: blue;" text="CALCULATE" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnadd11" layoutX="55.0" layoutY="289.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: blue;" text="SHOW" textFill="WHITE">
+                        <Button fx:id="btnshowmarks" layoutX="40.0" layoutY="418.0" mnemonicParsing="false" onAction="#showresults" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: blue;" text="SHOW" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnadd111" layoutX="55.0" layoutY="235.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: blue;" text="CLEAR" textFill="WHITE">
+                        <Button fx:id="btnclear" layoutX="40.0" layoutY="372.0" mnemonicParsing="false" onAction="#clear" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: blue;" text="CLEAR" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                     </children></AnchorPane>
+                        <Label layoutX="25.0" layoutY="219.0" prefHeight="18.0" prefWidth="228.0" text="Enter the Total No. of Students:">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="totalstd" layoutX="25.0" layoutY="244.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-color: white;" />
+                        <Label layoutX="25.0" layoutY="148.0" prefHeight="18.0" prefWidth="192.0" text="Grade:">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="marksgrade" layoutX="26.0" layoutY="173.0" onAction="#select" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: white;" />
+                        <Button fx:id="btnok" layoutX="162.0" layoutY="173.0" mnemonicParsing="false" onAction="#ok" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: blue;" text="OK" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
             </content>
           </Tab>
         </tabs>
